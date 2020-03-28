@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HOME</title>
+    <link rel="stylesheet" href="css/style.css" />
+    
+    <link rel="stylesheet" href="css/style2.css" />
+</head>
+
+<body>
+    
+    <div id="PopupID" class="popup" style="display: none; position: absolute;">TRIUNGHI</div>
+    <script src="js/three.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/threex.domevents.js"></script>
+    <script>
+        function showCanvas() {
+            document.getElementById('scene3d').style.display = 'block';
+        }
+    </script>
+    <!-- <div id="scene3d" style="display: none;"></div> -->
+    <button onclick="triunghiIsoscel()"> triunghiIsoscel </button>
+    <button onclick="triunghiOarecare()"> triunghiOarecare </button>
+    <button onclick="triunghiEchilateral()"> triunghiEchilateral </button>
+    <button onclick="triunghiDreptunghic()"> triunghiDreptunghic </button>
+    <button onclick="sterge()"> sterge TOT </button>
+    <button onclick="undo()"> Undo </button>
+    <button onclick="refresP()"> refresh </button>
+    <button onclick="del()"> delete </button>
+
+    <script src="js/functii.js"></script>
+    
+    <br/>
+    <button onclick="drawMediana()"> mediana </button>
+    <button onclick="drawBisectoare()"> bisectoare </button>
+    <br/>
+   
+    <table border="1px">
+        <tr>
+            <td>
+                <button onclick="selectP()" id ="clkP"> Select Point </button>
+            </td>
+            <td>
+                <intput type="text" id="selP" > Point Name</intput>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <button onclick="selectL()" id ="clkL"> Select Line </button>
+            </td>
+            <td>
+                <intput type="text" id="selL" >Line Name</intput>
+            </td>
+        </tr>
+    </table>
+    
+
+</body>
+
+</html>
