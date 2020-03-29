@@ -19,6 +19,9 @@
         }
     </script>
     <!-- <div id="scene3d" style="display: none;"></div> -->
+    
+    <script src="js/pctLinTri.js"></script>
+
     <button onclick="triunghiIsoscel()"> triunghiIsoscel </button>
     <button onclick="triunghiOarecare()"> triunghiOarecare </button>
     <button onclick="triunghiEchilateral()"> triunghiEchilateral </button>
@@ -27,7 +30,7 @@
     <button onclick="undo()"> Undo </button>
     <button onclick="refresP()"> refresh </button>
     <button onclick="del()"> delete </button>
-
+    <script src="js/init.js"></script>
     <script src="js/functii.js"></script>
     
     <br/>
@@ -43,6 +46,9 @@
             <td>
                 <intput type="text" id="selP" > Point Name</intput>
             </td>
+            <td>
+                <button onclick="delP()" id ="delP">Delete Point</button>
+            </td>
         </tr>
 
         <tr>
@@ -51,6 +57,9 @@
             </td>
             <td>
                 <intput type="text" id="selL" >Line Name</intput>
+            </td>
+            <td>
+                <button onclick="delL()" id ="delL">Delete Line</button>
             </td>
         </tr>
     </table>
