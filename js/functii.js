@@ -11,6 +11,56 @@ var clickPoint = '';
 var selectedPoint;
 var selectedLine;
 
+// When the user scrolls down 20px from the top of the document, 
+// slide down the navbar
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-50px";
+  }
+}
+
+//FUNCTIA BUTON
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  function myFunction2() {
+    document.getElementById("myDropdown2").classList.toggle("show2");
+  }
+  
+  // Close the dropdown if the user clicks outside of it fct1
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+            if(i%2){
+                openDropdown.classList.remove('show');
+            }
+        }
+      }
+    }
+  }
+  // // Close the dropdown if the user clicks outside of it fct2
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn2')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content2");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show2')) {
+            if(i%2){
+                openDropdown.classList.remove('show2');
+            }
+        }
+      }
+    }
+  }
 function radToDeg(radians) {
     return radians * rad2deg;
 }
@@ -24,29 +74,24 @@ function calcUnghi(B, A, C) {
     return aUnghiDeg;
 }
 
-function selectP() {
-    console.log(clickPoint);
-    if (clickPoint != 'select') {
-        clickPoint = 'select';
-        document.getElementById("clkP").style.borderStyle = "inset";
-    }
-
-    else if (clickPoint == 'select') {
-        clickPoint = '';
-        document.getElementById("clkP").style.borderStyle = "outset";
-    }
-
-}
-
 function selectL() {
     console.log(clickLine);
     if (clickLine != 'select') {
         clickLine = 'select';
-        document.getElementById("clkL").style.borderStyle = "inset";
+        if (!event.target.matches( document.getElementById("clkL")))
+             document.getElementById("clkL").style.borderStyle = "inset";
+        
+        // if (!event.target.matches("clkL2"))
+        else if(!event.target.matches( document.getElementById("clkL2")))
+            document.getElementById("clkL2").style.borderStyle = "inset";
+        
     }
     else if (clickLine == 'select') {
         clickLine = '';
-        document.getElementById("clkL").style.borderStyle = "outset";
+        if (!event.target.matches( document.getElementById("clkL")))
+             document.getElementById("clkL").style.borderStyle = "outset";
+        else if(!event.target.matches( document.getElementById("clkL2")))
+             document.getElementById("clkL2").style.borderStyle = "outset";
     }
 
 }
@@ -56,7 +101,10 @@ function clickL(line2D) {
 
     if (clickLine == "select") {
         selectedLine = linesMap.get(line2D);
-        document.getElementById("selL").textContent = selectedLine.name;
+        if (!event.target.matches( document.getElementById("selL")))
+            document.getElementById("selL").textContent = selectedLine.name;
+        else if(!event.target.matches( document.getElementById("selL2")))
+            document.getElementById("selL2").textContent = selectedLine.name;
     }
     else if (clickLine == 'del')
         scene.remove(line2D);
@@ -70,12 +118,33 @@ function clickSfera(point) {
         scene.remove(point);
     }
 }
+function selectP() {
+    console.log(clickPoint);
+    if (clickPoint != 'select') {
+        clickPoint = 'select';
+        if (!event.target.matches( document.getElementById("clkP")))
+            document.getElementById("clkP").style.borderStyle = "inset";
+        else if (!event.target.matches( document.getElementById("clkP2")))
+            document.getElementById("clkP2").style.borderStyle = "inset";
+    }
 
-function clickP(pct) {
+    else if (clickPoint == 'select') {
+        clickPoint = '';
+        if (!event.target.matches( document.getElementById("clkP")))
+            document.getElementById("clkP").style.borderStyle = "outset";
+        else if (!event.target.matches( document.getElementById("clkP2")))
+            document.getElementById("clkP2").style.borderStyle = "outset";
+    }
+
+}
+function  clickP(pct) {
     console.log(clickPoint);
     if (clickPoint == 'select') {
         selectedPoint = pct;
-        document.getElementById("selP").textContent = pct.name;
+        if (!event.target.matches( document.getElementById("selP")))
+            document.getElementById("selP").textContent = pct.name;
+        else if (!event.target.matches( document.getElementById("selP2")))
+            document.getElementById("selP2").textContent = pct.name;
     }
     // else if (clickPoint == 'del'){
     //     selectedPoint = pct;
