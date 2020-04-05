@@ -1,7 +1,7 @@
 //TRINGHI OARECARE
-var p1 = new THREE.Vector3(-15, 0, 0); p1.name = "p1";
-var p2 = new THREE.Vector3(0, 30, 0); p2.name = "p2";
-var p3 = new THREE.Vector3(40, 0, 0); p3.name = "p3";
+var p1 = new THREE.Vector3(-15, 0, 0); p1.name = "B";
+var p2 = new THREE.Vector3(0, 30, 0); p2.name = "A";
+var p3 = new THREE.Vector3(40, 0, 0); p3.name = "C";
 
 //TRIUNGHI ISOSCEL
 var p4 = new THREE.Vector3(-20, 0, 0); p4.name = "p4";
@@ -33,3 +33,31 @@ var linie9 = new THREE.Line3(p9, p7);
 var linie10 = new THREE.Line3(p10, p11);
 var linie11 = new THREE.Line3(p11, p12);
 var linie12 = new THREE.Line3(p12, p10);
+
+function triunghiOarecare() {
+    sterge();
+    addLinieBaza(linie1);
+    addLinieBaza(linie2);
+    addLinieBaza(linie3);
+}
+
+function triunghiEchilateral() {
+    sterge();
+    addLinieBaza(linie4);
+    addLinieBaza(linie5);
+    addLinieBaza(linie6);
+}
+
+function triunghiDreptunghic() {
+    sterge();
+    addLinieBaza(linie7);
+    addLinieBaza(linie8);
+    addLinieBaza(linie9);
+}
+
+function triunghiIsoscel() {
+    sterge();
+    addLinieBaza(linie10);
+    addLinieBaza(linie11);
+    addLinieBaza(linie12);
+}
