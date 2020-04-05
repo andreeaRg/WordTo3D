@@ -1,7 +1,7 @@
 var deg2rad = Math.PI / 180;
 var rad2deg = 180 / Math.PI;
 
-const matLinie = new THREE.LineBasicMaterial({ color: 0x0000ff });
+const matLinie = new THREE.LineBasicMaterial({ color: 0x0000ff, linewidth: 10 });
 const matPoint = new THREE.MeshNormalMaterial({ wireframe: true });
 
 var linesMap = new Map();
@@ -10,57 +10,69 @@ var clickLine = '';
 var clickPoint = '';
 var selectedPoint;
 var selectedLine;
+var selectedPoints = [];
+
 
 // When the user scrolls down 20px from the top of the document, 
 // slide down the navbar
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-50px";
-  }
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("navbar").style.top = "0";
+    } else {
+        document.getElementById("navbar").style.top = "-50px";
+    }
+}
+
+function clearSelected() {
+    selectedPoint = null;
+    selectedLine = null;
+    selectedPoints = [];
 }
 
 //FUNCTIA BUTON
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-  function myFunction2() {
-    document.getElementById("myDropdown2").classList.toggle("show2");
-  }
-  
-  // Close the dropdown if the user clicks outside of it fct1
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-            if(i%2){
-                openDropdown.classList.remove('show');
+function medDropDown() {
+    clearSelected();
+    writeSelected();
+    document.getElementById("medDropdown").classList.toggle("showMed");
+}
+function bisDropDown() {
+    clearSelected();
+    writeSelected();
+    document.getElementById("bisDropdown").classList.toggle("showBis");
+}
+
+// Close the dropdown if the user clicks outside of it fct1
+window.onclick = function (event) {
+    if (!event.target.matches('.dropbtnMed')) {
+        var dropdowns = document.getElementsByClassName("dropdown-contentMed");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('showMed')) {
+                if (i % 2) {
+                    openDropdown.classList.remove('showMed');
+                }
             }
         }
-      }
     }
-  }
-  // // Close the dropdown if the user clicks outside of it fct2
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn2')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content2");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show2')) {
-            if(i%2){
-                openDropdown.classList.remove('show2');
+}
+// // Close the dropdown if the user clicks outside of it fct2
+window.onclick = function (event) {
+    if (!event.target.matches('.dropbtnBis')) {
+        var dropdowns = document.getElementsByClassName("dropdown-contentBis");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('showBis')) {
+                if (i % 2) {
+                    openDropdown.classList.remove('showBis');
+                }
             }
         }
-      }
     }
-  }
+}
 function radToDeg(radians) {
     return radians * rad2deg;
 }
@@ -74,44 +86,57 @@ function calcUnghi(B, A, C) {
     return aUnghiDeg;
 }
 
+function writeSelected() {
+
+    let selPname = selectedPoint == null ? '' : selectedPoint.name;
+    let selLname = selectedLine == null ? '' : selectedLine.name;
+
+    document.getElementById("selL").textContent = selLname;
+    document.getElementById("selL2").textContent = selLname;
+
+    document.getElementById("selP").textContent = selPname
+    document.getElementById("selP2").textContent = selPname;
+
+    document.getElementById("selPext").textContent = selPname;
+    document.getElementById("selLext").textContent = selLname;
+    let pcts = '';
+    if (selectedPoints.length > 0) {
+        for (let p of selectedPoints) {
+            pcts += p.name + ',';
+        }
+    }
+    document.getElementById("selPointsExt").textContent = pcts;
+}
+
 function selectL() {
-    console.log(clickLine);
     if (clickLine != 'select') {
         clickLine = 'select';
-        if (!event.target.matches( document.getElementById("clkL")))
-             document.getElementById("clkL").style.borderStyle = "inset";
-        
-        // if (!event.target.matches("clkL2"))
-        else if(!event.target.matches( document.getElementById("clkL2")))
-            document.getElementById("clkL2").style.borderStyle = "inset";
-        
+        document.getElementById("clkL").style.borderStyle = "inset";
+        document.getElementById("clkL2").style.borderStyle = "inset";
+        clearSelectPoint()
     }
-    else if (clickLine == 'select') {
-        clickLine = '';
-        if (!event.target.matches( document.getElementById("clkL")))
-             document.getElementById("clkL").style.borderStyle = "outset";
-        else if(!event.target.matches( document.getElementById("clkL2")))
-             document.getElementById("clkL2").style.borderStyle = "outset";
-    }
+    else if (clickLine == 'select')
+        clearSelectL()
 
 }
 
+function clearSelectL() {
+    clickLine = '';
+    document.getElementById("clkL").style.borderStyle = "outset";
+    document.getElementById("clkL2").style.borderStyle = "outset";
+}
+
 function clickL(line2D) {
-    console.log(clickLine);
 
     if (clickLine == "select") {
         selectedLine = linesMap.get(line2D);
-        if (!event.target.matches( document.getElementById("selL")))
-            document.getElementById("selL").textContent = selectedLine.name;
-        else if(!event.target.matches( document.getElementById("selL2")))
-            document.getElementById("selL2").textContent = selectedLine.name;
+        writeSelected();
     }
     else if (clickLine == 'del')
         scene.remove(line2D);
 }
 
 function clickSfera(point) {
-    console.log(clickPoint);
 
     if (clickPoint == 'del') {
         // selectedPoint = point;
@@ -119,32 +144,33 @@ function clickSfera(point) {
     }
 }
 function selectP() {
-    console.log(clickPoint);
     if (clickPoint != 'select') {
         clickPoint = 'select';
-        if (!event.target.matches( document.getElementById("clkP")))
-            document.getElementById("clkP").style.borderStyle = "inset";
-        else if (!event.target.matches( document.getElementById("clkP2")))
-            document.getElementById("clkP2").style.borderStyle = "inset";
+        document.getElementById("clkP").style.borderStyle = "inset";
+        document.getElementById("clkP2").style.borderStyle = "inset";
+        clearSelectL()
+        console.log(matLinie)
     }
 
-    else if (clickPoint == 'select') {
-        clickPoint = '';
-        if (!event.target.matches( document.getElementById("clkP")))
-            document.getElementById("clkP").style.borderStyle = "outset";
-        else if (!event.target.matches( document.getElementById("clkP2")))
-            document.getElementById("clkP2").style.borderStyle = "outset";
-    }
-
+    else if (clickPoint == 'select')
+        clearSelectPoint();
 }
-function  clickP(pct) {
-    console.log(clickPoint);
+
+function clearSelectPoint() {
+    clickPoint = '';
+    document.getElementById("clkP").style.borderStyle = "outset";
+    document.getElementById("clkP2").style.borderStyle = "outset";
+}
+
+function clickP(pct) {
     if (clickPoint == 'select') {
         selectedPoint = pct;
-        if (!event.target.matches( document.getElementById("selP")))
-            document.getElementById("selP").textContent = pct.name;
-        else if (!event.target.matches( document.getElementById("selP2")))
-            document.getElementById("selP2").textContent = pct.name;
+        if (selectedPoints.length == 3)
+            selectedPoints.pop()
+        if (selectedPoints.indexOf(pct) == -1)
+            selectedPoints.unshift(pct);
+
+        writeSelected();
     }
     // else if (clickPoint == 'del'){
     //     selectedPoint = pct;
@@ -157,8 +183,12 @@ function addPoint(pct) {
     // if (!scene.getObjectByName(pct.name))
     //     return;
 
-    const geometry1 = new THREE.SphereGeometry(1, 1, 1);
+    const geometry1 = new THREE.SphereGeometry(16, 16, 16);
     const point = new THREE.Mesh(geometry1, matPoint);
+    let scala = 0.1;
+    let scalaBig = 0.3;
+
+    point.scale.set(scala, scala, scala);
     point.position.x = pct.getComponent(0);
     point.position.y = pct.getComponent(1);
     point.position.z = pct.getComponent(2);
@@ -167,10 +197,10 @@ function addPoint(pct) {
     scene.add(point);
 
     domEvents.addEventListener(point, 'mouseover', event => {
-        point.scale.set(3, 3, 3);
+        point.scale.set(scalaBig, scalaBig, scalaBig);
     });
     domEvents.addEventListener(point, 'mouseout', event => {
-        point.scale.set(1, 1, 1);
+        point.scale.set(scala, scala, scala);
     });
     domEvents.addEventListener(point, 'click', event => {
         clickSfera(point);
@@ -244,7 +274,7 @@ function getBisectoare(pct, linie3) {
 function drawBisectoare() {
     if (selectedPoint == null || selectedLine == null)
         return;
-//Pentru desenarea unghiului
+    //Pentru desenarea unghiului
     // var geometry = new THREE.CircleGeometry(5, 32,0,);
     // var material = new THREE.MeshBasicMaterial({ color: 0xffff00 });
     // var circle = new THREE.Mesh(geometry, material);

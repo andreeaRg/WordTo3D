@@ -31,9 +31,9 @@
         </tr>
         <tr>
             <td>
-                <div class="dropdown">
-                    <button onclick="myFunction()" class="dropbtn"> mediana </button>
-                    <div id="myDropdown" class="dropdown-content">
+                <div class="dropdownMed">
+                    <button onclick="medDropDown()" class="dropbtnMed"> mediana </button>
+                    <div id="medDropdown" class="dropdown-contentMed">
                         <!-- <table border="1px"></table> -->
                         <table>
                             <tr>
@@ -61,7 +61,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <button onclick="drawMediana()"> DESENEAZA Mediana</button>
+                                    <button onclick="drawMediana()">Deseneaza Mediana</button>
                                 </td>
                             </tr>
                         </table>
@@ -69,9 +69,9 @@
                 </div>
             </td>
             <td>
-                <div class="dropdown2">
-                    <button onclick="myFunction2()" class="dropbtn2"> bisectoare </button>
-                    <div id="myDropdown2" class="dropdown-content2">
+                <div class="dropdownBis">
+                    <button onclick="bisDropDown()" class="dropbtnBis"> bisectoare </button>
+                    <div id="bisDropdown" class="dropdown-contentBis">
                         <table>
                             <tr>
                                 <td>
@@ -92,13 +92,22 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <button onclick="drawBisectoare()"> DESENEAZA Bisesctoare</button>
+                                    <button onclick="drawBisectoare()"> Deseneaza Bisesctoare</button>
                                 </td>
 
                             </tr>
                         </table>
                     </div>
                 </div>
+            </td>
+            <td>
+                <intput type="text" id="selPext"> Point Name</intput>
+            </td>
+            <td>
+                <intput type="text" id="selLext">Line Name</intput>
+            </td>
+            <td>
+                <intput type="text" id="selPointsExt">Selected Points Names</intput>
             </td>
         </tr>
         <tr>
