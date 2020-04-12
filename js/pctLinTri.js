@@ -37,27 +37,39 @@ var linie12 = new THREE.Line3(p12, p10);
 function triunghiOarecare() {
     sterge();
     addLinieBaza(linie1);
+    desenUnghiSus(linie1.start,linie1.end,linie2.end);
     addLinieBaza(linie2);
+    desenUnghiDreaptaJos(linie2.start,linie2.end,linie3.end);
     addLinieBaza(linie3);
+    desenUnghiStangaJos(linie3.start,linie3.end,linie1.end);
 }
 
 function triunghiEchilateral() {
     sterge();
     addLinieBaza(linie4);
+    desenUnghiSus(linie4.start,linie4.end,linie5.end);
     addLinieBaza(linie5);
+    desenUnghiDreaptaJos(linie5.start,linie5.end,linie6.end);
     addLinieBaza(linie6);
+    desenUnghiStangaJos(linie6.start,linie6.end,linie4.end);
 }
 
 function triunghiDreptunghic() {
     sterge();
     addLinieBaza(linie7);
+    desenUnghiSus(linie7.start,linie7.end,linie8.end);
     addLinieBaza(linie8);
+    desenUnghiDreaptaJos(linie8.start,linie8.end,linie9.end);
     addLinieBaza(linie9);
+    desenUnghiStangaJos(linie9.start,linie9.end,linie7.end);
 }
 
 function triunghiIsoscel() {
     sterge();
     addLinieBaza(linie10);
+    desenUnghiSus(linie10.start,linie10.end,linie11.end);
     addLinieBaza(linie11);
+    desenUnghiDreaptaJos(linie11.start,linie11.end,linie12.end);
     addLinieBaza(linie12);
+    desenUnghiStangaJos(linie12.start,linie12.end,linie10.end);
 }

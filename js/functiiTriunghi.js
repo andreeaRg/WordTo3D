@@ -1,3 +1,7 @@
+
+var matUnghi = new THREE.MeshBasicMaterial({ color: 0xffff00 });
+var unghiDesen;
+
 function calcUnghi(B, A, C) {
     var c = new THREE.Line3(A, B).distance();
     var a = new THREE.Line3(B, C).distance();
@@ -5,6 +9,13 @@ function calcUnghi(B, A, C) {
     var aUnghiRad = Math.acos((Math.pow(c, 2) + Math.pow(b, 2) - Math.pow(a, 2)) / (2 * c * b));
     var aUnghiDeg = radToDeg(aUnghiRad);
     return aUnghiDeg;
+}
+function calcUnghiRadian(B, A, C) {
+    var c = new THREE.Line3(A, B).distance();
+    var a = new THREE.Line3(B, C).distance();
+    var b = new THREE.Line3(C, A).distance();
+    var aUnghiRad = Math.acos((Math.pow(c, 2) + Math.pow(b, 2) - Math.pow(a, 2)) / (2 * c * b));
+    return aUnghiRad;
 }
 
 function getMediana(pct, linie3) {
@@ -18,18 +29,45 @@ function drawMediana() {
     addLinieBaza(getMediana(selectedPoint, selectedLine));
 }
 function getBisectoarePct() {
-    console.log('E1= '+selectedPoints[2].name+' coor= ('+selectedPoints[2].getComponent(0)+','+selectedPoints[2].getComponent(1)+','+selectedPoints[2].getComponent(2)+')');
-    console.log('INT= '+selectedPoints[1].name+' coor= ('+selectedPoints[1].getComponent(0)+','+selectedPoints[1].getComponent(1)+','+selectedPoints[1].getComponent(2)+')');
-    console.log('E2= '+selectedPoints[0].name+' coor= ('+selectedPoints[0].getComponent(0)+','+selectedPoints[0].getComponent(1)+','+selectedPoints[0].getComponent(2)+')');
-    var A = selectedPoints[1];
-    var B = selectedPoints[0];
-    var C = selectedPoints[2];
-    var AB = new THREE.Line3(A, B).distance();
-    var AC = new THREE.Line3(A, C).distance();
-    var D = linie3.at(AB / (AB + AC));
+   var E1 = selectedPoints[0];
+    var INT = selectedPoints[1];
+    var E2 = selectedPoints[2];
+    var IntE1 = new THREE.Line3(INT, E1).distance();
+    var IntE2 = new THREE.Line3(INT, E2).distance();
+    var E1E2 = new THREE.Line3(E1, E2);
+    var piciorBis = E1E2.at(IntE1 / (IntE1 + IntE2));
 
-    return new THREE.Line3(A, D);
+    return new THREE.Line3(INT, piciorBis);
 }
+
+function desenUnghiDreaptaJos(E1,INT,E2){
+    var unghi = calcUnghiRadian(E1,INT,E2);
+    var geometry = new THREE.CircleGeometry(5, 32,Math.PI - unghi,unghi);
+    unghiDesen = new THREE.Mesh(geometry, matUnghi);
+    unghiDesen.position.x = INT.getComponent(0);
+    unghiDesen.position.y = INT.getComponent(1);
+    unghiDesen.position.z = INT.getComponent(2);
+    scene.add(unghiDesen);
+}
+function desenUnghiStangaJos(E1,INT,E2){
+    var unghi = calcUnghiRadian(E1,INT,E2);
+    var geometry = new THREE.CircleGeometry(5, 32,0,unghi);
+    unghiDesen = new THREE.Mesh(geometry, matUnghi);
+    unghiDesen.position.x = INT.getComponent(0);
+    unghiDesen.position.y = INT.getComponent(1);
+    unghiDesen.position.z = INT.getComponent(2);
+    scene.add(unghiDesen);
+}
+function desenUnghiSus(E1,INT,E2){
+    var unghi = calcUnghiRadian(E1,INT,E2);
+    var geometry = new THREE.CircleGeometry(5, 32, -Math.PI/6 -unghi,unghi);
+    unghiDesen = new THREE.Mesh(geometry, matUnghi);
+    unghiDesen.position.x = INT.getComponent(0);
+    unghiDesen.position.y = INT.getComponent(1);
+    unghiDesen.position.z = INT.getComponent(2);
+    scene.add(unghiDesen);
+}
+
 function getBisectoare(pct, linie3) {
     var A = pct;
     var B = linie3.start;
@@ -42,18 +80,10 @@ function getBisectoare(pct, linie3) {
 }
 
 function drawBisectoare() {
-    // if (selectedPoint == null || selectedLine == null)
-    //     return;
+    if (selectedPoints[0] == null || selectedPoints[1] == null|| selectedPoints[2] == null)
+        return;
 
-    //Pentru desenarea unghiului
-    // var geometry = new THREE.CircleGeometry(5, 32,0,);
-    // var material = new THREE.MeshBasicMaterial({ color: 0xffff00 });
-    // var circle = new THREE.Mesh(geometry, material);
-    // scene.add(circle);
-
-    // addLinieBaza(getBisectoare(selectedPoint, selectedLine));
-    addLinieBaza(getBisectoarePct());
-
+    addLinieBaza(getBisectoarePct()); // addLinieBaza(getBisectoare(selectedPoint, selectedLine));
 }
 
 function getInaltime(pct, linie3) {

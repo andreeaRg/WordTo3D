@@ -1,3 +1,4 @@
+
 function radToDeg(radians) {
     return radians * rad2deg;
 }
@@ -45,6 +46,7 @@ function toLine(line3) {
         geometry,
         matLinie
     );
+
 }
 
 function addLinieBaza(line3) {
