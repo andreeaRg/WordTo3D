@@ -1,4 +1,23 @@
 
+const fatLineMaterialOn = new LineMaterial( {
+    color: 0x550055,
+    linewidth: 5, // in pixels
+    vertexColors: true,
+    //resolution:  // to be set by renderer, eventually
+    dashed: false
+    } );
+    
+    const fatLineMaterialOff = new LineMaterial( {
+    color: 0x0000ff,
+    linewidth: 5, // in pixels
+    vertexColors: true,
+    //resolution:  // to be set by renderer, eventually
+    dashed: false
+    } );
+
+const materialOn = new THREE.LineBasicMaterial({ color: 0x550055 });
+const materialOff = new THREE.LineBasicMaterial({ color: 0x0000ff });
+
 function radToDeg(radians) {
     return radians * rad2deg;
 }
@@ -9,6 +28,7 @@ function addPoint(pct) {
     //     return;
 
     const geometry1 = new THREE.SphereGeometry(16, 16, 16);
+
     const point = new THREE.Mesh(geometry1, matPoint);
     let scala = 0.1;
     let scalaBig = 0.3;
@@ -41,26 +61,38 @@ function toLine(line3) {
     var geometry = new THREE.Geometry();
     geometry.vertices.push(line3.start);
     geometry.vertices.push(line3.end);
+    return new THREE.Line(geometry, matLinie);
+}
 
-    return new THREE.Line(
-        geometry,
-        matLinie
-    );
+function line3To2(line3) {
+    var l2geom = new LineGeometry();
+    let pos = []
+    pos.push(line3.start.x, line3.start.y, line3.start.z);
+    pos.push(line3.end.x, line3.end.y, line3.end.z);
+    l2geom.setPositions(pos);
 
+    var line2 = new Line2(l2geom, fatLineMaterial);
+    line2.computeLineDistances();
+    line2.scale.set(1, 1, 1);
+    return line2;
 }
 
 function addLinieBaza(line3) {
     nameLine(line3);
     let l = toLine(line3);
     linesMap.set(l, line3);
+    // let l = line3To2(line3);
+    // linesMap3To2.set(l, line3);
     addPoint(line3.end);
     scene.add(l);
     domEvents.addEventListener(l, 'click', event => { clickL(l); });
     domEvents.addEventListener(l, 'mouseover', event => {
-        l.material = new THREE.LineBasicMaterial({ color: 0x550055 });
+        l.material = materialOn;
+        // l.material = fatLineMaterialOn;
     });
     domEvents.addEventListener(l, 'mouseout', event => {
-        l.material = new THREE.LineBasicMaterial({ color: 0x0000ff });
+        l.material = materialOff;
+        // l.material = fatLineMaterialOff;
     });
 }
 

@@ -1,3 +1,5 @@
+
+
 var deg2rad = Math.PI / 180;
 var rad2deg = 180 / Math.PI;
 
@@ -5,6 +7,7 @@ const matLinie = new THREE.LineBasicMaterial({ color: 0x0000ff, linewidth: 10 })
 const matPoint = new THREE.MeshNormalMaterial({ wireframe: true });
 
 var linesMap = new Map();
+var linesMap3To2 = new Map();
 
 var clickLine = '';
 var clickPoint = '';

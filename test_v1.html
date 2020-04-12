@@ -7,10 +7,10 @@
 <body>
 
     <script src="js/three.js"></script>
+    <script src="js/three.min.js"></script>
     <script src="js/OrbitControls.js"></script>
     <script src="js/threex.domevents.js"></script>
 
-    <script src="js/three.min.js"></script>
     <script src="js/LineSegmentsGeometry.js"></script>
     <script src="js/LineGeometry.js"></script>
     <script src="js/LineMaterial.js"></script>
@@ -78,7 +78,7 @@
                 linewidth: opt.width, // in pixels
                 vertexColors: THREE.VertexColors
             });
-            matLine.resolution.set(320, 240);
+            matLine.resolution.set(6000, 6000);
 
             var line = new THREE.Line(opt.geo, matLine);
 
@@ -102,11 +102,11 @@
             })
         });
  
-    scene.add(line);
+    // scene.add(line);
  
     // CREATE ANOTHER FAT LINE
     line = createFatLine({
-            width: 10,
+            width: 40,
             geo: createFatLineGeometry()
         });
     scene.add(line);
