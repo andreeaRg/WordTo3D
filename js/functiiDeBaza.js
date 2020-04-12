@@ -1,19 +1,19 @@
 
-const fatLineMaterialOn = new LineMaterial( {
-    color: 0x550055,
-    linewidth: 5, // in pixels
-    vertexColors: true,
-    //resolution:  // to be set by renderer, eventually
-    dashed: false
-    } );
+// const fatLineMaterialOn = new LineMaterial( {
+//     color: 0x550055,
+//     linewidth: 5, // in pixels
+//     vertexColors: true,
+//     //resolution:  // to be set by renderer, eventually
+//     dashed: false
+//     } );
     
-    const fatLineMaterialOff = new LineMaterial( {
-    color: 0x0000ff,
-    linewidth: 5, // in pixels
-    vertexColors: true,
-    //resolution:  // to be set by renderer, eventually
-    dashed: false
-    } );
+//     const fatLineMaterialOff = new LineMaterial( {
+//     color: 0x0000ff,
+//     linewidth: 5, // in pixels
+//     vertexColors: true,
+//     //resolution:  // to be set by renderer, eventually
+//     dashed: false
+//     } );
 
 const materialOn = new THREE.LineBasicMaterial({ color: 0x550055 });
 const materialOff = new THREE.LineBasicMaterial({ color: 0x0000ff });
@@ -64,18 +64,18 @@ function toLine(line3) {
     return new THREE.Line(geometry, matLinie);
 }
 
-function line3To2(line3) {
-    var l2geom = new LineGeometry();
-    let pos = []
-    pos.push(line3.start.x, line3.start.y, line3.start.z);
-    pos.push(line3.end.x, line3.end.y, line3.end.z);
-    l2geom.setPositions(pos);
+// function line3To2(line3) {
+//     var l2geom = new LineGeometry();
+//     let pos = []
+//     pos.push(line3.start.x, line3.start.y, line3.start.z);
+//     pos.push(line3.end.x, line3.end.y, line3.end.z);
+//     l2geom.setPositions(pos);
 
-    var line2 = new Line2(l2geom, fatLineMaterial);
-    line2.computeLineDistances();
-    line2.scale.set(1, 1, 1);
-    return line2;
-}
+//     var line2 = new Line2(l2geom, fatLineMaterial);
+//     line2.computeLineDistances();
+//     line2.scale.set(1, 1, 1);
+//     return line2;
+// }
 
 function addLinieBaza(line3) {
     nameLine(line3);
