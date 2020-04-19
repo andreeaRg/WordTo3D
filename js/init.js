@@ -15,7 +15,7 @@ var axesHelper = new THREE.AxesHelper( 50 );
 scene.add( axesHelper );
 
 function init() {
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    // renderer.setSize(window.innerWidth, window.innerHeight);
     // document.body.appendChild(renderer.domElement);
     document.getElementById("myScene").appendChild( renderer.domElement );
     window.addEventListener('resize', function () {

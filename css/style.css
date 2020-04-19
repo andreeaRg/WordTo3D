@@ -22,13 +22,10 @@
   }
 
   .contentCanvas {
-    background-color: #e6e6e6;
     display: block;
     float: none;
     margin: 0 auto;
     overflow:hidden;
-    width:400px;
-    min-height: calc(100vh - 121px);
 }
 
 canvas {
