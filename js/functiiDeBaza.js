@@ -1,4 +1,7 @@
 
+const materialOn = new THREE.LineBasicMaterial({ color: 0x550055 });
+const materialOff = new THREE.LineBasicMaterial({ color: 0x0000ff });
+
 //adugarea de text in canvas
 var loader = new THREE.FontLoader();
 loader.load( './js/jsDoc/helvetiker_regular.typeface.json', function ( font ) {
@@ -106,7 +109,8 @@ function addLinie(line3) {
 
 function sterge() {
     scene = new THREE.Scene();    
-    scene.add( axesHelper );
+    scene.background = new THREE.Color(0xf0f0f0);
+    scene.add( axesHelper );  
 }
 
 function undo() {
