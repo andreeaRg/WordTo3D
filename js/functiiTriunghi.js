@@ -10,6 +10,7 @@ function calcUnghi(B, A, C) {
     var aUnghiDeg = radToDeg(aUnghiRad);
     return aUnghiDeg;
 }
+
 function calcUnghiRadian(B, A, C) {
     var c = new THREE.Line3(A, B).distance();
     var a = new THREE.Line3(B, C).distance();
@@ -28,8 +29,9 @@ function drawMediana() {
 
     addLinieBaza(getMediana(selectedPoint, selectedLine));
 }
+
 function getBisectoarePct() {
-   var E1 = selectedPoints[0];
+    var E1 = selectedPoints[0];
     var INT = selectedPoints[1];
     var E2 = selectedPoints[2];
     var IntE1 = new THREE.Line3(INT, E1).distance();
@@ -49,6 +51,7 @@ function desenUnghiDreaptaJos(E1,INT,E2){
     unghiDesen.position.z = INT.getComponent(2);
     scene.add(unghiDesen);
 }
+
 function desenUnghiStangaJos(E1,INT,E2){
     var unghi = calcUnghiRadian(E1,INT,E2);
     var geometry = new THREE.CircleGeometry(5, 32,0,unghi);
@@ -58,10 +61,13 @@ function desenUnghiStangaJos(E1,INT,E2){
     unghiDesen.position.z = INT.getComponent(2);
     scene.add(unghiDesen);
 }
+
 function desenUnghiSus(E1,INT,E2){
     var unghi = calcUnghiRadian(E1,INT,E2);
-    var geometry = new THREE.CircleGeometry(5, 32, -Math.PI/6 -unghi,unghi);
-    unghiDesen = new THREE.Mesh(geometry, matUnghi);
+    var unghiJos = calcUnghiRadian(INT,E1,E2);
+    var geometryUnghi = new THREE.CircleGeometry(5, 32, Math.PI + unghiJos  ,unghi);
+
+    unghiDesen = new THREE.Mesh(geometryUnghi, matUnghi);
     unghiDesen.position.x = INT.getComponent(0);
     unghiDesen.position.y = INT.getComponent(1);
     unghiDesen.position.z = INT.getComponent(2);

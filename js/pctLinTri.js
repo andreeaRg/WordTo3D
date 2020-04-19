@@ -1,3 +1,4 @@
+
 //TRINGHI OARECARE
 var p1 = new THREE.Vector3(-15, 0, 0); p1.name = "B";
 var p2 = new THREE.Vector3(0, 30, 0); p2.name = "A";

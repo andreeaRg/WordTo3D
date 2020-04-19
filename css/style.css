@@ -1,11 +1,93 @@
-body {
-	margin: 0;
-	}
-		
+.header {
+	background-color: #F1F1F1;
+	text-align: center;
+	padding: 20px;
+  }
+
+  h1 {
+	color:blueviolet;
+	text-align: center;	
+  }
+
+  .serif {
+	font-family: "Times New Roman", Times, serif;
+  }
+
+  td, tr {
+	border-bottom: 1px solid #ddd;
+  }
+
+  th {
+	padding: 30px;
+  }
+
+  .contentCanvas {
+    background-color: #e6e6e6;
+    display: block;
+    float: none;
+    margin: 0 auto;
+    overflow:hidden;
+    width:400px;
+    min-height: calc(100vh - 121px);
+}
+
 canvas {
 	width: 80%;
 	height: 80%;
+	/* color: #9999FF; */
+	background: null;
+	background-color: #2980B9;
+
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    margin:0;
+    overflow:hidden;            
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+	float: left;
+	padding: 10px;
+  }
+  
+  /* Left and right column */
+  .column.side {
+	width: 25%;
+  }
+  
+  /* Middle column */
+  .column.middle {
+	width: 50%;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
+  
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+	.column.side, .column.middle {
+	  width: 100%;
 	}
+  }
+
+.popup{
+    max-width: 75%;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.49);
+    border-radius: 5px;
+    position: absolute;
+    padding: 5px 20px 5px 20px;
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 1px 3px 1px 1px rgba(0, 0, 0, 0.17);
+    z-index:1109;
+}
 
 
 	#info {
