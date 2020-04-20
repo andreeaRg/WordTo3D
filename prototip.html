@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<meta charset=utf-8>
+
+<head>
+    <title>Atelierul geometriei</title>
+    <link rel="stylesheet" href="css/style_prototip.css" />
+    <link rel="stylesheet" href="css/button.css" />
+</head>
+
+<body>
+    <div class="header">
+        <h1 class="serif">WordTo3D</h1>
+    </div>
+
+    <div id="PopupID" class="popup" style="display: none; position: absolute;">TRIUNGHI</div>
+    <script src="js/jsDoc/three.js"></script>
+    <script src="js/jsDoc/OrbitControls.js"></script>
+    <script src="js/jsDoc/threex.domevents.js"></script>
+
+    <script src="js/functiiDeBaza.js"></script>
+    <script src="js/functiiTriunghi.js"></script>
+    <script src="js/functii.js"></script>
+    <script src="js/pctLinTri.js"></script>
+
+
+    <div class="row">
+        <div class="column side">
+            <h2 class="serif">Tabla de desen</h2>
+            <div id="myScene" class="contentCanvas">
+                <script src="js/init.js"></script>
+            </div>
+        </div>
+
+        <div class="column middle">
+            <h2 class="serif">Instrumente</h2>
+            <div class="dropdown">
+                <button class="dropbtn" style=" background-color: #d699ff; ">Forme geometrice</button>
+                <div class="dropdown-content">
+                    <table>
+                        <tr>
+                            <td><button onclick="" class="button">Triunghi </button></td>                            </td>
+                            <td><button onclick="" class="button">Patrulater</button></td>
+                            <td><button onclick="" class="button">Poligoane</button></td>
+                            <td><button onclick="" class="button">Cerc</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn" style=" background-color: #9900ff; ">Linii importante</button>
+                <div class="dropdown-content">
+                    <table>
+                        <tr>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn" style=" background-color: #4c0080;">Cercuri</button>
+                <div class="dropdown-content">
+                    <table>
+                        <tr>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button onclick="sterge()" class="button"> sterge TOT </button>
+                <button onclick="undo()" class="button"> Undo </button>
+                <button onclick="refresP()" class="button"> refresh </button>
+                <button onclick="del()" class="button"> delete </button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>

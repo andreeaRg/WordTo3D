@@ -9,6 +9,11 @@
 	text-align: center;	
   }
 
+  h2 {
+	color:white;
+	text-align: center;	
+  }
+
   .serif {
 	font-family: "Times New Roman", Times, serif;
   }
@@ -51,12 +56,14 @@ body{
   
   /* Left and right column */
   .column.side {
-	width: 25%;
+	width: 45%;
+	background-color:#8A2BE2;
   }
   
   /* Middle column */
   .column.middle {
-	width: 50%;
+	width: 49%;
+	background-color:#8A2BE2;
   }
   
   /* Clear floats after the columns */

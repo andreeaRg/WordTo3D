@@ -107,9 +107,7 @@ function bisDropDown() {
     clearSelected();
     writeSelected();
     document.getElementById("bisDropdown").classList.toggle("showBis");
-}
-
-// Close the dropdown if the user clicks outside of it fct1
+}// Close the dropdown if the user clicks outside of it fct1
 window.onclick = function (event) {
     if (!event.target.matches('.dropbtnMed')) {
         var dropdowns = document.getElementsByClassName("dropdown-contentMed");
@@ -139,6 +137,25 @@ window.onclick = function (event) {
         }
     }
 }
+
+
+function DropDownMeniu(){
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
 
 function writeSelected() {
 
