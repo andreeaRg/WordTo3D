@@ -4,21 +4,35 @@
 
 <head>
     <title>HOME</title>
-    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/home_hover.css" />
 </head>
 
 <body>
 
     <div class="header">
-        <h1 class="serif">WordTo3D</h1>
+        <h1 class="serif"> <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; WordTo3D</span> </h1>
     </div>
 
-    <div class="btn-group">
-        <button class="button"> Uploadeaza enuntul</button>
-        <a href="#">Spre atelier</a>
-        <a href="#">La teorie</a>        
-        <a href="#">Q & A</a>
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">About</a>
+            <a href="prototip_3.html">Spre atelier</a>
+            <a href="#">La teorie</a>
+        </div>
     </div>
+
+
+
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }
+    </script>
 
 
 </body>
