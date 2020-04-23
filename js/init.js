@@ -18,6 +18,7 @@ function init() {
     // renderer.setSize(window.innerWidth, window.innerHeight);
     // document.body.appendChild(renderer.domElement);
     document.getElementById("myScene").appendChild( renderer.domElement );
+    // document.getElementsByClassName("myScene").appendChild( renderer.domElement );
     window.addEventListener('resize', function () {
         var width = window.innerWidth;
         var height = window.innerHeight;

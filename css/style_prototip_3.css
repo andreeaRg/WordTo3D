@@ -13,7 +13,7 @@
   .contentCanvas {
     display: block;
     float: left;
-    margin: 0;
+    margin-right: 0;
     width: 100%;
     height: 100%;
     overflow:hidden;
@@ -60,6 +60,8 @@ body {
     color: white;
     text-align: left;
     padding-left: 300px;
+    padding-bottom: 10px;
+    height: 30px;
  }
 
    /* Main content */
@@ -72,10 +74,21 @@ body {
     width: 100%;
   }
 
+  canvas {
+    width: 700px;
+    height: 100%;
+
+  }
+  /* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
   /* Fixed sidenav, full height */
   .sidenav {
     height: 100%;
-    width: 40%;
+    width: 30%;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -117,13 +130,16 @@ body {
   /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
   .dropdown-container {
     display: none;
+    
+    color: white;
     background-color: #262626;
-    padding-left: 8px;
+    padding-right: 8px;
   }
   
   /* Optional: Style the caret down icon */
   .fa-caret-down {
     float: right;
+    color: white;
     padding-right: 8px;
   }
   
