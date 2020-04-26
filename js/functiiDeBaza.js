@@ -3,21 +3,21 @@ const materialOn = new THREE.LineBasicMaterial({ color: 0x550055 });
 const materialOff = new THREE.LineBasicMaterial({ color: 0x0000ff });
 
 //adugarea de text in canvas
-var loader = new THREE.FontLoader();
-loader.load( './js/jsDoc/helvetiker_regular.typeface.json', function ( font ) {
+// var loader = new THREE.FontLoader();
+// loader.load( './js/jsDoc/helvetiker_regular.typeface.json', function ( font ) {
 
-	var geometry = new THREE.TextBufferGeometry( 'Hello three.js!', {
-		font: font,
-		size: 80,
-		height: 5,
-		curveSegments: 12,
-		bevelEnabled: true,
-		bevelThickness: 10,
-		bevelSize: 8,
-		bevelOffset: 0,
-		bevelSegments: 5
-	} );
-} );
+// 	var geometry = new THREE.TextBufferGeometry( 'Hello three.js!', {
+// 		font: font,
+// 		size: 80,
+// 		height: 5,
+// 		curveSegments: 12,
+// 		bevelEnabled: true,
+// 		bevelThickness: 10,
+// 		bevelSize: 8,
+// 		bevelOffset: 0,
+// 		bevelSegments: 5
+// 	} );
+// } );
 
 function radToDeg(radians) {
     return radians * rad2deg;

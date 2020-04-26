@@ -19,12 +19,12 @@ function init() {
     // document.body.appendChild(renderer.domElement);
     document.getElementById("myScene").appendChild( renderer.domElement );
     // document.getElementsByClassName("myScene").appendChild( renderer.domElement );
-    window.addEventListener('resize', function () {
-        var width = window.innerWidth;
-        var height = window.innerHeight;
-        camera.aspect = width / height;
-        camera.updateProjectionMatrix();
-    });
+    // window.addEventListener('resize', function () {
+    //     var width = window.innerWidth;
+    //     var height = window.innerHeight;
+    //     camera.aspect = width / height;
+    //     camera.updateProjectionMatrix();
+    // });
     camera.position.z = 40;
     controls.minDistance = 1;
     controls.maxDistance = 1000;
@@ -33,9 +33,14 @@ function init() {
 function animate() {
     requestAnimationFrame(animate);
     controls.update();
-    renderer.setSize(600, 400);
+    renderer.setSize(width,height);
     renderer.render(scene, camera);
 }
-
-init();
-animate();
+var width; var height;
+function startCanvas(w,h){
+    width = w;
+    height = h;
+    console.log("Changes loaded!: global size",width,height)
+    init();
+    animate();
+}

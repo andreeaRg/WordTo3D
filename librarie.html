@@ -15,7 +15,7 @@
     <script src="js/functii.js"></script>
     <script src="js/pctLinTri.js"></script>
     <script src="js/init.js"></script>
-               
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -23,69 +23,35 @@
 
 <body>
 
-    <button class="tablink" onclick="openPage('Home', this, 'red')" id="defaultOpen">Triunghi</button>
+    <button class="tablink" onclick="openPage('Triunghi', this, 'red')" id="defaultOpen">Triunghi</button>
     <button class="tablink" onclick="openPage('News', this, 'green')">Patrulatere</button>
     <button class="tablink" onclick="openPage('Contact', this, 'blue')">Poligoane</button>
     <button class="tablink" onclick="openPage('About', this, 'orange')">Cerc</button>
 
-    <div id="Home" class="tabcontent">
-        <div class="row">
-            <div class="column">
-                <div id="myScene" class="contentCanvas">
-                </div>
-            </div>
-
-            <div class="column">
-                <h3>Triunghi</h3>
-            </div>
-        </div>
+    <div id="Triunghi" class="tabcontent">
     </div>
 
     <div id="News" class="tabcontent">
-        <div class="row">
-            <div class="column">
-                <div id="myScene" class="contentCanvas">
-                </div>
-            </div>
 
-            <div class="column">
-                <h3>Patrulatere</h3>
-            </div>
-        </div>
     </div>
 
     <div id="Contact" class="tabcontent">
-        <div class="row">
-            <div class="column">
-                <div id="myScene" class="contentCanvas">
-                </div>
-            </div>
 
-            <div class="column">
-                <h3>Poligoane</h3>
-            </div>
-        </div>
     </div>
 
     <div id="About" class="tabcontent">
-        <div class="row">
-            <div class="column">
-                <div id="myScene" class="contentCanvas">
-                </div>
-            </div>
 
-            <div class="column">
-                <h3>Cerc</h3>
-            </div>
-        </div>
     </div>
 
     <script>
         function openPage(pageName, elmnt, color) {
             var i, tabcontent, tablinks;
+            var content = createContent(pageName);
+
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
+                tabcontent[i].innerHTML = "";
             }
             tablinks = document.getElementsByClassName("tablink");
             for (i = 0; i < tablinks.length; i++) {
@@ -93,8 +59,22 @@
             }
             document.getElementById(pageName).style.display = "block";
             elmnt.style.backgroundColor = color;
-        }
+            document.getElementById(pageName).innerHTML = content;
+            document.getElementById(pageName).style.backgroundColor = color;
+            startCanvas(400, 400);
 
+        }
+        function createContent(pageName) {
+
+            return '<div class="row"><div class="column">' +
+                '<div id="myScene"></div></div>' +
+                '<div class="column"><h3>' + pageName + '</h3>'+
+                    '<button class="tablink" onclick="openPage(\'About\', this, \'orange\')">EDIT1</button><BR/>'+
+                    '<button class="tablink" onclick="openPage(\'About\', this, \'orange\')">EDIT1</button><BR/>'+
+                    '<button class="tablink" onclick="openPage(\'About\', this, \'orange\')">EDIT1</button><BR/>'+
+                    '<button class="tablink" onclick="openPage(\'About\', this, \'orange\')">EDIT1</button><BR/>'+
+                '</div></div>';
+        }
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
     </script>
