@@ -1,14 +1,24 @@
-body{
-    color:white;
-    
+#myScene{
+  height: 300px;
+  width: 300px;
+  display: block;
+  /* float: left; */
+  margin-left: 150px;
+  margin-right: 0;
+  overflow:hidden;
 }
 
-/* Create two equal columns that floats next to each other */
-.column {
-    float: left;
-    width: 50%;
-    padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
+  #teorieSus {
+    float: top;
+    top: 20px;
+    margin-left: 600px;
+    color: black;
+    text-align: center;
+  }
+  #teorieJos {
+    margin-right: 0;
+    color: black;
+    text-align: center;
   }
   
   /* Clear floats after the columns */
@@ -17,12 +27,11 @@ body{
     display: table;
     clear: both;
   }
+  /* Create two equal columns that floats next to each other */
+.column {
+  /* width: 40%; */
+  max-width:300px;
+  padding: 10px;
+  position: relative;
+}
 
-  #myScene{
-    height: 400px;
-    width: 600px;
-    display: block;
-      float: left;
-      margin-right: 0;
-      overflow:hidden;
-  }

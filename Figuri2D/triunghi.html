@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <meta charset=utf-8>
+
 <head>
     <title>Triunghi</title>
-    <link rel="stylesheet" type="text/css" href="../css/figuri2D.css" />
+    <link rel="stylesheet" type="text/css" href="../css/figuri2D2.css" />
 
     <script src="../js/jsDoc/three.js"></script>
     <script src="../js/jsDoc/OrbitControls.js"></script>
@@ -17,17 +18,83 @@
 
 </head>
 
-<body style="background-color:rosybrown;" onload="startCanvas(600,400)">
-    <div class="row">
-        <div class="column">
-            <div id="myScene" >
-            </div>
-        </div>
+<body onload="startCanvas(300,300)">
 
-        <div class="column">
-            <h3>Triunghi</h3>
+    <div id="navbar" style="background-color:#84e184;">
+        <h1 style="text-align: center" class="serif"> <span
+                style="font-size:30px;cursor:pointer; color: #196719 " onclick="openNav()">&#9776; WordTo3D</span> </h1>
+    </div>
+
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">About</a>
+            <a href="/prototip_3.html">Spre atelier</a>
+            <a href="Figuri2D/triunghi.html">La teorie</a>
         </div>
     </div>
+
+    <div id="ButoaneStanga" class="sidenav">
+        <a href="triunghi.html" id="triunghi">Triunghi</a>
+        <a href="patrulatere.html" id="patrulatere">Patrulatere</a>
+        <a href="poligoane.html" id="poligoane">Poligoane</a>
+        <a href="cerc.html" id="cerc">Cerc</a>
+    </div>
+
+
+    <div class="sidenavCanvas" style="background-color: #84e184;">
+
+        <div id="myScene"></div>
+        <div id="butoaneCanvas"><button onclick="medDropDown()"> mediana </button></div>
+
+
+    </div>
+
+    <div class="main" style="background-color: 	#F0FFFF;">
+        <h3>Triunghi</h3>
+        <p>This sidebar is as tall as its content (the links), and is always shown.</p>
+        <p>Scroll down the page to see the result.</p>
+        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
+            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur
+            eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
+        </p>
+        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
+            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur
+            eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
+        </p>
+        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
+            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur
+            eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
+        </p>
+        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
+            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur
+            eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
+        </p>
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }
+    </script>
+    <script>
+        window.onscroll = function () { myFunction() };
+
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+    </script>
 </body>
 
 </html>
