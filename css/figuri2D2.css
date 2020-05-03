@@ -7,7 +7,6 @@ body {
     position: fixed;
     z-index: 0;
     top: 83px;
-    
     height: 100%;
     /* left: 10px; */
     overflow-x: hidden;
@@ -45,6 +44,7 @@ body {
     margin-left: 300px; /* Same width as the sidebar + left position in px */
     font-size: 28px; /* Increased text to enable scrolling */
     padding: 0px 10px;
+    height: 100%;
   }
 
   #navbar {
@@ -114,7 +114,8 @@ body {
   
   #patrulatere {
     top: 163px; /* 80*/
-    background-color: #2196F3;    
+    background-color: #2196F3; 
+       /* #66ccff */
     position: fixed;
   }
   

@@ -14,6 +14,20 @@ let domEvents = new THREEx.DomEvents(camera, renderer.domElement);
 var axesHelper = new THREE.AxesHelper( 50 );
 scene.add( axesHelper );
 
+//axe xOyOz manuale
+
+
+//planul zOy
+var planGeo = new THREE.PlaneGeometry( 50, 50);
+planGeo.rotateX(1.5707963268);
+var planMat = new THREE.MeshBasicMaterial( {color: 0xC0C0C0, 
+                                            side: THREE.DoubleSide,
+                                            opacity: 0.3,
+                                            transparent: true} );
+var planZoY = new THREE.Mesh( planGeo, planMat );
+scene.add(planZoY);
+console.log("transparent!");
+
 function init() {
     // renderer.setSize(window.innerWidth, window.innerHeight);
     // document.body.appendChild(renderer.domElement);
@@ -40,7 +54,6 @@ var width; var height;
 function startCanvas(w,h){
     width = w;
     height = h;
-    console.log("Changes loaded!: global size",width,height)
     init();
     animate();
 }

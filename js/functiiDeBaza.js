@@ -110,7 +110,8 @@ function addLinie(line3) {
 function sterge() {
     scene = new THREE.Scene();    
     scene.background = new THREE.Color(0xf0f0f0);
-    scene.add( axesHelper );  
+    scene.add( axesHelper );      
+    scene.add(planZoY);
 }
 
 function undo() {

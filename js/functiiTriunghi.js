@@ -1,5 +1,8 @@
 
-var matUnghi = new THREE.MeshBasicMaterial({ color: 0xffff00 });
+var matUnghi = new THREE.MeshBasicMaterial({ color: 0xb65454,
+                                             side: THREE.DoubleSide,
+                                             opacity: 0.3,
+                                             transparent: true });
 var unghiDesen;
 
 function calcUnghi(B, A, C) {
