@@ -6,32 +6,28 @@ let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHei
 const renderer = new THREE.WebGLRenderer();
 controls = new THREE.OrbitControls(camera, renderer.domElement);
 let domEvents = new THREEx.DomEvents(camera, renderer.domElement);
-// scene.background.color = colorBackground;
-// var colorBackground = new THREE.Color( 0xe5d8ef);//culoarea background-ului
 // var scene3d = document.getElementById("scene3d");
 
-//axa XoYoZ
-var axesHelper = new THREE.AxesHelper( 50 );
-scene.add( axesHelper );
-
 //axe xOyOz manuale
-
+sistemCartezian(25, 25, 25);
 
 //planul zOy
-var planGeo = new THREE.PlaneGeometry( 50, 50);
+var planGeo = new THREE.PlaneGeometry(50, 50);
 planGeo.rotateX(1.5707963268);
-var planMat = new THREE.MeshBasicMaterial( {color: 0xC0C0C0, 
-                                            side: THREE.DoubleSide,
-                                            opacity: 0.3,
-                                            transparent: true} );
-var planZoY = new THREE.Mesh( planGeo, planMat );
+var planMat = new THREE.MeshBasicMaterial({
+    color: 0xC0C0C0,
+    side: THREE.DoubleSide,
+    opacity: 0.3,
+    transparent: true
+});
+var planZoY = new THREE.Mesh(planGeo, planMat);
 scene.add(planZoY);
-console.log("transparent!");
+// console.log("transparent!");
 
 function init() {
     // renderer.setSize(window.innerWidth, window.innerHeight);
     // document.body.appendChild(renderer.domElement);
-    document.getElementById("myScene").appendChild( renderer.domElement );
+    document.getElementById("myScene").appendChild(renderer.domElement);
     // document.getElementsByClassName("myScene").appendChild( renderer.domElement );
     // window.addEventListener('resize', function () {
     //     var width = window.innerWidth;
@@ -39,6 +35,8 @@ function init() {
     //     camera.aspect = width / height;
     //     camera.updateProjectionMatrix();
     // });
+    camera.position.x = 20;
+    camera.position.y = 10;
     camera.position.z = 40;
     controls.minDistance = 1;
     controls.maxDistance = 1000;
@@ -47,11 +45,11 @@ function init() {
 function animate() {
     requestAnimationFrame(animate);
     controls.update();
-    renderer.setSize(width,height);
+    renderer.setSize(width, height);
     renderer.render(scene, camera);
 }
 var width; var height;
-function startCanvas(w,h){
+function startCanvas(w, h) {
     width = w;
     height = h;
     init();
