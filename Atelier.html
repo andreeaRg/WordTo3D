@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<meta charset=utf-8>
+
+<head>
+  <title>3 Atelierul geometriei</title>
+  <link rel="stylesheet" href="./css/atelier.css" />
+
+  <script src="js/jsDoc/three.js"></script>
+  <script src="js/jsDoc/OrbitControls.js"></script>
+  <script src="js/jsDoc/threex.domevents.js"></script>
+
+  <script src="js/functiiDeBaza.js"></script>
+  <script src="js/functiiTriunghi.js"></script>
+  <script src="js/functii.js"></script>
+  <script src="js/pctLinTri.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/nav.js"></script>
+</head>
+
+<body onload="startCanvas(900,490)">
+
+  <div id="navbar" class = "cerulean">
+    <h1 onclick="openNav()">&#9776; WordTo3D
+    </h1>
+  </div>
+
+  <div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+      <a href="#">About</a>
+      <a href="/Atelier.html">Spre atelier</a>
+      <a href="Figuri2D/triunghi.html">La teorie</a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div id="myScene"></div>
+  </div>
+
+  <div class="sidenav">
+    <button class="dropdown-btn" onclick="toggleContainer('atelierBtn')">Atelierul geometriei
+    </button>
+    <div id = 'atelierBtn' class="dropdown-container hidden lv1">
+      <button class="dropdown-btn" onclick="toggleContainer('atelier2D')">Figuri 2D</button>
+      <div id = 'atelier2D' class="dropdown-container hidden lv2">
+
+        <button class="dropdown-btn" onclick="toggleContainer('atelierTri')">Triunghiuri</button>
+        <div id = 'atelierTri' class="dropdown-container hidden lv3">
+          <button class="dropdown-btn" onclick="toggleContainer('liniiTri')">Linii in triunghi</button>
+          <div id = 'liniiTri' class="dropdown-container hidden lv4">
+            <button class="dropdown-btn" onclick="">Mediana</button>
+            <button class="dropdown-btn" onclick="">Biserctoare</button>
+          </div>
+          <button class="dropdown-btn" onclick="toggleContainer('tipTri')">Tipuri de Triunghiuri</button>
+          <div id = 'tipTri' class="dropdown-container hidden lv3">
+            <button class="dropdown-btn" onclick="">Triunghi Oarecare</button>
+            <button class="dropdown-btn" onclick="">Triunghi Isoscel</button>
+            <button class="dropdown-btn" onclick="">Triunghi Echilateral</button>
+            <button class="dropdown-btn" onclick="">Triunghi Dreptunghic</button>
+          </div>
+        </div>
+        
+        <button class="dropdown-btn" onclick="toggleContainer('atelierPtr')">Patrulatere</button>
+        <div id = 'atelierPtr' class="dropdown-container hidden lv2">
+          <button class="dropdown-btn" onclick="toggleContainer('liniiPtr')">Linii in patrulatere</button>
+          <div id = 'liniiPtr' class="dropdown-container hidden lv3">
+            <button class="dropdown-btn" onclick="">Diagonala</button>
+            <button class="dropdown-btn" onclick="">Linai Mijlocie</button>
+          </div>
+          <button class="dropdown-btn" onclick="toggleContainer('tipPtr')">Tipuri de patrulatere</button>
+          <div id = 'tipPtr' class="dropdown-container hidden lv4">
+            <button class="dropdown-btn" onclick="">Dreptunghi</button>
+            <button class="dropdown-btn" onclick="">Patrat</button>
+            <button class="dropdown-btn" onclick="">Paralelogram</button>
+            <button class="dropdown-btn" onclick="">Romb</button>
+          </div>
+        </div>
+        
+        <button class="dropdown-btn" onclick="toggleContainer('atelierPoli')">Poligoane</button>
+        <div id = 'atelierPoli' class="dropdown-container hidden lv2">
+          <button class="dropdown-btn" onclick="toggleContainer('liniiPoli')">Linii in poligoane</button>
+          <div id = 'liniiPoli' class="dropdown-container hidden lv3">
+            <button class="dropdown-btn" onclick="">Diagonala</button>
+            <button class="dropdown-btn" onclick="">Linai Mijlocie</button>
+          </div>
+          <button class="dropdown-btn" onclick="toggleContainer('tipPoli')">Tipuri de poligoane</button>
+          <div id = 'tipPoli' class="dropdown-container hidden lv4">
+            <button class="dropdown-btn" onclick="">Pentagon</button>
+            <button class="dropdown-btn" onclick="">Hexagon</button>
+            <button class="dropdown-btn" onclick="">Octogon</button>
+            <button class="dropdown-btn" onclick="">Decagon</button>
+          </div>
+        </div>
+        
+        <button class="dropdown-btn" onclick="toggleContainer('atelierCerc')">Cercul</button>
+        <div id = 'atelierCerc' class="dropdown-container hidden lv2">
+          <button class="dropdown-btn" onclick="toggleContainer('liniiCerc')">Linii in cerc</button>
+          <div id = 'liniiCerc' class="dropdown-container hidden lv3">
+            <button class="dropdown-btn" onclick="">Diagonala</button>
+            <button class="dropdown-btn" onclick="">Linai Mijlocie</button>
+          </div>
+          <button class="dropdown-btn" onclick="toggleContainer('tipCerc')">Tipuri de cerc</button>
+          <div id = 'tipCerc' class="dropdown-container hidden lv4">
+            <button class="dropdown-btn" onclick="">Raza</button>
+            <button class="dropdown-btn" onclick="">Diametru</button>
+            <button class="dropdown-btn" onclick="">Coarda</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <a href="#contact">Search</a>
+  </div>
+
+
+</body>
+
+</html>
