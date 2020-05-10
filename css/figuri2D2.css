@@ -40,11 +40,13 @@ body {
     }
   
   .main {
-    margin-top: 83px;
+    /* margin-top: 83px; */
     margin-left: 300px; /* Same width as the sidebar + left position in px */
     font-size: 28px; /* Increased text to enable scrolling */
     padding: 0px 10px;
     height: 100%;
+    background-color: 	#F0FFFF; 
+    overflow-y: hidden;
   }
 
   #navbar {
@@ -193,4 +195,6 @@ body {
       top: 15px;
       right: 35px;
     }
+
+ 
   }
