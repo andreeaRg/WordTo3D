@@ -20,32 +20,30 @@ h1 {
 #navbar {
     overflow: hidden;
     
-  animation: mymove 20s infinite;
   }
-  .sticky {
+
+.sticky {
       position: fixed;
       top: 0;
       width: 100%;
+
     }
       /* butonul de meniu */
 .main {
-        margin-top: 40px;
-        margin-left: 800px; /* Same width as the sidebar + left position in px */
+        top: 7%;
+        right: 0;
+        margin-left: 900px;/* Same width as the sidebar + left position in px*/
+       /* width: 30%; */
         font-size: 28px; /* Increased text to enable scrolling */
         padding: 0px 10px;
         bottom: 0px;
         height: 100%;
-        background-color: #111;
-        color:#C0C0C0;
+        /* overflow-x: hidden; */
+        background-color: #F0F8FF;
+        color:#black;
         
-        animation: mymove 20s infinite;
+       
 }
-      
-      @keyframes mymove {
-        50% {background-color: rgb(163, 73, 163);}
-      } 
-
-
   /* The Overlay (background) */
 .overlay {
   /* Height & width depends on how you want to reveal the overlay (see JS below) */   
@@ -100,7 +98,7 @@ h1 {
   position: fixed;
   z-index: 0;
   top: 39px;
-  background-color: #111;
+  background-color: #ffffff;
   height: 100%;
   /* left: 10px; */
   overflow-x: hidden;
@@ -117,8 +115,36 @@ h1 {
 }
 
 /* MENIU INSTRUMENTE */
+.dropdown-container {
+  color: white;
+  /* background-color: #a3eafe; */
+  padding-right: 8px;
+}
+
+.lv1{
+  margin-left: 15px;;
+}
+.lv2{
+  margin-left: 30px;;
+}
+.lv3{
+  margin-left: 45px;;
+}
+.lv4{
+  margin-left: 60px;;
+}
+
+.hidden{
+  display: none;
+}
 
 
+.tut_overview{ /* pentru sub meniu */
+  display :none;
+  margin-left:10px; /* margin-right: 10px; */
+  background-color :#ddd;
+  line-height:1.8em;
+ }
   
   /* Some media queries for responsiveness */
   @media screen and (max-height: 450px) {

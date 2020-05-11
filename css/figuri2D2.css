@@ -3,7 +3,7 @@ body {
   }
 
 .sidenavCanvas {
-    width:300px;
+    width:600px;
     position: fixed;
     z-index: 0;
     top: 83px;
@@ -41,14 +41,16 @@ body {
   
   .main {
     /* margin-top: 83px; */
-    margin-left: 300px; /* Same width as the sidebar + left position in px */
-    font-size: 28px; /* Increased text to enable scrolling */
+    margin-left: 600px; /* Same width as the sidebar + left position in px */
+    font-size: 16px; /* Increased text to enable scrolling */
     padding: 0px 10px;
     height: 100%;
     background-color: 	#F0FFFF; 
     overflow-y: hidden;
   }
 
+  #more {display: none;}
+  
   #navbar {
     
     overflow: hidden;

@@ -19,20 +19,24 @@
     <script src="../js/init.js"></script>
     <script src="../js/functii.js"></script>
 
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+   <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 </head>
 
-<body onload="startCanvas(300,300)">
+<body onload="startCanvas(600,400)">
 
     <div id="navbar" style="background-color:#84e184;">
-        <h1 style="text-align: center" class="serif"> <span
-                style="font-size:30px;cursor:pointer; color: #196719 " onclick="openNav()">&#9776; WordTo3D</span> </h1>
+        <h1 style="text-align: center" class="serif"> <span style="font-size:30px;cursor:pointer; color: #196719 "
+                onclick="openNav()">&#9776; WordTo3D</span> </h1>
     </div>
 
     <div id="myNav" class="overlay">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="overlay-content">
-            <a href="#">About</a>
-            <a href="../prototip_3.html">Spre atelier</a>
+            <a href="../home.html">About</a>
+            <a href="../Atelier.html">Spre atelier</a>
             <a href="../Figuri2D/triunghi.html">La teorie</a>
         </div>
     </div>
@@ -48,33 +52,51 @@
     <div class="sidenavCanvas" style="background-color: #84e184;">
 
         <div id="myScene"></div>
-        <div id="butoaneCanvas"><button onclick="medDropDown()"> mediana </button></div>
+        <div id="butoaneCanvas"></div>
 
 
     </div>
 
     <div class="main">
         <h3>Triunghi</h3>
-        <p>This sidebar is as tall as its content (the links), and is always shown.</p>
-        <p>Scroll down the page to see the result.</p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
-            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur
-            eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
+        <p>Triunghiul este figura geometrică obținută prin reuniunea segmentelor [AB], [BC], [CA], unde A, B, C sunt
+            trei puncte necoliniare (un triunghi este un poligon cu 3 laturi).</p>
+        <p>Elementele unui triunghi:</p>
+        <p>Laturile: [AB], [BC], [CA]</p>
+        <p>Unghiurile: ABC, BCA, BAC </p>
+        <p>Vârfurile: A, B, C.</p>
+        <p><span style="font-weight: bold;">Proprietate</span> În orice triunghi, suma măsurilor unghiurilor este egală
+            cu 180°.</p>
+        <p><span style="font-weight: bold;">Perimetrul </span> (P) unui triunghi este suma lungimilor laturilor.</p>
+        <p> P = AB+BC+CA</p>
+        <p><span style="font-weight: bold;">Semiperimetrul </span> (s) unui triunghi este semisuma lungimilor laturilor.
         </p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
-            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur
-            eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
-        </p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
-            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur
-            eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
-        </p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
-            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur
-            eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
-        </p>
-    </div>
+        <p> s = (AB+BC+CA):2 = P:2</p>
+        </br>
 
+        <p>I.Clasificarea triunghiurilor după laturi</p>
+        <p><span style="font-weight: bold;">Triunghi oarecare (scalen)</span> are laturile de lungimi diferite.</p>
+        <button onclick="triunghiOarecare()"> Deseneaza </button>
+        <p><span style="font-weight: bold;">triunghi isoscel</span> are două laturi congruente. </p>
+        <button onclick="triunghiIsoscel()"> Deseneaza </button>
+        <p><span style="font-weight: bold;">triunghi echilateral</span> are toate cele trei laturi congruente .</p>
+        <button onclick="triunghiEchilateral()"> Deseneaza </button>
+
+        <p>II.Clasificarea triunghiurilor după unghiuri</p>
+
+        <p><span style="font-weight: bold;">Triunghi dreptunghic</span> are un unghi drept (cu măsura de 90°); laturile
+            care formează unghiul drept se numesc catete, iar latura opusă unghiului drept se numește ipotenuză.</p>
+        <button onclick="triunghiDreptunghic()"> Deseneaza </button>
+        <p><span style="font-weight: bold;">triunghi ascuțitunghic</span> are toate unghiurile ascuțite (cu măsura mai
+            mică de 90°) . </p>
+        <button onclick="triunghiAscutitunghic()"> Deseneaza </button>
+        <p><span style="font-weight: bold;">triunghi obtuzunghic</span> are un unghi obtuz (cu măsura mai mare de 90°) .
+        </p>
+        <button onclick="triunghiObtuzunghic()"> Deseneaza </button>
+
+    </div>
+    <!-- <span id="dots">...</span><span id="more"></span> -->
+    <!-- <button onclick="readMore()" >Read more</button> -->
     <script>
         function openNav() {
             document.getElementById("myNav").style.width = "100%";
@@ -83,18 +105,33 @@
         function closeNav() {
             document.getElementById("myNav").style.width = "0%";
         }
-    </script>
-    <script>
-        window.onscroll = function () { myFunction() };
+
+        window.onscroll = function () { stickyNavBar() };
 
         var navbar = document.getElementById("navbar");
         var sticky = navbar.offsetTop;
 
-        function myFunction() {
+        function stickyNavBar() {
             if (window.pageYOffset >= sticky) {
                 navbar.classList.add("sticky")
             } else {
                 navbar.classList.remove("sticky");
+            }
+        }
+
+        function readMore() {
+            var dots = document.getElementById("dots");
+            var moreText = document.getElementById("more");
+            var btnText = document.getElementById("myBtn");
+
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btnText.innerHTML = "Read more";
+                moreText.style.display = "none";
+            } else {
+                dots.style.display = "none";
+                btnText.innerHTML = "Read less";
+                moreText.style.display = "inline";
             }
         }
     </script>

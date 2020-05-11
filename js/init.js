@@ -1,15 +1,13 @@
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 let scene = new THREE.Scene();
-scene.background = new THREE.Color(0xf0f0f0);
 let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer();
 controls = new THREE.OrbitControls(camera, renderer.domElement);
 let domEvents = new THREEx.DomEvents(camera, renderer.domElement);
 // var scene3d = document.getElementById("scene3d");
 
-//axe xOyOz manuale
-sistemCartezian(25, 25, 25);
+
 
 //planul zOy
 var planGeo = new THREE.PlaneGeometry(50, 50);
@@ -22,7 +20,9 @@ var planMat = new THREE.MeshBasicMaterial({
 });
 var planZoY = new THREE.Mesh(planGeo, planMat);
 scene.add(planZoY);
-// console.log("transparent!");
+//axe xOyOz manuale
+sistemCartezian(50, 20, 50);
+scene.background = new THREE.Color(0xFFFFFF);
 
 function init() {
     // renderer.setSize(window.innerWidth, window.innerHeight);

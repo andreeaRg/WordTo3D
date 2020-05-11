@@ -13,22 +13,25 @@
   <script src="js/functiiDeBaza.js"></script>
   <script src="js/functiiTriunghi.js"></script>
   <script src="js/functii.js"></script>
-  <script src="js/pctLinTri.js"></script>
+  <script src="js/triunghi.js"></script>
+  <script src="js/patrulatere.js"></script>
+  <script src="js/poligoane.js"></script>
+  <script src="js/cerc.js"></script>
   <script src="js/init.js"></script>
   <script src="js/nav.js"></script>
 </head>
 
-<body onload="startCanvas(900,490)">
+<body onload="startCanvas(900,550)">
 
   <div id="navbar" class = "cerulean">
-    <h1 onclick="openNav()">&#9776; WordTo3D
+    <h1 style="cursor:pointer;" onclick="openNav()">&#9776; WordTo3D
     </h1>
   </div>
 
   <div id="myNav" class="overlay">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="overlay-content">
-      <a href="#">About</a>
+      <a href="home.html">About</a>
       <a href="/Atelier.html">Spre atelier</a>
       <a href="Figuri2D/triunghi.html">La teorie</a>
     </div>
@@ -51,6 +54,7 @@
           <div id = 'liniiTri' class="dropdown-container hidden lv4">
             <button class="dropdown-btn" onclick="">Mediana</button>
             <button class="dropdown-btn" onclick="">Biserctoare</button>
+            <button class="dropdown-btn" onclick="">Linia Mijlocie</button>
           </div>
           <button class="dropdown-btn" onclick="toggleContainer('tipTri')">Tipuri de Triunghiuri</button>
           <div id = 'tipTri' class="dropdown-container hidden lv3">
@@ -66,7 +70,8 @@
           <button class="dropdown-btn" onclick="toggleContainer('liniiPtr')">Linii in patrulatere</button>
           <div id = 'liniiPtr' class="dropdown-container hidden lv3">
             <button class="dropdown-btn" onclick="">Diagonala</button>
-            <button class="dropdown-btn" onclick="">Linai Mijlocie</button>
+            <button class="dropdown-btn" onclick="">Linia Mijlocie</button>
+            <button class="dropdown-btn" onclick="">Apotema</button>
           </div>
           <button class="dropdown-btn" onclick="toggleContainer('tipPtr')">Tipuri de patrulatere</button>
           <div id = 'tipPtr' class="dropdown-container hidden lv4">
@@ -82,7 +87,7 @@
           <button class="dropdown-btn" onclick="toggleContainer('liniiPoli')">Linii in poligoane</button>
           <div id = 'liniiPoli' class="dropdown-container hidden lv3">
             <button class="dropdown-btn" onclick="">Diagonala</button>
-            <button class="dropdown-btn" onclick="">Linai Mijlocie</button>
+            <button class="dropdown-btn" onclick="">Linia Mijlocie</button>
           </div>
           <button class="dropdown-btn" onclick="toggleContainer('tipPoli')">Tipuri de poligoane</button>
           <div id = 'tipPoli' class="dropdown-container hidden lv4">
@@ -98,7 +103,8 @@
           <button class="dropdown-btn" onclick="toggleContainer('liniiCerc')">Linii in cerc</button>
           <div id = 'liniiCerc' class="dropdown-container hidden lv3">
             <button class="dropdown-btn" onclick="">Diagonala</button>
-            <button class="dropdown-btn" onclick="">Linai Mijlocie</button>
+            <button class="dropdown-btn" onclick="">Linia Mijlocie</button>
+            <button class="dropdown-btn" onclick="">Apotema</button>
           </div>
           <button class="dropdown-btn" onclick="toggleContainer('tipCerc')">Tipuri de cerc</button>
           <div id = 'tipCerc' class="dropdown-container hidden lv4">
@@ -113,7 +119,29 @@
     <a href="#contact">Search</a>
   </div>
 
+  <script>
+    function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+    }
 
+    function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+    }
+</script>
+<script>
+    window.onscroll = function () { myFunction() };
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+</script>
 </body>
 
 </html>

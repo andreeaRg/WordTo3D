@@ -1,7 +1,8 @@
 
 const materialOn = new THREE.LineBasicMaterial({ color: 0x550055 });
 const materialOff = new THREE.LineBasicMaterial({ color: 0x0000ff });
-
+const matLinie = new THREE.LineBasicMaterial({ color: 0x0000ff, linewidth: 10 });
+// const matLinie = new THREE.LineBasicMaterial({ color: 0x550055 });
 //adugarea de text in canvas
 // var loader = new THREE.FontLoader();
 // loader.load( './js/jsDoc/helvetiker_regular.typeface.json', function ( font ) {
@@ -65,47 +66,58 @@ function toLine(line3) {
     return new THREE.Line(geometry, matLinie);
 }
 
-function sistemCartezian(x,y,z){
-    var pO = new THREE.Vector3(0, 0, 0);    
-    var pX = new THREE.Vector3(x, 0, 0);
-    var pY = new THREE.Vector3(0, y, 0); 
-    var pZ = new THREE.Vector3(0, 0, z); 
+function sistemCartezian(x, y, z) {
+    var lungimeSageata = 2;
+    var pO = new THREE.Vector3(0, 0, 0);
+
+    var p1 = new THREE.Vector3(-25, 0, -25);
+    var pX = new THREE.Vector3(x - 25, 0, -25);
+    var pY = new THREE.Vector3(-25, y, -25);
+    var pZ = new THREE.Vector3(-25, 0, z - 25);
+    // in colt stanga spate
+    var linieOX = new THREE.Line3(p1, pX); var axaOX = toLine(linieOX);
+    var linieOY = new THREE.Line3(p1, pY); var axaOY = toLine(linieOY);
+    var linieOZ = new THREE.Line3(p1, pZ); var axaOZ = toLine(linieOZ);
+    console.log("schimbat axele2");
+
+
+    //  in mijlocul planului
+    var pX_ = new THREE.Vector3(x, 0, 0);
+    var pY_ = new THREE.Vector3(0, y, 0);
+    var pZ_ = new THREE.Vector3(0, 0, z);
     var pXneg = new THREE.Vector3(-x, 0, 0);
-    var pYneg = new THREE.Vector3(0, -y, 0); 
-    var pZneg = new THREE.Vector3(0, 0, -z); 
-    var lungimeSageata =2;
-  
-    var linieOX = new THREE.Line3(pXneg, pX);  var axaOX = toLine(linieOX);    
-    var linieOY = new THREE.Line3(pYneg, pY);  var axaOY = toLine(linieOY);
-    var linieOZ = new THREE.Line3(pZneg, pZ);  var axaOZ = toLine(linieOZ);
-    
-    axaOX.material =  new THREE.LineBasicMaterial({ color: 0xF80014 });
-    axaOY.material =  new THREE.LineBasicMaterial({ color: 0x3f00ff });
-    axaOZ.material =  new THREE.LineBasicMaterial({ color: 0x21fc0d });
+    var pYneg = new THREE.Vector3(0, -y, 0);
+    var pZneg = new THREE.Vector3(0, 0, -z);
+    // var linieOX = new THREE.Line3(pXneg, pX_);  var axaOX = toLine(linieOX);    
+    // var linieOY = new THREE.Line3(pYneg, pY_);  var axaOY = toLine(linieOY);
+    // var linieOZ = new THREE.Line3(pZneg, pZ_);  var axaOZ = toLine(linieOZ);
 
-    var sageataOXsus = new THREE.Line3(pX,new THREE.Vector3(x-lungimeSageata, lungimeSageata, 0));    
-    var sageataOXjos = new THREE.Line3(pX,new THREE.Vector3(x-lungimeSageata, -lungimeSageata, 0));    
+    axaOX.material = new THREE.LineBasicMaterial({ color: 0xF80014 });
+    axaOY.material = new THREE.LineBasicMaterial({ color: 0x3f00ff });
+    axaOZ.material = new THREE.LineBasicMaterial({ color: 0x21fc0d });
+
+    var sageataOXsus = new THREE.Line3(pX, new THREE.Vector3(x - lungimeSageata - 25, lungimeSageata, 0 - 25));
+    var sageataOXjos = new THREE.Line3(pX, new THREE.Vector3(x - lungimeSageata - 25, -lungimeSageata, 0 - 25));
     var sageataOXs = toLine(sageataOXsus);
-    sageataOXs.material =  new THREE.LineBasicMaterial({ color: 0xF80014 });
-    var sageataOXj = toLine(sageataOXjos);    
-    sageataOXj.material =  new THREE.LineBasicMaterial({ color: 0xF80014 });
-    console.log("schimbat culoarea lungimeSageata");
+    sageataOXs.material = new THREE.LineBasicMaterial({ color: 0xF80014 });
+    var sageataOXj = toLine(sageataOXjos);
+    sageataOXj.material = new THREE.LineBasicMaterial({ color: 0xF80014 });
 
-    var sageataOYsus = new THREE.Line3(pY,new THREE.Vector3(lungimeSageata, y-lungimeSageata, 0));    
-    var sageataOYjos = new THREE.Line3(pY,new THREE.Vector3(-lungimeSageata, y-lungimeSageata, 0));    
+    var sageataOYsus = new THREE.Line3(pY, new THREE.Vector3(lungimeSageata - 25, y - lungimeSageata, 0 - 25));
+    var sageataOYjos = new THREE.Line3(pY, new THREE.Vector3(-lungimeSageata - 25, y - lungimeSageata, 0 - 25));
     var sageataOYs = toLine(sageataOYsus);
-    sageataOYs.material =  new THREE.LineBasicMaterial({ color: 0x3f00ff });
-    var sageataOYj = toLine(sageataOYjos);    
-    sageataOYj.material =  new THREE.LineBasicMaterial({ color: 0x3f00ff });
+    sageataOYs.material = new THREE.LineBasicMaterial({ color: 0x3f00ff });
+    var sageataOYj = toLine(sageataOYjos);
+    sageataOYj.material = new THREE.LineBasicMaterial({ color: 0x3f00ff });
 
-    var sageataOZsus = new THREE.Line3(pZ,new THREE.Vector3(-lungimeSageata, 0, z-lungimeSageata));    
-    var sageataOZjos = new THREE.Line3(pZ,new THREE.Vector3(lungimeSageata, 0, z-lungimeSageata));    
-    
-    
+    var sageataOZsus = new THREE.Line3(pZ, new THREE.Vector3(-lungimeSageata - 25, 0, z - lungimeSageata - 25));
+    var sageataOZjos = new THREE.Line3(pZ, new THREE.Vector3(lungimeSageata - 25, 0, z - lungimeSageata - 25));
+
+
     var sageataOZs = toLine(sageataOZsus);
-    sageataOZs.material =  new THREE.LineBasicMaterial({ color: 0x21fc0d });
-    var sageataOZj = toLine(sageataOZjos);    
-    sageataOZj.material =  new THREE.LineBasicMaterial({ color: 0x21fc0d });
+    sageataOZs.material = new THREE.LineBasicMaterial({ color: 0x21fc0d });
+    var sageataOZj = toLine(sageataOZjos);
+    sageataOZj.material = new THREE.LineBasicMaterial({ color: 0x21fc0d });
 
     scene.add(axaOX);
     scene.add(axaOY);
@@ -113,10 +125,10 @@ function sistemCartezian(x,y,z){
 
     scene.add(sageataOXs);
     scene.add(sageataOXj);
-    
+
     scene.add(sageataOYs);
     scene.add(sageataOYj);
-    
+
     scene.add(sageataOZs);
     scene.add(sageataOZj);
 }
@@ -164,10 +176,11 @@ function addLinie(line3) {
 }
 
 function sterge() {
-    scene = new THREE.Scene();    
-    scene.background = new THREE.Color(0xf0f0f0);
-    sistemCartezian(25, 25, 25);
+    scene = new THREE.Scene();
     scene.add(planZoY);
+    //axe xOyOz manuale
+    sistemCartezian(50, 20, 50);
+    scene.background = new THREE.Color(0xFFFFFF);
 }
 
 function undo() {
