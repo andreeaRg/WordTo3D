@@ -49,9 +49,12 @@ function animate() {
     renderer.render(scene, camera);
 }
 var width; var height;
-function startCanvas(w, h) {
-    width = w;
-    height = h;
+function startCanvas(scale) {
+    let r =  window.innerWidth / window.innerHeight;
+    width = scale * window.innerWidth ;
+    height = scale * r * window.innerHeight;
+    // width = w;
+    // height = h;
     init();
     animate();
 }

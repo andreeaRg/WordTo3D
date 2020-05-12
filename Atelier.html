@@ -21,11 +21,10 @@
   <script src="js/nav.js"></script>
 </head>
 
-<body onload="startCanvas(900,550)">
+<body onload="startCanvas(0.7,0.8)">
 
   <div id="navbar" class = "cerulean">
-    <h1 style="cursor:pointer;" onclick="openNav()">&#9776; WordTo3D
-    </h1>
+    <h1 style="cursor:pointer;" onclick="openNav()">&#9776; WordTo3D</h1>
   </div>
 
   <div id="myNav" class="overlay">
@@ -40,12 +39,13 @@
 
   <div class="main">
     <div id="myScene"></div>
+    <div id="underScene">Some content</div>
   </div>
 
   <div class="sidenav">
-    <button class="dropdown-btn" onclick="toggleContainer('atelierBtn')">Atelierul geometriei
+    <button id="atelierBtn" class="dropdown-btn" onclick="toggleContainer('atelierContainer')">Atelierul geometriei
     </button>
-    <div id = 'atelierBtn' class="dropdown-container hidden lv1">
+    <div id = 'atelierContainer' class="dropdown-container hidden lv1">
       <button class="dropdown-btn" onclick="toggleContainer('atelier2D')">Figuri 2D</button>
       <div id = 'atelier2D' class="dropdown-container hidden lv2">
 
