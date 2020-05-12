@@ -1,8 +1,8 @@
 
-//TRINGHI OARECARE
+//TRINGHI OARECARE 
 var t1 = new THREE.Vector3(-15, 0, 0); t1.name = "B";
-var t2 = new THREE.Vector3(0, 30, 0); t2.name = "A";
-var t3 = new THREE.Vector3(40, 0, 0); t3.name = "C";
+var t2 = new THREE.Vector3(-5, 20, 0); t2.name = "A";
+var t3 = new THREE.Vector3(20, 0, 0); t3.name = "C";
 
 var t_linie1_2 = new THREE.Line3(t1, t2);
 var t_linie2_3 = new THREE.Line3(t2, t3);
@@ -39,9 +39,9 @@ function triunghiIsoscel() {
 
 
 //TRIUNGHI DREPTUNGHIC
-var t7 = new THREE.Vector3(0, 0, 0); t7.name = "t7";
-var t8 = new THREE.Vector3(0, 20, 0); t8.name = "t8";
-var t9 = new THREE.Vector3(40, 0, 0); t9.name = "t9";
+var t7 = new THREE.Vector3(-10, 0, 0); t7.name = "t7";
+var t8 = new THREE.Vector3(-10, 20, 0); t8.name = "t8";
+var t9 = new THREE.Vector3(20, 0, 0); t9.name = "t9";
 
 var t_linie7_8 = new THREE.Line3(t7, t8);
 var t_linie8_9 = new THREE.Line3(t8, t9);
@@ -58,14 +58,19 @@ function triunghiDreptunghic() {
 }
 
 //TRIUNGHI ECHIATERL
-var t10 = new THREE.Vector3(-20, 0, 0); t10.name = "t10";
-var t11 = new THREE.Vector3(20, 0, 0); t11.name = "t11";
-var length = (( new THREE.Line3(t10, t11).distance() ) * Math.sqrt(3))/2;
-var t12 = new THREE.Vector3(0, length, 0); t12.name = "t12";
+var t10 = new THREE.Vector3(-15, 0, 0); t10.name = "t10";
+var t11 = new THREE.Vector3(15, 0, 0); t11.name = "t11";
+var latura = new THREE.Line3(t10, t11).distance() ;
+var rad =  Math.sqrt(3) / 2 ;
+var h = latura * rad;
+var t12 = new THREE.Vector3(0, h, 0); t12.name = "t12";
 
 var t_linie10_11 = new THREE.Line3(t10, t11);
 var t_linie11_12 = new THREE.Line3(t11, t12);
 var t_linie12_10 = new THREE.Line3(t12, t10);
+// console.log("l2t_linie10_11 = ",t_linie10_11.distance());
+// console.log("t_linie12_10 = ",t_linie12_10.distance());
+// console.log("t_linie11_12 = ",t_linie11_12.distance());
  
 function triunghiEchilateral() {
     sterge();
@@ -96,7 +101,7 @@ function triunghiDreptunghicIsoscel() {
     // desenUnghiStangaJos(t_linie15_13.start,t_linie15_13.end,t_linie13_14.end);
 }
 
-//TRIUNGHI triunghiObtuzunghic
+//TRIUNGHI Obtuzunghic
 var t16 = new THREE.Vector3(0, 0, 0); t16.name = "t16";
 var t17 = new THREE.Vector3(20, 0, 0); t17.name = "t17";
 var t18 = new THREE.Vector3(-10, 20, 0); t18.name = "t18";
@@ -115,10 +120,10 @@ function triunghiObtuzunghic() {
     // desenUnghiStangaJos(t_linie18_16.start,t_linie1t_linie18_16_13.end,t_linie16_17.end);
 }
 
-//TRIUNGHI triunghi Ascutitunghic
-var t19 = new THREE.Vector3(0, 0, 0); t19.name = "t19";
-var t20 = new THREE.Vector3(20, 0, 0); t20.name = "t20";
-var t21 = new THREE.Vector3(-10, 20, 0); t21.name = "t21";
+//TRIUNGHI Ascutitunghic
+var t19 = new THREE.Vector3(-10, 0, 0); t19.name = "t19";
+var t20 = new THREE.Vector3(15, 0, 0); t20.name = "t20";
+var t21 = new THREE.Vector3(0, 20, 0); t21.name = "t21";
 
 var t_linie19_20 = new THREE.Line3(t19, t20);
 var t_linie20_21 = new THREE.Line3(t20, t21);

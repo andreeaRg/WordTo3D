@@ -19,10 +19,12 @@
     <script src="../js/init.js"></script>
     <script src="../js/functii.js"></script>
 
+    <script src="../js/nav.js"></script>
+
+
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-   <script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 </head>
 
 <body onload="startCanvas(600,400)">
@@ -31,13 +33,28 @@
         <h1 style="text-align: center" class="serif"> <span style="font-size:30px;cursor:pointer; color: #196719 "
                 onclick="openNav()">&#9776; WordTo3D</span> </h1>
     </div>
+    <script>
+        window.onscroll = function () { stickyNavBar() };
+
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+
+        function stickyNavBar() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+    </script>
 
     <div id="myNav" class="overlay">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="overlay-content">
             <a href="../home.html">About</a>
             <a href="../Atelier.html">Spre atelier</a>
-            <a href="../Figuri2D/triunghi.html">La teorie</a>
+            <a href="../Figuri2D/triunghi.html">La teorie 2D</a>
+            <a href="../Figuri3D/Piramida.html">La teorie 3D</a>
         </div>
     </div>
 
@@ -59,82 +76,124 @@
 
     <div class="main">
         <h3>Triunghi</h3>
+        <p>Continut:</p>
+        <p><a href="#classLaturi">I. Clasificarea triunghiurilor după laturi</a></p>
+        <p><a href="#classUnghi">II. Clasificarea triunghiurilor după unghiuri</a></p>
+        <p><a href="#linii">III. Linii importante în triunghi</a></p>
+        <p><a href="#formule">IV. Formule în triunghi</a></p>
+        <p><a href="#relMetrice">V. Relatii metrice în triunghiul dreptunghic</a></p>
+        <p style="padding-left: 20px;"><a href="#trigo">V.2. Relatii trigonometrice</a></p>
+
+
         <p>Triunghiul este figura geometrică obținută prin reuniunea segmentelor [AB], [BC], [CA], unde A, B, C sunt
             trei puncte necoliniare (un triunghi este un poligon cu 3 laturi).</p>
         <p>Elementele unui triunghi:</p>
         <p>Laturile: [AB], [BC], [CA]</p>
         <p>Unghiurile: ABC, BCA, BAC </p>
         <p>Vârfurile: A, B, C.</p>
-        <p><span style="font-weight: bold;">Proprietate</span> În orice triunghi, suma măsurilor unghiurilor este egală
+        <p><span style="font-weight: bold;">Proprietate</span> În orice triunghi, suma măsurilor unghiurilor este
+            egală
             cu 180°.</p>
         <p><span style="font-weight: bold;">Perimetrul </span> (P) unui triunghi este suma lungimilor laturilor.</p>
         <p> P = AB+BC+CA</p>
-        <p><span style="font-weight: bold;">Semiperimetrul </span> (s) unui triunghi este semisuma lungimilor laturilor.
+        <p><span style="font-weight: bold;">Semiperimetrul </span> (s) unui triunghi este semisuma lungimilor
+            laturilor.
         </p>
         <p> s = (AB+BC+CA):2 = P:2</p>
+
         </br>
 
-        <p>I.Clasificarea triunghiurilor după laturi</p>
-        <p><span style="font-weight: bold;">Triunghi oarecare (scalen)</span> are laturile de lungimi diferite.</p>
-        <button onclick="triunghiOarecare()"> Deseneaza </button>
-        <p><span style="font-weight: bold;">triunghi isoscel</span> are două laturi congruente. </p>
-        <button onclick="triunghiIsoscel()"> Deseneaza </button>
-        <p><span style="font-weight: bold;">triunghi echilateral</span> are toate cele trei laturi congruente .</p>
-        <button onclick="triunghiEchilateral()"> Deseneaza </button>
+        <p id="classLaturi"><span style="font-weight: bold;">I. Clasificarea triunghiurilor după laturi</span></p>
+        <p style="padding-left: 20px;"><button onclick="triunghiOarecare()"> Triunghi oarecare (scalen) </button> are
+            laturile de lungimi diferite.</p>
+        <p style="padding-left: 20px;"><button onclick="triunghiIsoscel()"> Triunghi isoscel </button> are două laturi
+            congruente. </p>
+        <p style="padding-left: 20px;"><button onclick="triunghiEchilateral()">Triunghi echilateral</button> are toate
+            cele trei laturi congruente .</p>
 
-        <p>II.Clasificarea triunghiurilor după unghiuri</p>
+        </br>
 
-        <p><span style="font-weight: bold;">Triunghi dreptunghic</span> are un unghi drept (cu măsura de 90°); laturile
-            care formează unghiul drept se numesc catete, iar latura opusă unghiului drept se numește ipotenuză.</p>
-        <button onclick="triunghiDreptunghic()"> Deseneaza </button>
-        <p><span style="font-weight: bold;">triunghi ascuțitunghic</span> are toate unghiurile ascuțite (cu măsura mai
-            mică de 90°) . </p>
-        <button onclick="triunghiAscutitunghic()"> Deseneaza </button>
-        <p><span style="font-weight: bold;">triunghi obtuzunghic</span> are un unghi obtuz (cu măsura mai mare de 90°) .
-        </p>
-        <button onclick="triunghiObtuzunghic()"> Deseneaza </button>
+        <p id="classUnghi"><span style="font-weight: bold;">II. Clasificarea triunghiurilor după unghiuri</span></p>
+        <p style="padding-left: 20px;"><button onclick="triunghiDreptunghic()">Triunghi dreptunghic</button> are un
+            unghi drept (cu măsura de 90°). Laturile care formează unghiul drept se numesc catete, iar latura opusă
+            unghiului drept se numește ipotenuză.</p>
+        <p style="padding-left: 20px;"><button onclick="triunghiAscutitunghic()"> Triunghi ascuțitunghi </button> are
+            toate unghiurile ascuțite (cu măsura mai mică de 90°). </p>
+        <p style="padding-left: 20px;"><button onclick="triunghiObtuzunghic()"> Triunghi obtuzunghic </button> are un
+            unghi obtuz (cu măsura mai mare de 90°).</p>
 
+        </br>
+
+        <p id="linii"><span style="font-weight: bold;">III. Linii importante in triunghi</span></p>
+
+        <p style="padding-left: 20px;"><button onclick="medianaTeorie()"> Mediana </button> este segmentul care uneşte
+            vârful unui triunghi cu mijlocul laturii opuse acesteia. Medianele într-un triunghi sunt concurente în
+            <button onclick="centrulDeGreutate()"> centrul de greutate </button> al triunghiului, notat cu
+            <span style="font-weight: bold;"> G </span></p>
+
+        <p style="padding-left: 20px;"><button onclick="bisectoareTeorie()"> Bisectoarea </button> unghiului unui triunghi este
+            segmentul cu o extremitate în vârful triunghiului şi ea împarte unghiul în două unghiuri adiacente
+            congruente.</p>
+        <p style="padding-left: 20px;"> Bisectoarele unui triunghi sunt concurente, punctul de intersecţie al lor fiind
+            <button onclick="centrulCerculuiInscris()"> centrul cercului înscris </button> în triunghi, notat cu <span
+                style="font-weight: bold;">I</span>. </p>
+        <p style="padding-left: 20px;"><span style="font-weight: bold;">Definiție:</span> Unghiul care este adiacent şi
+            suplementar cu un unghi interior al unui triunghi se numeşte<button onclick="unghiExterior()"> unghi exterior </button>
+            acelui triunghi. </p>
+        <p style="padding-left: 20px;"><span style="font-weight: bold;">Definiție:</span> Bisectoarea unui unghi
+            exterior al unui triunghi se numeşte <button onclick="bisExterior()">bisectoare exterioară</button> a triunghiului
+            corespunzătoare unghiului respectiv.</p>
+        <p style="padding-left: 20px;"><button onclick="bisectoareleIntExt()">Proprietate</button> Bisectoarea interioară
+            şi bisectoarea exterioară a două unghiuri ale triunghiului ce au acelaşi vârf (unul interior şi celălalt
+            exterior ) sunt perpendiculare. </p>
+
+        <p style="padding-left: 20px;"><button onclick=""> Înălţimea </button> unui triunghi este
+            perpendiculara dusă din vârful unui triunghi pe latura opusă. Înălţimile unui triunghi sunt concurente,
+            punctul de intersecţie al lor se numeste
+            <button onclick=""> ortocentru </button> și se notează cu <span style="font-weight: bold;">H</span>. </p>
+
+        <p style="padding-left: 20px;"><button onclick=""> Mediatoarea </button> unui triunghi este dreapta
+            perpendiculară pe mijlocul unui triunghi. Mediatoarele laturilor unui triunghi sunt concurente, punctul de
+            intersecţie al lor fiind <button onclick=""> centrul cercului circumscris </button> triunghiului și se
+            notează cu
+            <span style="font-weight: bold;">O</span>. </p>
+
+        <p style="padding-left: 20px;"><button onclick=""> Linia mijlocie </button> într-un triunghi este
+            segmentul care uneşte mijlocul a două laturi ale triunghiului.</p>
+        <p style="padding-left: 20px;"><span style="font-weight: bold;">TEOREMĂ! </span> Într-un triunghi linia
+            mijlocie este paralelă cu cea de a treia latură şi are lungimea egală cu jumătate din lungimea acesteia,
+            adică: MN || BC și MN = BC/2 </p>
+
+        </br>
+
+        <p id="formule"><span style="font-weight: bold;">IV. Formule in triunghi</span></p>
+        <p style="padding-left: 20px;"><span style="font-weight: bold;">Formule in triunghiul echilateral</span></p>
+        <p style="padding-left: 20px;"><span style="font-weight: bold;">Formule in triunghiul isoscel</span></p>
+        <p style="padding-left: 20px;"><span style="font-weight: bold;">Formule in triunghiul dreptunghic</span></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        </br>
+
+        <p id="relMetrice"><span style="font-weight: bold;"> V. Relatii metrice in triunghiul dreptunghic</span></p>
+        <p style="padding-left: 20px;"><span style="font-weight: bold;">Teorema înălţimii</span> Într-un triunghi
+            dreptunghic, lungimea înălţimii din vârful unghiului drept este medie proporţională între lungimile
+            proiecţiilor catetelor pe ipotenuză. </p>
+        <p style="padding-left: 20px;"><span style="font-weight: bold;">Teorema catetei</span> Într-un triunghi
+            dreptunghic, lungimea unei catete este medie proporţională între lungimea ipotenuzei şi lungimea proiecţiei
+            acestei catete pe ipotenuză.</p>
+        <p style="padding-left: 20px;"><span style="font-weight: bold;">Teorema lui Pitagora</span> Într-un triunghi
+            dreptunghic, suma pătratelor catetelor este egală cu pătratul lungimii ipotenuzei.</p>
+        <p style="padding-left: 20px;"><span style="font-weight: bold;">Reciproca teoremei lui Pitagora</span> Dacă
+            într-un triunghi suma pătratelor lungimilor a două laturi este egală cu pătratul lungimii laturii a treia,
+            atunci triunghiul este dreptunghic.</p>
+        <p id="trigo"><span style="font-weight: bold;">V.2. Relatii trigonometrice</span></p>
+
+        </br>
     </div>
     <!-- <span id="dots">...</span><span id="more"></span> -->
     <!-- <button onclick="readMore()" >Read more</button> -->
-    <script>
-        function openNav() {
-            document.getElementById("myNav").style.width = "100%";
-        }
 
-        function closeNav() {
-            document.getElementById("myNav").style.width = "0%";
-        }
-
-        window.onscroll = function () { stickyNavBar() };
-
-        var navbar = document.getElementById("navbar");
-        var sticky = navbar.offsetTop;
-
-        function stickyNavBar() {
-            if (window.pageYOffset >= sticky) {
-                navbar.classList.add("sticky")
-            } else {
-                navbar.classList.remove("sticky");
-            }
-        }
-
-        function readMore() {
-            var dots = document.getElementById("dots");
-            var moreText = document.getElementById("more");
-            var btnText = document.getElementById("myBtn");
-
-            if (dots.style.display === "none") {
-                dots.style.display = "inline";
-                btnText.innerHTML = "Read more";
-                moreText.style.display = "none";
-            } else {
-                dots.style.display = "none";
-                btnText.innerHTML = "Read less";
-                moreText.style.display = "inline";
-            }
-        }
-    </script>
 </body>
 
 </html>

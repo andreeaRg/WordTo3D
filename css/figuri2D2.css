@@ -49,6 +49,11 @@ body {
     overflow-y: hidden;
   }
 
+  p {
+    padding-right: 60px;
+  }
+
+
   #more {display: none;}
   
   #navbar {

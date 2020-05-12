@@ -3,8 +3,8 @@
 <meta charset=utf-8>
 
 <head>
-  <title>3 Atelierul geometriei</title>
-  <link rel="stylesheet" href="./css/atelier.css" />
+  <title>4 Atelierul geometriei</title>
+  <link rel="stylesheet" href="css/prototip_4.css" />
 
   <script src="js/jsDoc/three.js"></script>
   <script src="js/jsDoc/OrbitControls.js"></script>
@@ -18,31 +18,29 @@
   <script src="js/poligoane.js"></script>
   <script src="js/cerc.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/nav.js"></script>
 </head>
 
 <body onload="startCanvas(900,550)">
 
-  <div id="navbar" class = "cerulean">
-    <h1 style="cursor:pointer;" onclick="openNav()">&#9776; WordTo3D
-    </h1>
+  <div id="navbar" style="background-color: #111;">
+    <h1 class="serif"> <span style="font-size:30px;cursor:pointer; color:#C0C0C0; "
+      onclick="openNav()">&#9776; WordTo3D</span> </h1>
   </div>
 
   <div id="myNav" class="overlay">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="overlay-content">
-      <a href="./home.html">About</a>
-      <a href="./Atelier.html">Spre atelier</a>
-      <a href="Figuri2D/triunghi.html">La teorie 2D</a>
-      <a href="Figuri3D/Piramida.html">La teorie 3D</a>
+      <a href="#">About</a>
+      <a href="prototip_4.html">Spre atelier</a>
+      <a href="Figuri2D/triunghi.html">La teorie</a>
     </div>
   </div>
 
-  <div class="main">
+  <div class="sidenavCanvas">
     <div id="myScene"></div>
   </div>
 
-  <div class="sidenav">
+  <div class="main">
     <button class="dropdown-btn" onclick="toggleContainer('atelierBtn')">Atelierul geometriei
     </button>
     <div id = 'atelierBtn' class="dropdown-container hidden lv1">
@@ -59,11 +57,10 @@
           </div>
           <button class="dropdown-btn" onclick="toggleContainer('tipTri')">Tipuri de Triunghiuri</button>
           <div id = 'tipTri' class="dropdown-container hidden lv3">
-            <button class="dropdown-btn" onclick="triunghiOarecare()">Triunghi Oarecare</button>
-            <button class="dropdown-btn" onclick="triunghiIsoscel()">Triunghi Isoscel</button>
-            <button class="dropdown-btn" onclick="triunghiEchilateral()">Triunghi Echilateral</button>
-            <button class="dropdown-btn" onclick="triunghiDreptunghic()">Triunghi Dreptunghic</button>
-            <button class="dropdown-btn" onclick="triunghiDreptunghicIsoscel()">Triunghi Dreptunghic Isoscel</button>
+            <button class="dropdown-btn" onclick="">Triunghi Oarecare</button>
+            <button class="dropdown-btn" onclick="">Triunghi Isoscel</button>
+            <button class="dropdown-btn" onclick="">Triunghi Echilateral</button>
+            <button class="dropdown-btn" onclick="">Triunghi Dreptunghic</button>
           </div>
         </div>
         
@@ -77,13 +74,10 @@
           </div>
           <button class="dropdown-btn" onclick="toggleContainer('tipPtr')">Tipuri de patrulatere</button>
           <div id = 'tipPtr' class="dropdown-container hidden lv4">
-            <button class="dropdown-btn" onclick="patrat()">Patrat</button>
-            <button class="dropdown-btn" onclick="dreptunghi()">Dreptunghi</button>
-            <button class="dropdown-btn" onclick="paralelogram()">Paralelogram</button>
-            <button class="dropdown-btn" onclick="romb()">Romb</button>
-            <button class="dropdown-btn" onclick="trapez()">Trapez Oarecare</button>
-            <button class="dropdown-btn" onclick="trapezDrept()">Trapez Dreptunghic</button>
-            <button class="dropdown-btn" onclick="trapezIsoscel()">Trapez Isoscel</button>
+            <button class="dropdown-btn" onclick="">Dreptunghi</button>
+            <button class="dropdown-btn" onclick="">Patrat</button>
+            <button class="dropdown-btn" onclick="">Paralelogram</button>
+            <button class="dropdown-btn" onclick="">Romb</button>
           </div>
         </div>
         
@@ -96,10 +90,10 @@
           </div>
           <button class="dropdown-btn" onclick="toggleContainer('tipPoli')">Tipuri de poligoane</button>
           <div id = 'tipPoli' class="dropdown-container hidden lv4">
-            <button class="dropdown-btn" onclick="pentagonf()">Pentagon</button>
-            <button class="dropdown-btn" onclick="hexagonf()">Hexagon</button>
-            <button class="dropdown-btn" onclick="heptagonf()">Heptagon</button>
-            <button class="dropdown-btn" onclick="octogonf()">Octogon</button>
+            <button class="dropdown-btn" onclick="">Pentagon</button>
+            <button class="dropdown-btn" onclick="">Hexagon</button>
+            <button class="dropdown-btn" onclick="">Octogon</button>
+            <button class="dropdown-btn" onclick="">Decagon</button>
           </div>
         </div>
         
@@ -107,19 +101,21 @@
         <div id = 'atelierCerc' class="dropdown-container hidden lv2">
           <button class="dropdown-btn" onclick="toggleContainer('liniiCerc')">Linii in cerc</button>
           <div id = 'liniiCerc' class="dropdown-container hidden lv3">
-            <button class="dropdown-btn" onclick="">Raza</button>
-            <button class="dropdown-btn" onclick="">Diametru</button>
-            <button class="dropdown-btn" onclick="">Coarda</button>
+            <button class="dropdown-btn" onclick="">Diagonala</button>
+            <button class="dropdown-btn" onclick="">Linia Mijlocie</button>
+            <button class="dropdown-btn" onclick="">Apotema</button>
           </div>
           <button class="dropdown-btn" onclick="toggleContainer('tipCerc')">Tipuri de cerc</button>
           <div id = 'tipCerc' class="dropdown-container hidden lv4">
-            <button class="dropdown-btn" onclick="cerc()">Cerc</button> 
+            <button class="dropdown-btn" onclick="">Raza</button>
+            <button class="dropdown-btn" onclick="">Diametru</button>
+            <button class="dropdown-btn" onclick="">Coarda</button>
           </div>
         </div>
 
       </div>
     </div>
-    <a href="">Search</a>
+    <a href="#contact">Search</a>
   </div>
 
   <script>
@@ -145,6 +141,7 @@
         }
     }
 </script>
+
 </body>
 
 </html>

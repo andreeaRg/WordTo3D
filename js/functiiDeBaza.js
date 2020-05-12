@@ -24,6 +24,10 @@ function radToDeg(radians) {
     return radians * rad2deg;
 }
 
+function degToRad(degree) {
+    return degree * deg2rad;
+}
+
 function addPoint(pct) {
     // console.log("Punct:"+scene+", "+pct+", "+scene.getObjectByName(pct));
     // if (!scene.getObjectByName(pct.name))
@@ -70,16 +74,14 @@ function sistemCartezian(x, y, z) {
     var lungimeSageata = 2;
     var pO = new THREE.Vector3(0, 0, 0);
 
+    // in colt stanga spate
     var p1 = new THREE.Vector3(-25, 0, -25);
     var pX = new THREE.Vector3(x - 25, 0, -25);
     var pY = new THREE.Vector3(-25, y, -25);
     var pZ = new THREE.Vector3(-25, 0, z - 25);
-    // in colt stanga spate
     var linieOX = new THREE.Line3(p1, pX); var axaOX = toLine(linieOX);
     var linieOY = new THREE.Line3(p1, pY); var axaOY = toLine(linieOY);
     var linieOZ = new THREE.Line3(p1, pZ); var axaOZ = toLine(linieOZ);
-    console.log("schimbat axele2");
-
 
     //  in mijlocul planului
     var pX_ = new THREE.Vector3(x, 0, 0);
@@ -191,4 +193,10 @@ function refresP() {
     camera.position.x = 20;
     camera.position.y = 10;
     camera.position.z = 40;
+}
+
+function perspectivaXoY(x,y){
+    camera.position.x = x;
+    camera.position.y = y;
+
 }
