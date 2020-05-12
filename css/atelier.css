@@ -101,16 +101,12 @@ body {
     height: 93%;
     width: 30%;
     position: fixed;
-    /* z-index: 1; */
     top: 7%;
     right: 0;
     background-color: #F0F8FF;
-    /* background-image: url(/img/lightBlue.jpeg); */
     overflow-x: hidden;
     overflow-y: auto;
-    /* padding-top: 10px; */
-    /* border-left: #4484CE; */
-    /* border-color: #4484CE; */
+    border-left: 2px #4484CE solid;
 
   }
   

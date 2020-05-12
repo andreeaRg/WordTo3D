@@ -52,7 +52,7 @@ var width; var height;
 function startCanvas(scale) {
     let r =  window.innerWidth / window.innerHeight;
     width = scale * window.innerWidth ;
-    height = scale * r * window.innerHeight;
+    height = scale * r * window.innerHeight > 0.8 * window.innerHeight? 0.8 * window.innerHeight :scale * r * window.innerHeight;
     // width = w;
     // height = h;
     init();
