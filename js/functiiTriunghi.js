@@ -82,6 +82,27 @@ function centrulDeGreutate() {
     addLinieBaza( new THREE.Line3( t2, t_linie3_1.getCenter() ) );
     addLinieBaza( new THREE.Line3( t3, t_linie1_2.getCenter() ) );
 }
+function linieMijlocieTeorie(){
+    triunghiOarecare();
+    addLinie2Puncte( new THREE.Line3( t_linie1_2.getCenter(), t_linie2_3.getCenter() ) );
+}
+function inaltimeTeorie(){
+    triunghiOarecare();
+    addLinieBaza(new THREE.Line3(t2,new THREE.Vector3(t2.getComponent(0), 0, 0)));
+}
+function ortocentrul(){
+    triunghiOarecare();
+    addLinieBaza(new THREE.Line3(t1,t_linie2_3.at(0.2)));
+    addLinieBaza(new THREE.Line3(t2,new THREE.Vector3(t2.getComponent(0), 0, 0)));
+    addLinieBaza(new THREE.Line3(t3,t_linie1_2.at(0.61)));
+}
+function mediatoareTeorie(){
+    triunghiOarecare();
+    var pct1 = new THREE.Vector3(t_linie3_1.getCenter().getComponent(0),t_linie3_1.getCenter().getComponent(1)+10,t_linie3_1.getCenter().getComponent(2));
+    var pct2 = new THREE.Vector3(t_linie3_1.getCenter().getComponent(0),t_linie3_1.getCenter().getComponent(1)-10,t_linie3_1.getCenter().getComponent(2));
+    addLinie(new THREE.Line3(pct1,pct2));
+
+}
 
 function calcUnghi(B, A, C) {
     var c = new THREE.Line3(A, B).distance();
@@ -109,6 +130,17 @@ function drawMediana() {
         return;
 
     addLinieBaza(getMediana(selectedPoint, selectedLine));
+}
+
+function getLinieMijlocie(line1,line2){
+    return  new THREE.Line3( line1.getCenter(), line2.getCenter() ) ;
+}
+
+function drawLinieMijlocie() { //DE CREAT SELECTED LINES
+   if (selectedLine1 == null && selectedLine2 ==  null) 
+       return;
+
+       addLinie(getLinieMijlocie(selectedLine1, selectedLine2));
 }
 
 function getBisectoarePct() {
@@ -181,3 +213,4 @@ function getInaltime(pct, linie3) {
     }
     return new THREE.Line3(pct, linie3.getCenter());
 }
+

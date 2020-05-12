@@ -159,15 +159,13 @@ function addLinieBaza(line3) {
     domEvents.addEventListener(l, 'click', event => { clickL(l); });
     domEvents.addEventListener(l, 'mouseover', event => {
         l.material = materialOn;
-        // l.material = fatLineMaterialOn;
     });
     domEvents.addEventListener(l, 'mouseout', event => {
         l.material = materialOff;
-        // l.material = fatLineMaterialOff;
     });
 }
 
-function addLinie(line3) {
+function addLinie2Puncte(line3) {
     let l = toLine(line3);
     linesMap.set(l, line3);
     addPoint(line3.start);
@@ -175,6 +173,25 @@ function addLinie(line3) {
     scene.add(l);
 
     domEvents.addEventListener(l, 'click', event => { clickL(l); });
+    domEvents.addEventListener(l, 'mouseover', event => {
+        l.material = materialOn;
+    });
+    domEvents.addEventListener(l, 'mouseout', event => {
+        l.material = materialOff;
+    });
+}
+function addLinie(line3) {
+    let l = toLine(line3);
+    linesMap.set(l, line3);
+    scene.add(l);
+
+    domEvents.addEventListener(l, 'click', event => { clickL(l); });
+    domEvents.addEventListener(l, 'mouseover', event => {
+        l.material = materialOn;
+    });
+    domEvents.addEventListener(l, 'mouseout', event => {
+        l.material = materialOff;
+    });
 }
 
 function sterge() {
