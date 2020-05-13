@@ -5,65 +5,70 @@ var matUnghi = new THREE.MeshBasicMaterial({ color: 0xb65454,
                                              transparent: true });
 var unghiDesen;
 
-function bisectoareTeorie() {
-    triunghiOarecare();
-    var E1 = t2;
-    var INT = t1;
-    var E2 = t3;
-    var IntE1 = new THREE.Line3(INT, E1).distance();
-    var IntE2 = new THREE.Line3(INT, E2).distance();
-    var E1E2 = new THREE.Line3(E1, E2);
-    var piciorBis = E1E2.at(IntE1 / (IntE1 + IntE2));
-    addLinieBaza( new THREE.Line3(INT, piciorBis) ) ;
-    console.log(calcUnghi(t2,t3,t1)); //38.659 , 180-(38.659+90)
+function calcUnghi(B, A, C) {
+    var c = new THREE.Line3(A, B).distance();
+    var a = new THREE.Line3(B, C).distance();
+    var b = new THREE.Line3(C, A).distance();
+    var aUnghiRad = Math.acos((Math.pow(c, 2) + Math.pow(b, 2) - Math.pow(a, 2)) / (2 * c * b));
+    var aUnghiDeg = radToDeg(aUnghiRad);
+    return aUnghiDeg;
 }
-function bisectoareTeorie2(t2,t1,t3) {
-    var E1 = t2;
-    var INT = t1;
-    var E2 = t3;
-    var IntE1 = new THREE.Line3(INT, E1).distance();
-    var IntE2 = new THREE.Line3(INT, E2).distance();
-    var E1E2 = new THREE.Line3(E1, E2);
-    var piciorBis = E1E2.at(IntE1 / (IntE1 + IntE2));
-    addLinieBaza( new THREE.Line3(INT, piciorBis) ) ;
+
+function calcUnghiRadian(Y, X, Z) {
+    var z = new THREE.Line3(X,Y).distance();
+    var x = new THREE.Line3(Y, Z).distance();
+    var y = new THREE.Line3(Z, X).distance();
+    var xUnghiRad = Math.acos((Math.pow(z, 2) + Math.pow(y, 2) - Math.pow(x, 2)) / (2 * z * y));
+    return xUnghiRad;
+}
+
+function getBisectoare(x2,y2,z2){
+    var e1 = x2;
+    var int = y2;
+    var e2 = z2;
+    var intE1 = new THREE.Line3(int, e1).distance();
+    var intE2 = new THREE.Line3(int, e2).distance();
+    var e1e2 = new THREE.Line3(e1, e2);
+    var piciorB = e1e2.at(intE1 / (intE1 + intE2));
+    return new THREE.Line3(int, piciorB);
+}
+
+function bisectoareTDesen() {
+    triunghiOarecare();
+    addLinieBaza( getBisectoare(t2,t3,t1) ) ;
+    desenUnghiDreaptaJos(t2,t3,t1,4);
+}
+function bisectoareTeorie2(x3,y3,z3) {
+    var Ex1 = x3;
+    var Int = y3;
+    var Ex2 = z3;
+    var IntEx1 = new THREE.Line3(Int, Ex1).distance();
+    var IntEx2 = new THREE.Line3(Int, Ex2).distance();
+    var Ex1Ex2 = new THREE.Line3(Ex1, Ex2);
+    var piciorBisectoare = Ex1Ex2.at(IntEx1 / (IntEx1 + IntEx2));
+    
+    addLinie( new THREE.Line3(Int, piciorBisectoare) ) ;
 }
 function unghiExterior(){
     triunghiOarecare();
-    var pctExt = new THREE.Vector3(30, 0, 0); pctExt.name = "D";
-    var t_linieUnghiExt = new THREE.Line3(t3, pctExt);
-    addLinieBaza(t_linieUnghiExt);
-    desenUnghiStangaJos(t2,t3,pctExt);
+    addLinie(t_linieUnghiExt);//deseneaza latura sup unghi ext
+    desenUnghiStangaJos(t2,t3,pctExt,4);//deseneaza unghiul mare
 }
+function bisExterioara(){
+    triunghiOarecare(); 
+    unghiExterior();
+    bisectoareTeorie2(t2,t3,pctExt); //deseneaza bisectoarea
+  }
 
-function bisExterior(){
+
+
+function bisectoareInterior_Exterior(){    
     triunghiOarecare();
-    var pctExt = new THREE.Vector3(30, 0, 0); pctExt.name = "D";
-    var t_linieUnghiExt = new THREE.Line3(t3, pctExt);
-    addLinieBaza(t_linieUnghiExt);
-    bisectoareTeorie2(t2,t3,pctExt);
-    // desenUnghiStangaJos(t2,t3,pctExt);
-}
-
-function bisectoareleIntExt(){
-    var unghiGeo = new THREE.PlaneGeometry(25, 25);
-    var unghiExtpe2 = 180-(19.329+90);
-    var unghiExtpe2RAD = degToRad(unghiExtpe2);
-    unghiGeo.rotateY(unghiExtpe2RAD);
-// console.log("mod23");
-    var unghiMat = new THREE.MeshBasicMaterial({
-        color: 0x000000,
-        side: THREE.DoubleSide,
-        opacity: 0.3,
-        transparent: true
-    });
-    var unghiDrept = new THREE.Mesh(unghiGeo, unghiMat);
-    // unghiDrept.position.x = t3.getComponent(0);
-    // unghiDrept.position.y = t3.getComponent(1);
-    // unghiDrept.position.z = t3.getComponent(2);
-    scene.add(unghiDrept);
-
-    bisExterior();
-    bisectoareTeorie2(t2,t3,t1);
+    var unghirotire = calcUnghiRadian(getBisectoare(t2,t3,pctExt).end,t3,pctExt);
+    addUnghiDrept(t3,unghirotire,0.9,2);//desenul unghiului
+    bisectoareTeorie2(t2,t3,pctExt);//bis externa desen
+    addLinie(t_linieUnghiExt);//linia suport unghi ext
+    bisectoareTeorie2(t2,t3,t1);//bis interna desen
 }
 
 function centrulCerculuiInscris() {
@@ -72,6 +77,8 @@ function centrulCerculuiInscris() {
     bisectoareTeorie2(t1,t2,t3);
     bisectoareTeorie2(t2,t3,t1);
 }
+
+
 function medianaTeorie() {
     triunghiOarecare();
     addLinieBaza( new THREE.Line3( t1, t_linie2_3.getCenter() ) );
@@ -82,13 +89,19 @@ function centrulDeGreutate() {
     addLinieBaza( new THREE.Line3( t2, t_linie3_1.getCenter() ) );
     addLinieBaza( new THREE.Line3( t3, t_linie1_2.getCenter() ) );
 }
+
+
 function linieMijlocieTeorie(){
     triunghiOarecare();
     addLinie2Puncte( new THREE.Line3( t_linie1_2.getCenter(), t_linie2_3.getCenter() ) );
 }
+
+
 function inaltimeTeorie(){
     triunghiOarecare();
-    addLinieBaza(new THREE.Line3(t2,new THREE.Vector3(t2.getComponent(0), 0, 0)));
+    var piciorInaltime = new THREE.Vector3(t2.getComponent(0), 0, 0);
+    addUnghiDrept(piciorInaltime,0,1.5,1.5);
+    addLinieBaza(new THREE.Line3(t2,piciorInaltime));
 }
 function ortocentrul(){
     triunghiOarecare();
@@ -96,29 +109,15 @@ function ortocentrul(){
     addLinieBaza(new THREE.Line3(t2,new THREE.Vector3(t2.getComponent(0), 0, 0)));
     addLinieBaza(new THREE.Line3(t3,t_linie1_2.at(0.61)));
 }
+
+
 function mediatoareTeorie(){
     triunghiOarecare();
     var pct1 = new THREE.Vector3(t_linie3_1.getCenter().getComponent(0),t_linie3_1.getCenter().getComponent(1)+10,t_linie3_1.getCenter().getComponent(2));
     var pct2 = new THREE.Vector3(t_linie3_1.getCenter().getComponent(0),t_linie3_1.getCenter().getComponent(1)-10,t_linie3_1.getCenter().getComponent(2));
     addLinie(new THREE.Line3(pct1,pct2));
+    addUnghiDrept(pct1,0,1.5,1.5-10);
 
-}
-
-function calcUnghi(B, A, C) {
-    var c = new THREE.Line3(A, B).distance();
-    var a = new THREE.Line3(B, C).distance();
-    var b = new THREE.Line3(C, A).distance();
-    var aUnghiRad = Math.acos((Math.pow(c, 2) + Math.pow(b, 2) - Math.pow(a, 2)) / (2 * c * b));
-    var aUnghiDeg = radToDeg(aUnghiRad);
-    return aUnghiDeg;
-}
-
-function calcUnghiRadian(B, A, C) {
-    var c = new THREE.Line3(A, B).distance();
-    var a = new THREE.Line3(B, C).distance();
-    var b = new THREE.Line3(C, A).distance();
-    var aUnghiRad = Math.acos((Math.pow(c, 2) + Math.pow(b, 2) - Math.pow(a, 2)) / (2 * c * b));
-    return aUnghiRad;
 }
 
 function getMediana(pct, linie3) {
@@ -173,9 +172,26 @@ function drawBisectoare() {
     addLinieBaza(getBisectoarePct()); // addLinieBaza(getBisectoare(selectedPoint, selectedLine));
 }
 
-function desenUnghiDreaptaJos(E1,INT,E2){
+function addUnghiDrept(pct1,unghiRotireDesen,x0,y0){
+    var unghiDreptGeom = new THREE.PlaneGeometry(3,3);
+    unghiDreptGeom.rotateZ(unghiRotireDesen);
+
+    var unghiDrepMaterial = new THREE.MeshBasicMaterial({
+        color: 0x000000,
+        side: THREE.DoubleSide,
+        opacity: 0.3,
+        transparent: true
+    });
+    var unghiDrept = new THREE.Mesh(unghiDreptGeom, unghiDrepMaterial);
+    unghiDrept.position.x = pct1.getComponent(0)-x0;
+    unghiDrept.position.y = pct1.getComponent(1)+y0;
+    unghiDrept.position.z = pct1.getComponent(2);
+    scene.add(unghiDrept);
+} 
+
+function desenUnghiDreaptaJos(E1,INT,E2,R){
     var unghi = calcUnghiRadian(E1,INT,E2);
-    var geometry = new THREE.CircleGeometry(5, 32,Math.PI - unghi,unghi);
+    var geometry = new THREE.CircleGeometry(R, 32,Math.PI - unghi,unghi);
     unghiDesen = new THREE.Mesh(geometry, matUnghi);
     unghiDesen.position.x = INT.getComponent(0);
     unghiDesen.position.y = INT.getComponent(1);
@@ -183,25 +199,26 @@ function desenUnghiDreaptaJos(E1,INT,E2){
     scene.add(unghiDesen);
 }
 
-function desenUnghiStangaJos(E1,INT,E2){
-    var unghi = calcUnghiRadian(E1,INT,E2);
-    var geometry = new THREE.CircleGeometry(5, 32,0,unghi);
+function desenUnghiStangaJos(Ext1,In,Ext2,ra){
+    var unghi = calcUnghiRadian(Ext1,In,Ext2);
+    var geometry = new THREE.CircleGeometry(ra, 32,0,unghi);
+    
     unghiDesen = new THREE.Mesh(geometry, matUnghi);
-    unghiDesen.position.x = INT.getComponent(0);
-    unghiDesen.position.y = INT.getComponent(1);
-    unghiDesen.position.z = INT.getComponent(2);
+    unghiDesen.position.x = In.getComponent(0);
+    unghiDesen.position.y = In.getComponent(1);
+    unghiDesen.position.z = In.getComponent(2);
     scene.add(unghiDesen);
 }
 
-function desenUnghiSus(E1,INT,E2){
-    var unghi = calcUnghiRadian(E1,INT,E2);
-    var unghiJos = calcUnghiRadian(INT,E1,E2);
-    var geometryUnghi = new THREE.CircleGeometry(5, 32, Math.PI + unghiJos  ,unghi);
+function desenUnghiSus(EX1,INTERIOR,EX2,Ra){
+    var unghi = calcUnghiRadian(EX1,INTERIOR,EX2);
+    var unghiJos = calcUnghiRadian(INTERIOR,EX1,EX2);
+    var geometryUnghi = new THREE.CircleGeometry(Ra, 32, Math.PI + unghiJos  ,unghi);
 
     unghiDesen = new THREE.Mesh(geometryUnghi, matUnghi);
-    unghiDesen.position.x = INT.getComponent(0);
-    unghiDesen.position.y = INT.getComponent(1);
-    unghiDesen.position.z = INT.getComponent(2);
+    unghiDesen.position.x = INTERIOR.getComponent(0);
+    unghiDesen.position.y = INTERIOR.getComponent(1);
+    unghiDesen.position.z = INTERIOR.getComponent(2);
     scene.add(unghiDesen);
 }
 

@@ -3,7 +3,7 @@
 var deg2rad = Math.PI / 180;
 var rad2deg = 180 / Math.PI;
 
-const matPoint = new THREE.MeshNormalMaterial({ wireframe: true });
+const matPoint = new THREE.MeshNormalMaterial({ wireframe: false });
 
 var linesMap = new Map();
 var linesMap3To2 = new Map();
@@ -76,19 +76,6 @@ var createFatLine = function (opt) {
     return line;
  
 };
-
-
-// When the user scrolls down 20px from the top of the document, 
-// slide down the navbar
-// window.onscroll = function () { scrollFunction() };
-
-// function scrollFunction() {
-//     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-//         document.getElementById("navbar").style.top = "0";
-//     } else {
-//         document.getElementById("navbar").style.top = "-50px";
-//     }
-// }
 
 function clearSelected() {
     selectedPoint = null;

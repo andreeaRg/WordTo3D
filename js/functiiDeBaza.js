@@ -36,8 +36,8 @@ function addPoint(pct) {
     const geometry1 = new THREE.SphereGeometry(16, 16, 16);
 
     const point = new THREE.Mesh(geometry1, matPoint);
-    let scala = 0.1;
-    let scalaBig = 0.3;
+    let scala = 0.05;
+    let scalaBig = 0.08;
 
     point.scale.set(scala, scala, scala);
     point.position.x = pct.getComponent(0);
@@ -194,11 +194,19 @@ function addLinie(line3) {
     });
 }
 
-function sterge() {
+function stergeAtelier() {
     scene = new THREE.Scene();
     scene.add(planZoY);
     //axe xOyOz manuale
     sistemCartezian(50, 20, 50);
+    scene.background = new THREE.Color(0xFFFFFF);
+}
+
+function sterge() {
+    scene = new THREE.Scene();
+    scene.add(planZoY);
+    // //axe xOyOz manuale
+    // sistemCartezian(50, 20, 50);
     scene.background = new THREE.Color(0xFFFFFF);
 }
 
