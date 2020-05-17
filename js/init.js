@@ -15,13 +15,14 @@ planGeo.rotateX(1.5707963268);
 var planMat = new THREE.MeshBasicMaterial({
     color: 0xC0C0C0,
     side: THREE.DoubleSide,
-    opacity: 0.3,
+    opacity: 0.1715,
     transparent: true
 });
-var planZoY = new THREE.Mesh(planGeo, planMat);
-scene.add(planZoY);
+var planZoX = new THREE.Mesh(planGeo, planMat);
+planZoX.position.y = -15;
+scene.add(planZoX);
 //axe xOyOz manuale
-sistemCartezian(50, 20, 50);
+sistemCartezian(50, 50, 50);
 scene.background = new THREE.Color(0xFFFFFF);
 
 function init() {

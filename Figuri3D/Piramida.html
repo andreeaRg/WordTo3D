@@ -11,22 +11,39 @@
     <script src="../js/jsDoc/threex.domevents.js"></script>
 
     <script src="../js/functiiDeBaza.js"></script>
-    <script src="../js/functiiTriunghi.js"></script>
-    <script src="../js/triunghi.js"></script>
-    <script src="../js/patrulatere.js"></script>
-    <script src="../js/poligoane.js"></script>
-    <script src="../js/cerc.js"></script>
+    <script src="../js/piramida.js"></script>
     <script src="../js/init.js"></script>
     <script src="../js/functii.js"></script>
 
+    <script src="../js/nav.js"></script>
+
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 </head>
 
-<body onload="startCanvas(600,400)">
+<body onload="startCanvas(0.3)">
 
     <div id="navbar" style="background-color:#2196F3;">
-        <h1 style="text-align: center" class="serif"> <span
-                style="font-size:30px;cursor:pointer; color: #004466; " onclick="openNav()">&#9776; WordTo3D</span> </h1>
+        <h1 style="text-align: center" class="serif"> <span style="font-size:30px;cursor:pointer; color: #004466; "
+                onclick="openNav()">&#9776; WordTo3D</span> </h1>
     </div>
+
+    <script>
+        window.onscroll = function () { stickyNavBar() };
+
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+
+        function stickyNavBar() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+    </script>
 
     <div id="myNav" class="overlay">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -49,15 +66,16 @@
 
 
     <div class="sidenavCanvas" style="background-color: #2196F3;">
-
         <div id="myScene"></div>
-        <div id="butoaneCanvas"><button onclick="medDropDown()"> mediana </button></div>
-
-
+        <div id="butoaneCanvas"></div>
     </div>
 
     <div class="main" style="background-color: 	#F0F8FF;">
         <h3>Piramide</h3>
+        <p style="padding-left: 20px;">Poligon regulat = poligon cu toate laturile și toate unghiurile congruente.</p>
+        <p style="padding-left: 20px;">Piramidă regulată = piramidă cu baza poligon regulat și muchiile laterale congruente.</p>
+        <p style="padding-left: 20px;"><button onclick="piramidaPatrulatera()"> Piramida patrulatera regulata</button> este
+            piramida cu baza pătrat și muchiile laterale congruente.</p>
         <p>This sidebar is as tall as its content (the links), and is always shown.</p>
         <p>Scroll down the page to see the result.</p>
         <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
@@ -77,30 +95,6 @@
             eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
         </p>
     </div>
-
-    <script>
-        function openNav() {
-            document.getElementById("myNav").style.width = "100%";
-        }
-
-        function closeNav() {
-            document.getElementById("myNav").style.width = "0%";
-        }
-    </script>
-    <script>
-        window.onscroll = function () { myFunction() };
-
-        var navbar = document.getElementById("navbar");
-        var sticky = navbar.offsetTop;
-
-        function myFunction() {
-            if (window.pageYOffset >= sticky) {
-                navbar.classList.add("sticky")
-            } else {
-                navbar.classList.remove("sticky");
-            }
-        }
-    </script>
 </body>
 
 </html>

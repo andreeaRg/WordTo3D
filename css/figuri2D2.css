@@ -66,51 +66,7 @@
     margin: 0;
     color: #196719;
     }
-  .sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
 
-  #ButoaneStanga a {
-    right: -80px;
-    transition: 0.3s;
-    padding: 15px;
-    width: 100px;
-    text-decoration: none;
-    font-size: 20px;
-    color: white;
-    border-radius: 0 5px 5px 0;
-  }
-  
-  #ButoaneStanga a:hover {
-    right: 0;
-  }
-  
-  #triunghi {
-    top: 103px; /* 20*/
-    background-color: #84e184;    
-    position: fixed;
-  }
-  
-  #patrulatere {
-    top: 163px; /* 80*/
-    background-color: #2196F3; 
-       /* #66ccff */
-    position: fixed;
-  }
-  
-  #poligoane {
-    top: 226px; /* 140*/
-    position: fixed;
-    background-color: #f44336;
-  }
-  
-  #cerc {
-    top: 283px; /* 200*/
-    position: fixed;
-    background-color: #ffe066;
-  }
   
 .overlay {
     /* Height & width depends on how you want to reveal the overlay (see JS below) */   
@@ -156,6 +112,52 @@
     top: 20px;
     right: 45px;
     font-size: 60px;
+  }
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  #ButoaneStanga a {
+    right: -80px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 100px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+  }
+  
+  #ButoaneStanga a:hover {
+    right: 0;
+  }
+  
+  #triunghi {
+    top: 103px; /* 20*/
+    background-color: #84e184;    
+    position: fixed;
+  }
+  
+  #patrulatere {
+    top: 163px; /* 80*/
+    background-color: #2196F3; 
+       /* #66ccff */
+    position: fixed;
+  }
+  
+  #poligoane {
+    top: 226px; /* 140*/
+    position: fixed;
+    background-color: #f44336;
+  }
+  
+  #cerc {
+    top: 283px; /* 200*/
+    position: fixed;
+    background-color: #ffe066;
   }
 
   @media screen and (max-height: 450px) {
