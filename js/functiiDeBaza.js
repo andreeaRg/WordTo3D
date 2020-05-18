@@ -220,9 +220,9 @@ function refresP() {
     camera.position.z = 40;
 }
 
-function perspectivaXoY(x, y) {
+function perspectivaXoY(x, y,z) {
     camera.position.x = x;
     camera.position.y = y;
-    camera.position.z = 40;
+    camera.position.z = z;
 
 }

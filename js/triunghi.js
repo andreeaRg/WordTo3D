@@ -19,7 +19,7 @@ var t_linie3_1 = new THREE.Line3(t3, t1);
 
 function triunghiOarecare() {
     sterge();
-    perspectivaXoY(0, 0);
+    perspectivaXoY(0, 0, 40);
     addLinieBaza(t_linie1_2);
     // desenUnghiSus(t_linie1_2.start,t_linie1_2.end,t_linie2_3.end);
     addLinieBaza(t_linie2_3);
@@ -73,7 +73,7 @@ function triunghiOarecare() {
 
 function triunghiOarecareUnghiExt() {
     sterge();
-    perspectivaXoY(0, 0);
+    perspectivaXoY(0, 0, 40);
     addLinieBaza(t_linie1_2);
     addLinieBaza(t_linie2_3);
     addLinieBaza(t_linie3_1);
@@ -132,7 +132,7 @@ var t_linie6_4 = new THREE.Line3(t6, t4);
 
 function triunghiIsoscel() {
     sterge();
-    perspectivaXoY(0, 0);
+    perspectivaXoY(0, 0, 40);
     addLinieBaza(t_linie4_5);
     // desenUnghiSus(t_linie4_5.start,t_linie4_5.end,t_linie5_6.end);
     addLinieBaza(t_linie5_6);
@@ -192,7 +192,7 @@ var t_linie9_7 = new THREE.Line3(t9, t7);
 
 function triunghiDreptunghic() {
     sterge();
-    perspectivaXoY(0, 0);
+    perspectivaXoY(0, 0, 40);
     addLinieBaza(t_linie7_8);
     addLinieBaza(t_linie8_9);
     addLinieBaza(t_linie9_7);
@@ -252,7 +252,7 @@ var t_linie12_10 = new THREE.Line3(t12, t10);
 
 function triunghiEchilateral() {
     sterge();
-    perspectivaXoY(0, 0);
+    perspectivaXoY(0, 0, 40);
     addLinieBaza(t_linie10_11);
     // desenUnghiSus(t_linie10_11.start,t_linie10_11.end,t_linie11_12.end);
     addLinieBaza(t_linie11_12);
@@ -310,7 +310,7 @@ var t_linie15_13 = new THREE.Line3(t15, t13);
 
 function triunghiDreptunghicIsoscel() {
     sterge();
-    perspectivaXoY(0, 0);
+    perspectivaXoY(0, 0, 40);
     addLinieBaza(t_linie13_14);
     // desenUnghiSus(t_linie13_14.start,t_linie13_14.end,t_linie14_15.end);
     addLinieBaza(t_linie14_15);
@@ -368,7 +368,7 @@ var t_linie18_16 = new THREE.Line3(t18, t16);
 
 function triunghiObtuzunghic() {
     sterge();
-    perspectivaXoY(0, 0);
+    perspectivaXoY(0, 0, 40);
     addLinieBaza(t_linie16_17);
     addLinieBaza(t_linie17_18);
     addLinieBaza(t_linie18_16);
@@ -424,7 +424,7 @@ var t_linie21_19 = new THREE.Line3(t21, t19);
 
 function triunghiAscutitunghic() {
     sterge();
-    perspectivaXoY(0, 0);
+    perspectivaXoY(0, 0, 40);
     addLinieBaza(t_linie19_20);
     addLinieBaza(t_linie20_21);
     addLinieBaza(t_linie21_19);

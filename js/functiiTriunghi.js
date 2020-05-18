@@ -95,7 +95,7 @@ function bisectoareInterior_Exterior() {
     var pctExt = new THREE.Vector3(30, -15, 0); pctExt.name = "D";
     var t_linieUnghiExt = new THREE.Line3(t3, pctExt);
     var unghirotire = calcUnghiRadian(getBisectoare(t2, t3, pctExt).end, t3, pctExt);
-    addUnghiDrept(t3, unghirotire, 0.9, 2);//desenul unghiului
+    addUnghiDrept(t3, 0,0,unghirotire, 0.9, 2, 0);//desenul unghiului
     bisectoareTeorie2(t2, t3, pctExt);//bis externa desen
     addLinie(t_linieUnghiExt);//linia suport unghi ext
     bisectoareTeorie2(t2, t3, t1);//bis interna desen
@@ -283,7 +283,7 @@ function linieMijlocieTeorie() {
 function inaltimeTeorie() {
     triunghiOarecare();
     var piciorInaltime = new THREE.Vector3(t2.getComponent(0), -15, 0);
-    addUnghiDrept(piciorInaltime, 0, 1.5, 1.5);
+    addUnghiDrept(piciorInaltime,0,0, 0, 1.5, 1.5, 0);
     addLinieBaza(new THREE.Line3(t2, piciorInaltime));
     var loaderInaltime = new THREE.FontLoader();
     loaderInaltime.load('../js/jsDoc/helvetiker_regular.typeface.json', function (font) {
@@ -343,7 +343,7 @@ function mediatoareTeorie() {
     var pct1 = new THREE.Vector3(t_linie3_1.getCenter().getComponent(0), t_linie3_1.getCenter().getComponent(1) + 10, t_linie3_1.getCenter().getComponent(2));
     var pct2 = new THREE.Vector3(t_linie3_1.getCenter().getComponent(0), t_linie3_1.getCenter().getComponent(1) - 10, t_linie3_1.getCenter().getComponent(2));
     addLinie(new THREE.Line3(pct1, pct2));
-    addUnghiDrept(pct1, 0, 1.5, 1.5 - 10);
+    addUnghiDrept(pct1, 0,0,0, 1.5, 1.5 - 10, 0);
     addPoint(t_linie3_1.getCenter());
 
     var loaderMediatoare = new THREE.FontLoader();
@@ -422,9 +422,11 @@ function drawBisectoare() {
     addLinieBaza(getBisectoarePct()); // addLinieBaza(getBisectoareAtelier(selectedPoint, selectedLine));
 }
 
-function addUnghiDrept(pct1, unghiRotireDesen, x0, y0) {
+function addUnghiDrept(pct1, unghiRotireX,unghiRotireY,unghiRotireZ, x0, y0, z0) {
     var unghiDreptGeom = new THREE.PlaneGeometry(3, 3);
-    unghiDreptGeom.rotateZ(unghiRotireDesen);
+    unghiDreptGeom.rotateX(unghiRotireX);
+    unghiDreptGeom.rotateY(unghiRotireY);
+    unghiDreptGeom.rotateZ(unghiRotireZ);
 
     var unghiDrepMaterial = new THREE.MeshBasicMaterial({
         color: 0x000000,
@@ -433,9 +435,9 @@ function addUnghiDrept(pct1, unghiRotireDesen, x0, y0) {
         transparent: true
     });
     var unghiDrept = new THREE.Mesh(unghiDreptGeom, unghiDrepMaterial);
-    unghiDrept.position.x = pct1.getComponent(0) - x0;
+    unghiDrept.position.x = pct1.getComponent(0) + x0;
     unghiDrept.position.y = pct1.getComponent(1) + y0;
-    unghiDrept.position.z = pct1.getComponent(2);
+    unghiDrept.position.z = pct1.getComponent(2) + z0;
     scene.add(unghiDrept);
 }
 

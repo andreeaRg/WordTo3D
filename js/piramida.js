@@ -4,8 +4,9 @@ var b1 = new THREE.Vector3(10, -15, 20); b1.name = "B";
 var b2 = new THREE.Vector3(-10, -15, 20); b2.name = "A";
 var b3 = new THREE.Vector3(-10, -15, 0); b3.name = "D";
 var b4 = new THREE.Vector3(10, -15, 0); b4.name = "C";
-var v = new THREE.Vector3(0, 0, 10); v.name = "v";
-var o = new THREE.Vector3(0, 0, 10); o.name = "O";
+var v = new THREE.Vector3(0, 5, 10); v.name = "V";
+var o = new THREE.Vector3(0, -15, 10); o.name = "O";
+
 
 var piramidaPatr_baza_1_2 = new THREE.Line3(b1, b2);
 var piramidaPatr_baza_2_3 = new THREE.Line3(b2, b3);
@@ -19,7 +20,7 @@ var piramidaPatr_latLaterala_4_v = new THREE.Line3(b4, v);
 
 function piramidaPatrulatera() {
     sterge();
-    perspectivaXoY(0, -10);
+    perspectivaXoY(0, 25,45);
     addLinieBaza(piramidaPatr_baza_1_2);
     addLinieBaza(piramidaPatr_baza_2_3);
     addLinieBaza(piramidaPatr_baza_3_4);

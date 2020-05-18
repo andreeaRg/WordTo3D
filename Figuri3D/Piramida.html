@@ -11,6 +11,8 @@
     <script src="../js/jsDoc/threex.domevents.js"></script>
 
     <script src="../js/functiiDeBaza.js"></script>
+    <script src="../js/functiiPiramida.js"></script>
+    <script src="../js/functiiTriunghi.js"></script>
     <script src="../js/piramida.js"></script>
     <script src="../js/init.js"></script>
     <script src="../js/functii.js"></script>
@@ -72,28 +74,26 @@
 
     <div class="main" style="background-color: 	#F0F8FF;">
         <h3>Piramide</h3>
-        <p style="padding-left: 20px;">Poligon regulat = poligon cu toate laturile și toate unghiurile congruente.</p>
-        <p style="padding-left: 20px;">Piramidă regulată = piramidă cu baza poligon regulat și muchiile laterale congruente.</p>
-        <p style="padding-left: 20px;"><button onclick="piramidaPatrulatera()"> Piramida patrulatera regulata</button> este
-            piramida cu baza pătrat și muchiile laterale congruente.</p>
-        <p>This sidebar is as tall as its content (the links), and is always shown.</p>
-        <p>Scroll down the page to see the result.</p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
-            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur
-            eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
-        </p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
-            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur
-            eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
-        </p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
-            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur
-            eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
-        </p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
-            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur
-            eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
-        </p>
+        <p style="padding-left: 20px;"><span style="font-weight: bold;">Poligon regulat</span> = poligon cu toate
+            laturile și toate unghiurile congruente.</p>
+        <p style="padding-left: 20px;"><span style="font-weight: bold;">Piramidă regulată </span>= piramidă cu baza
+            poligon regulat și muchiile laterale congruente.</p>
+        <p>Continut:</p>
+        <p><a href="#piramidaPatrulatera">I. Piramida patrulatera regulata</a></p>
+
+
+        <p id="piramidaPatrulatera" style="padding-left: 20px;"><button onclick="piramidaPatrulatera()"> Piramida
+                patrulatera regulata</button>
+            este piramida cu baza pătrat și muchiile laterale congruente.</p>
+        <p style="padding-left: 20px;"><button onclick="inaltimePiramida()">Înălțimea</button> unei piramide regulate
+            este distanța de la vârful piramidei la centrul cercului circumscris bazei (în figura de mai sus, înălțimea
+            piramidei este VO).</p>
+        <p style="padding-left: 20px;"><button onclick="apotemaPiramida()">Apotema piramidei </button> este înălțimea
+            unei fețe laterale (distanța de la vârful piramidei la o muchie a bazei); în figura de mai sus, apotema este
+            VM (VM este perpendiculară pe BC).</p>
+        <p style="padding-left: 20px;"><button onclick="apotemaBazaPiramida()">Apotema bazei </button> este distanța de
+            la centrul cercului circumscris bazei la o muchie a bazei; în figura de mai sus, OM este mediană în
+            triunghiul isoscel BOC, deci OM este și înălțime; prin urmare, apotema bazei este OM.</p>
     </div>
 </body>
 
