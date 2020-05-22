@@ -20,7 +20,7 @@ var piramidaPatr_latLaterala_4_v = new THREE.Line3(b4, v);
 
 function piramidaPatrulatera() {
     sterge();
-    perspectivaXoY(0, 25,45);
+    perspectivaXoY(17, -5, 40);
     addLinieBaza(piramidaPatr_baza_1_2);
     addLinieBaza(piramidaPatr_baza_2_3);
     addLinieBaza(piramidaPatr_baza_3_4);

@@ -226,3 +226,4 @@ function perspectivaXoY(x, y,z) {
     camera.position.z = z;
 
 }
+

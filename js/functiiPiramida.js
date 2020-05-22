@@ -2,8 +2,8 @@ var unghi90radians = 1.5707963268;
 
 function apotemaBazaPiramida() {
     piramidaPatrulatera();
-    perspectivaXoY(17, -5, 35);
-    addLinieBaza(getMediana(o, piramidaPatr_baza_4_1));
+    perspectivaXoY(10, -5, 45);
+    addLinie2Puncte(getMediana(o, piramidaPatr_baza_4_1));
     var loaderApotemaBazaPPatrulatera = new THREE.FontLoader();
     loaderApotemaBazaPPatrulatera.load('../js/jsDoc/helvetiker_regular.typeface.json', function (font) {
         var color = new THREE.Color(0x006699);
@@ -37,7 +37,7 @@ function apotemaBazaPiramida() {
 
 function apotemaPiramida() {
     piramidaPatrulatera();
-    perspectivaXoY(21, -5, 35);
+    perspectivaXoY(21, -5, 45);
     addLinieBaza(getMediana(v, piramidaPatr_baza_4_1));
     var rotireX = calcUnghiRadian(o, piramidaPatr_baza_4_1.getCenter(), v);
     addUnghiDrept(piramidaPatr_baza_4_1.getCenter(), -unghi90radians + rotireX, unghi90radians, 0, -0.8, 1.3, 1.5);

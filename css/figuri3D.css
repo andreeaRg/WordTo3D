@@ -47,6 +47,11 @@
 
 p {
   padding-right: 60px;
+  padding-left: 20px;
+}
+
+span {
+  font-weight: bold;
 }
 
 
