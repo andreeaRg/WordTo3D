@@ -3,16 +3,19 @@
 var deg2rad = Math.PI / 180;
 var rad2deg = 180 / Math.PI;
 
-const matPoint = new THREE.MeshNormalMaterial({ wireframe: false });
-
 var linesMap = new Map();
 var linesMap3To2 = new Map();
 
 var clickLine = '';
 var clickPoint = '';
-var selectedPoint;
+var selectedPoint;       // puncte nu sfere
 var selectedLine;
-var selectedPoints = [];
+var selectedLines = [];     // line 2d
+var selectedPoints = []; // puncte nu sfere
+var selectedSphere;
+
+var nrLines = 0;
+var nrPoints = 0;
 
 var createFatLineGeometry = function (opt) {
  
@@ -57,7 +60,7 @@ var createFatLineGeometry = function (opt) {
     geo.setColors(colors);
     return geo;
  
-};
+}
 
 var createFatLine = function (opt) {
  
@@ -83,66 +86,6 @@ function clearSelected() {
     selectedPoints = [];
 }
 
-//FUNCTIA BUTON
-function medDropDown() {
-    clearSelected();
-    writeSelected();
-    document.getElementById("medDropdown").classList.toggle("showMed");
-}
-function bisDropDown() {
-    clearSelected();
-    writeSelected();
-    document.getElementById("bisDropdown").classList.toggle("showBis");
-}// Close the dropdown if the user clicks outside of it fct1
-window.onclick = function (event) {
-    if (!event.target.matches('.dropbtnMed')) {
-        var dropdowns = document.getElementsByClassName("dropdown-contentMed");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('showMed')) {
-                if (i % 2) {
-                    openDropdown.classList.remove('showMed');
-                }
-            }
-        }
-    }
-}
-// // Close the dropdown if the user clicks outside of it fct2
-window.onclick = function (event) {
-    if (!event.target.matches('.dropbtnBis')) {
-        var dropdowns = document.getElementsByClassName("dropdown-contentBis");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('showBis')) {
-                if (i % 2) {
-                    openDropdown.classList.remove('showBis');
-                }
-            }
-        }
-    }
-}
-
-
-function DropDownMeniu(){
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-  
-  // Close the dropdown if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
-
 function writeSelected() {
 
     let selPname = selectedPoint == null ? '' : selectedPoint.name;
@@ -165,74 +108,100 @@ function writeSelected() {
     document.getElementById("selPointsExt").textContent = pcts;
 }
 
-function selectL() {
-    if (clickLine != 'select') {
-        clickLine = 'select';
-        document.getElementById("clkL").style.borderStyle = "inset";
-        document.getElementById("clkL2").style.borderStyle = "inset";
-        clearSelectPoint()
-    }
-    else if (clickLine == 'select')
-        clearSelectL()
-
+function linMij(id){
+    toggleContainer(id);
+    selectL(2, true);
+    showDetails(id);
 }
 
-function clearSelectL() {
-    clickLine = '';
-    document.getElementById("clkL").style.borderStyle = "outset";
-    document.getElementById("clkL2").style.borderStyle = "outset";
+function mediana(id){
+    toggleContainer(id);
+    selectL(1, false);
+    selectP(1, false);
+    showDetails(id);
 }
 
-function clickL(line2D) {
-
-    if (clickLine == "select") {
-        selectedLine = linesMap.get(line2D);
-        writeSelected();
-    }
-    else if (clickLine == 'del')
-        scene.remove(line2D);
-}
-
-function clickSfera(point) {
-
-    if (clickPoint == 'del') {
-        // selectedPoint = point;
-        scene.remove(point);
-    }
-}
-function selectP() {
+function selectP(nP, withoutLines) {
+    nrPoints = nP;
     if (clickPoint != 'select') {
         clickPoint = 'select';
-        document.getElementById("clkP").style.borderStyle = "inset";
-        document.getElementById("clkP2").style.borderStyle = "inset";
-        clearSelectL()
-        // console.log(matLinie)
     }
 
     else if (clickPoint == 'select')
         clearSelectPoint();
+
+    if(withoutLines)
+        clearSelectL
+}
+
+function selectL(nL, withoutPoints) {
+    nrLines = nL;
+    if (clickLine != 'select') {
+        clickLine = 'select';
+    }
+    else if (clickLine == 'select')
+        clearSelectL()
+
+    if(withoutPoints)
+        clearSelectPoint();
 }
 
 function clearSelectPoint() {
+    if(selectedSphere)
+        selectedSphere.material = matPointOff;
+    selectedSphere = null;
+    selectedPoint = null;
+    selectedPoints = [];
     clickPoint = '';
-    document.getElementById("clkP").style.borderStyle = "outset";
-    document.getElementById("clkP2").style.borderStyle = "outset";
+}
+
+function clearSelectL() {
+    if(selectedLine)
+        linesMap.forEach( (v,k) => {if(v == selectedLine ) k.material = materialOff ;})
+    selectedLine = null;
+    selectedLines = [];
+    clickLine = '';
 }
 
 function clickP(pct) {
     if (clickPoint == 'select') {
+        //for single > to be removed
         selectedPoint = pct;
-        if (selectedPoints.length == 3)
-            selectedPoints.pop()
-        if (selectedPoints.indexOf(pct) == -1)
-            selectedPoints.unshift(pct);
 
-        writeSelected();
+        //for multiple points
+       // daca sunt mai multe decat trebuuie, scoantem pe ultimul
+        while(selectedPoints.length >= nrPoints)   
+            selectedPoints.pop()
+        if (selectedPoints.indexOf(pct) == -1) // daca pct nu exista deja in  lista, il adaugam
+            selectedPoints.unshift(pct);
     }
-    // else if (clickPoint == 'del'){
-    //     selectedPoint = pct;
-    //     scene.remove(pct);
-    // }
+}
+
+function clickL(line2D) {
+    if (clickLine == "select") {
+        if(selectedLine)
+            linesMap.forEach( (valueIs3D,keyIs2D) => {if(valueIs3D == selectedLine ) keyIs2D.material = materialOff ;})
+        selectedLine = linesMap.get(line2D);
+
+        // pt mai multelinii
+        while (selectedLines.length >= nrLines) // daca sunt mai multe decat trebuuie, scoantem pe ultimul
+            selectedLines.pop()
+        if (selectedLines.indexOf(line2D) == -1) // daca pct nu exista deja in  lista, il adaugam
+            selectedLines.unshift(line2D);        
+    }
+
+    else if (clickLine == 'del')
+        scene.remove(line2D);
+
+        console.log(selectedLines)
+}
+
+function clickSfera(point) {
+    if (clickPoint == 'select'){
+        if(selectedSphere)
+            selectedSphere.material = matPointOff;
+        selectedSphere = point;
+    }
 }
 
 function delL() {

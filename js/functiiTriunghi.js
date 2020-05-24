@@ -385,11 +385,11 @@ function getLinieMijlocie(line1, line2) {
     return new THREE.Line3(line1.getCenter(), line2.getCenter());
 }
 
-function drawLinieMijlocie() { //DE CREAT SELECTED LINES
-    if (selectedLine1 == null && selectedLine2 == null)
+function drawLinieMijlocie() { 
+    if (selectedLines.length != 2 || selectedLines[0] == null && selectedLines[1] == null)
         return;
 
-    addLinie(getLinieMijlocie(selectedLine1, selectedLine2));
+    addLinie(getLinieMijlocie(linesMap.get(selectedLines[0]), linesMap.get(selectedLines[1])));
 }
 
 function getBisectoarePct() {

@@ -27,7 +27,7 @@ function triunghiOarecare() {
     addLinieBaza(t_linie3_1);
     // desenUnghiStangaJos(t_linie3_1.start,t_linie3_1.end,t_linie1_2.end);
 
-    loaderTriOarecare.load('../js/jsDoc/helvetiker_regular.typeface.json', function (font) {
+    loaderTriOarecare.load('./js/jsDoc/helvetiker_regular.typeface.json', function (font) {
         var color = new THREE.Color(0x006699);
 
         var matLite = new THREE.MeshBasicMaterial({

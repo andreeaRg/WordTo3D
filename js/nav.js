@@ -1,8 +1,47 @@
-function toggleContainer(id){
-    if(document.getElementById(id).style.display == 'block')
+function toggleContainer(id) {
+    if (document.getElementById(id).style.display == 'block'){
         document.getElementById(id).style.display = 'none';
-    else 
+        document.getElementById(id).parentElement.children[0].style.background = 'none';
+    }
+    else{
         document.getElementById(id).style.display = 'block';
+        document.getElementById(id).parentElement.children[0].style.backgroundColor = '#87CEFA';
+    }
+}
+
+function showDetails(id) {
+
+    var content;
+    switch (id) {
+        case "mediTri":
+            content = "Selecteaza un punct <br>";
+            content += "<img width='200px' height='200px' src='./img/a.jpg'> <br>";
+            content += "Selecteaza o linie <br>";
+            content += "<img width='200px' height='200px' src='./img/a.jpg'> <br>";
+            content += "Apasa pe butonul Deseneaza!";
+            content += "<img width='200px' height='200px' src='./img/a.jpg'> <br>";
+            break;
+
+        case "bisTri":
+            content = "Selecteaza trei puncte"
+            break;
+
+        default:
+            break;
+    }
+
+    if(document.getElementById(id).style.display == 'block'){
+        document.getElementById("detailsPopUp").innerHTML = content;
+        document.getElementById("detailsPopUp").style.display = 'block';
+    }
+    else
+        hideDetails();
+
+}
+
+function hideDetails() {
+    document.getElementById("detailsPopUp").style.display = 'none';
+
 }
 
 function openNav() {
