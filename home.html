@@ -1,154 +1,39 @@
 <!DOCTYPE html>
 <html>
+<meta charset=utf-8>
 
 <head>
     <title>HOME</title>
-    <link rel="stylesheet" href="css/style.css" />
-
-    <link rel="stylesheet" href="css/style2.css" />
+    <link rel="stylesheet" href="css/home_hover.css" />
+    <link rel="stylesheet" href="css/atelier.css" />
 </head>
 
 <body>
 
-    <div id="PopupID" class="popup" style="display: none; position: absolute;">TRIUNGHI</div>
-    <script src="js/three.js"></script>
-    <script src="js/OrbitControls.js"></script>
-    <script src="js/threex.domevents.js"></script>
+    <div class="header">
+        <h1 class="serif"> <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; WordTo3D</span> </h1>
+    </div>
+
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">About</a>
+            <a href="Atelier.html">Spre atelier</a>
+            <a href="Figuri2D/triunghi.html">La teorie</a>
+        </div>
+    </div>
+
+
+
     <script>
-        function showCanvas() {
-            document.getElementById('scene3d').style.display = 'block';
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
         }
     </script>
-    <!-- <div id="scene3d" style="display: none;"></div> -->
-
-    <script src="js/functiiDeBaza.js"></script>
-    <script src="js/functiiTriunghi.js"></script>
-    <script src="js/functii.js"></script>
-    <script src="js/pctLinTri.js"></script>
-
-    <table>
-        <tr>
-            <td><button onclick="triunghiIsoscel()"> triunghiIsoscel </button></td>
-            <td><button onclick="triunghiOarecare()"> triunghiOarecare </button></td>
-            <td><button onclick="triunghiEchilateral()"> triunghiEchilateral </button></td>
-            <td><button onclick="triunghiDreptunghic()"> triunghiDreptunghic </button></td>
-        </tr>
-        <tr>
-            <td>
-                <div class="dropdownMed">
-                    <button onclick="medDropDown()" class="dropbtnMed"> mediana </button>
-                    <div id="medDropdown" class="dropdown-contentMed">
-                        <!-- <table border="1px"></table> -->
-                        <table>
-                            <tr>
-                                <td>
-                                    <button onclick="selectP()" id="clkP"> Select Point </button>
-                                </td>
-                                <td>
-                                    <intput type="text" id="selP"> Point Name</intput>
-                                </td>
-                                <!-- <td>
-                        <button onclick="delP()" id ="delP">Delete Point</button>
-                    </td> -->
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <button onclick="selectL()" id="clkL"> Select Line </button>
-                                </td>
-                                <td>
-                                    <intput type="text" id="selL">Line Name</intput>
-                                </td>
-                                <!-- <td>
-                        <button onclick="delL()" id ="delL">Delete Line</button>
-                    </td> -->
-                            </tr>
-                            <tr>
-                                <td>
-                                    <button onclick="drawMediana()">Deseneaza Mediana</button>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </td>
-            <td>
-                <div class="dropdownBis">
-                    <button onclick="bisDropDown()" class="dropbtnBis"> bisectoare </button>
-                    <div id="bisDropdown" class="dropdown-contentBis">
-                        <table>
-                            <tr>
-                                <td>
-                                    <button onclick="selectP()" id="clkP2"> Select Point </button>
-                                </td>
-                                <td>
-                                    <intput type="text" id="selP2"> Point Name</intput>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <button onclick="selectL()" id="clkL2"> Select Line </button>
-                                </td>
-                                <td>
-                                    <intput type="text" id="selL2">Line Name</intput>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <button onclick="drawBisectoare()"> Deseneaza Bisesctoare</button>
-                                </td>
-
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </td>
-            <td>
-                <intput type="text" id="selPext"> Point Name</intput>
-            </td>
-            <td>
-                <intput type="text" id="selLext">Line Name</intput>
-            </td>
-            <td>
-                <intput type="text" id="selPointsExt">Selected Points Names</intput>
-            </td>
-        </tr>
-        <tr>
-            <td><button onclick="sterge()"> sterge TOT </button></td>
-            <td><button onclick="undo()"> Undo </button></td>
-            <td><button onclick="refresP()"> refresh </button></td>
-            <td><button onclick="del()"> delete </button></td>
-        </tr>
-    </table>
-
-    <script src="js/init.js"></script>
-
-    <!-- <table border="1px">
-        <tr>
-            <td>
-                <button onclick="selectP()" id ="clkP"> Select Point </button>
-            </td>
-            <td>
-                <intput type="text" id="selP" > Point Name</intput>
-            </td>
-            <td>
-                <button onclick="delP()" id ="delP">Delete Point</button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                <button onclick="selectL()" id ="clkL"> Select Line </button>
-            </td>
-            <td>
-                <intput type="text" id="selL" >Line Name</intput>
-            </td>
-            <td>
-                <button onclick="delL()" id ="delL">Delete Line</button>
-            </td>
-        </tr>
-    </table> -->
 
 
 </body>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<meta charset=utf-8>
+
+<head>
+  <title>Atelierul geometriei</title>
+  <link rel="stylesheet" href="./css/atelier.css" />
+
+  <script src="js/jsDoc/three.js"></script>
+  <script src="js/jsDoc/OrbitControls.js"></script>
+  <script src="js/jsDoc/threex.domevents.js"></script>
+
+  <script src="js/functiiDeBaza.js"></script>
+  <script src="js/functiiTriunghi.js"></script>
+  <script src="js/functii.js"></script>
+  <script src="js/triunghi.js"></script>
+  <script src="js/patrulatere.js"></script>
+  <script src="js/poligoane.js"></script>
+  <script src="js/cerc.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/nav.js"></script>
+</head>
+
+<body onload="startCanvas(0.7)">
+
+  <div id="navbar" class="cerulean">
+    <h1 style="cursor:pointer;" onclick="openNav()">&#9776; WordTo3D</h1>
+  </div>
+
+  <div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+      <a href="./home.html">About</a>
+      <a href="./Atelier.html">Spre atelier</a>
+      <a href="Figuri2D/triunghi.html">La teorie 2D</a>
+      <a href="Figuri3D/Piramida.html">La teorie 3D</a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div id="myScene"></div>
+    <div id="underScene">Some content</div>
+  </div>
+
+  <div id="detailsPopUp"></div>
+
+  <div class="sidenav">
+    <button id="atelierBtn" class="dropdown-btn" onclick="toggleContainer('atelierContainer')">Atelierul geometriei
+    </button>
+    <div id='atelierContainer' class="dropdown-container lv1">
+      <button class="dropdown-btn" onclick="toggleContainer('atelier2D')">Figuri 2D</button>
+      <div id='atelier2D' class="dropdown-container  lv2">
+
+        <div>
+          <button class="dropdown-btn" onclick="toggleContainer('atelierTri')">Triunghiuri</button>
+          <div id='atelierTri' class="dropdown-container  lv3">
+
+            <div>
+              <button class="dropdown-btn" onclick="toggleContainer('liniiTri')">Linii in triunghi</button>
+              <div id='liniiTri' class="dropdown-container  lv4">
+
+                <div>
+                  <button class="dropdown-btn" onclick="mediana('mediTri')" onmouseover="showDetails('mediTri')" onmouseout="hideDetails()">
+                    Mediana
+                  </button>
+                  <div id='mediTri' class="dropdown-container hidden lv5">
+                    <button class="dropdown-btn" onclick="drawMediana()">Deseneaza!</button>
+                  </div>
+                </div>
+
+                <div>
+                  <button class="dropdown-btn" onclick="">Biserctoare</button>
+                </div>
+
+                <div>
+                  <button class="dropdown-btn" onclick="linMij('linMijTri')">Linia Mijlocie</button>
+                  <div id='linMijTri' class="dropdown-container  lv5">
+                    <button class="dropdown-btn" onclick="drawLinieMijlocie()">Deseneaza!</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            
+            <div>
+              <button class="dropdown-btn" onclick="toggleContainer('tipTri')">Tipuri de Triunghiuri</button>
+              <div id='tipTri' class="dropdown-container hidden lv4">
+                <button class="dropdown-btn" onclick="triunghiOarecare()">Triunghi Oarecare</button>
+                <button class="dropdown-btn" onclick="triunghiIsoscel()">Triunghi Isoscel</button>
+                <button class="dropdown-btn" onclick="triunghiEchilateral()">Triunghi Echilateral</button>
+                <button class="dropdown-btn" onclick="triunghiDreptunghic()">Triunghi Dreptunghic</button>
+                <button class="dropdown-btn" onclick="triunghiDreptunghicIsoscel()">Triunghi Dreptunghic
+                  Isoscel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <button class="dropdown-btn" onclick="toggleContainer('atelierPtr')">Patrulatere</button>
+          <div id='atelierPtr' class="dropdown-container hidden lv3">
+            <div>
+              <button class="dropdown-btn" onclick="toggleContainer('liniiPtr')">Linii in patrulatere</button>
+              <div id='liniiPtr' class="dropdown-container hidden lv4">
+                <button class="dropdown-btn" onclick="">Diagonala</button>
+                <button class="dropdown-btn" onclick="">Linia Mijlocie</button>
+                <button class="dropdown-btn" onclick="">Apotema</button>
+              </div>
+            </div>
+
+            <div>
+              <button class="dropdown-btn" onclick="toggleContainer('tipPtr')">Tipuri de patrulatere</button>
+              <div id='tipPtr' class="dropdown-container hidden lv4">
+                <button class="dropdown-btn" onclick="patrat()">Patrat</button>
+                <button class="dropdown-btn" onclick="dreptunghi()">Dreptunghi</button>
+                <button class="dropdown-btn" onclick="paralelogram()">Paralelogram</button>
+                <button class="dropdown-btn" onclick="romb()">Romb</button>
+                <button class="dropdown-btn" onclick="trapez()">Trapez Oarecare</button>
+                <button class="dropdown-btn" onclick="trapezDrept()">Trapez Dreptunghic</button>
+                <button class="dropdown-btn" onclick="trapezIsoscel()">Trapez Isoscel</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div>
+          <button class="dropdown-btn" onclick="toggleContainer('atelierPoli')">Poligoane</button>
+          <div id='atelierPoli' class="dropdown-container hidden lv2">
+
+            <div>
+              <button class="dropdown-btn" onclick="toggleContainer('liniiPoli')">Linii in poligoane</button>
+              <div id='liniiPoli' class="dropdown-container hidden lv3">
+                <button class="dropdown-btn" onclick="">Diagonala</button>
+                <button class="dropdown-btn" onclick="">Linia Mijlocie</button>
+              </div>
+            </div>
+
+            <div>
+              <button class="dropdown-btn" onclick="toggleContainer('tipPoli')">Tipuri de poligoane</button>
+              <div id='tipPoli' class="dropdown-container hidden lv4">
+                <button class="dropdown-btn" onclick="pentagonf()">Pentagon</button>
+                <button class="dropdown-btn" onclick="hexagonf()">Hexagon</button>
+                <button class="dropdown-btn" onclick="heptagonf()">Heptagon</button>
+                <button class="dropdown-btn" onclick="octogonf()">Octogon</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div>
+          <button class="dropdown-btn" onclick="toggleContainer('atelierCerc')">Cercul</button>
+          <div id='atelierCerc' class="dropdown-container hidden lv2">
+
+            <div>
+              <button class="dropdown-btn" onclick="toggleContainer('liniiCerc')">Linii in cerc</button>
+              <div id='liniiCerc' class="dropdown-container hidden lv3">
+                <button class="dropdown-btn" onclick="">Raza</button>
+                <button class="dropdown-btn" onclick="">Diametru</button>
+                <button class="dropdown-btn" onclick="">Coarda</button>
+              </div>
+            </div>
+
+            <div>
+              <button class="dropdown-btn" onclick="toggleContainer('tipCerc')">Tipuri de cerc</button>
+              <div id='tipCerc' class="dropdown-container hidden lv4">
+                <button class="dropdown-btn" onclick="cerc()">Cerc</button>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <a href="">Search</a>
+  </div>
+
+  <script>
+    function openNav() {
+      document.getElementById("myNav").style.width = "100%";
+    }
+
+    function closeNav() {
+      document.getElementById("myNav").style.width = "0%";
+    }
+    window.onscroll = function () { myFunction() };
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+    // test citire enunt
+    // let atribute = ['triunghi', 'patrat', 'oarecare', 'isoscel', 'dreptunghic', 'echilateral', 'inaltimea', 'mediana', 'bisectoarea', 'mediatoarea'];
+    // let enunt = "Fie un triunghi isoscel ABC , cu laturile de lungime 4, 4, 5 si inaltimea AH perpendiculara pe latura BC. Determinati lungimea inaltimii.";
+    // let cuvinte;
+    // let atrb = [];
+    // cuvinte = splitTokens(enunt, ' .,?');
+
+    // for (i = 0; i < cuvinte.length; i++) {
+    //   for (k = 0; k < atribute.length; k++) {
+    //     if (cuvinte[i] == atribute[k]) {
+    //       atrb.push(atribute[k]);
+    //     }
+    //   }
+    // }
+  </script>
+
+</body>
+
+</html>

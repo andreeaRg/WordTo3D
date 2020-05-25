@@ -1,0 +1,188 @@
+.header {
+	background-color: #F1F1F1;
+	text-align: center;
+	padding: 20px;
+  }
+
+  h1 {
+	color:blueviolet;
+	text-align: center;	
+  }
+
+  h2 {
+	color:white;
+	text-align: center;	
+  }
+
+  .serif {
+	font-family: "Times New Roman", Times, serif;
+  }
+
+  td, tr {
+	border-bottom: 1px solid #ddd;
+  }
+
+  th {
+	padding: 30px;
+  }
+
+  .contentCanvas {
+    display: block;
+    float: none;
+    margin: 0 auto;
+    overflow:hidden;
+}
+
+canvas {
+	width: 80%;
+	height: 80%;
+	/* color: #9999FF; */
+	background: null;
+	background-color: #2980B9;
+
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    margin:0;
+    overflow:hidden;            
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+	float: left;
+	padding: 10px;
+  }
+  
+  /* Left and right column */
+  .column.side {
+	width: 45%;
+	background-color:#8A2BE2;
+  }
+  
+  /* Middle column */
+  .column.middle {
+	width: 49%;
+	background-color:#8A2BE2;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
+  
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+	.column.side, .column.middle {
+	  width: 100%;
+	}
+  }
+
+.popup{
+    max-width: 75%;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.49);
+    border-radius: 5px;
+    position: absolute;
+    padding: 5px 20px 5px 20px;
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 1px 3px 1px 1px rgba(0, 0, 0, 0.17);
+    z-index:1109;
+}
+
+
+	#info {
+		position: absolute;
+		top: 10px;
+		width: 100%;
+		text-align: center;
+		z-index: 100;
+		display: block;
+	}
+
+	.dropbtn {
+		background-color: #3498DB;
+		color: white;
+		padding: 16px;
+		font-size: 16px;
+		border: none;
+		cursor: pointer;
+	  }
+	  .dropbtn2 {
+		background-color: #3498DB;
+		color: white;
+		padding: 16px;
+		font-size: 16px;
+		border: none;
+		cursor: pointer;
+	  }
+	  
+	  .dropbtnMed:hover, .dropbtnMed:focus {
+		background-color: #2980B9;
+	  }
+	  .dropbtnBis:hover, .dropbtnBis:focus {
+		background-color: #2980B9;
+	  }
+	  
+	  .dropdown {
+		position: relative;
+		display: inline-block;
+	  }
+	  
+	  .dropdown-contentMed {
+		display: none;
+		position: absolute;
+		background-color: #f1f1f1;
+		min-width: 160px;
+		overflow: auto;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		z-index: 1;
+	  }
+	  .dropdown-contentBis {
+		display: none;
+		position: absolute;
+		background-color: #f1f1f1;
+		min-width: 160px;
+		overflow: auto;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		z-index: 1;
+	  }
+	  
+	  .dropdown-content a {
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	  }
+	  
+	  .dropdown a:hover {background-color: #ddd;}
+	  
+	  .showMed {display: block;}
+	  .showBis {display: block;}
+
+	  #navbar {
+		background-color: #333;
+		position: fixed;
+		top: -50px;
+		width: 100%;
+		display: block;
+		transition: top 0.3s;
+	  }
+	  
+	  #navbar a {
+		float: left;
+		display: block;
+		color: #f2f2f2;
+		text-align: center;
+		padding: 15px;
+		text-decoration: none;
+		font-size: 17px;
+	  }
+	  
+	  #navbar a:hover {
+		background-color: #ddd;
+		color: black;
+	  }

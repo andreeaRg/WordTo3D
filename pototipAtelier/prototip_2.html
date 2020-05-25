@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<meta charset=utf-8>
+
+<head>
+    <title>0 Atelierul geometriei</title>
+    <link rel="stylesheet" href="css/style_prototip_1_2.css" />
+    <link rel="stylesheet" href="css/button.css" />
+</head>
+
+<body>
+    <div class="header">
+        <h1 class="serif">Atelierul geometriei no.2</h1>
+    </div>
+
+    <script src="js/jsDoc/three.js"></script>
+    <script src="js/jsDoc/OrbitControls.js"></script>
+    <script src="js/jsDoc/threex.domevents.js"></script>
+
+    <script src="js/functiiDeBaza.js"></script>
+    <script src="js/functiiTriunghi.js"></script>
+    <script src="js/functii.js"></script>
+    <script src="js/pctLinTri.js"></script>
+    <script>function DropDownMeniu(){
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+      
+      // Close the dropdown if the user clicks outside of it
+      window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }}}}
+    </script>
+
+
+    <div class="row">
+        <div class="column side">
+            <h2 class="serif">Tabla de desen</h2>
+            <div id="myScene" class="contentCanvas">
+                <script src="js/init.js"></script>
+            </div>
+        </div>
+
+        <div class="column middle">
+            <h2 > Meniu</h2>
+            <div class="dropdown">
+                <button onclick="DropDownMeniu()" class="dropbtn">Instrumente</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <table>
+                        <tr>
+                            <div class="btn-group">
+
+                                <div class="dropdown">
+                                    <button onclick="DropDownMeniu()" class="dropbtn">Triunghi</button>
+                                    
+                                    <div id="myDropdown" class="dropdown-content">
+                                        <table><tr><div class="btn-group">
+                                            <button class="button"> Triunghi Oarecare</button>
+                                            <button class="button"> Triunghi Isoscel</button>
+                                            <button class="button"> Triunghi Dreptunghic</button>
+                                            <button class="button"> Triunghi Echilateral</button>
+                                        </div></tr></table>
+                                    </div>
+                                </div>
+                            
+                                <div class="dropdown">
+                                    <button onclick="DropDownMeniu()" class="dropbtn">Patrulater</button>
+                                    
+                                    <div id="myDropdown" class="dropdown-content">
+                                        <table><tr><div class="btn-group">
+                                            <button class="button">Patrat</button>
+                                            <button class="button">Romb</button>
+                                            <button class="button">Dreptunghic</button>
+                                            <button class="button">Paralelogram</button>
+                                        </div></tr></table>
+                                    </div>
+                                </div>
+
+                                <div class="dropdown">
+                                    <button onclick="DropDownMeniu()" class="dropbtn">Poligoane</button>
+                                    <div id="myDropdown" class="dropdown-content">
+                                        <table><tr><div class="btn-group">
+                                            <button class="button">Pentagon</button>
+                                            <button class="button">Hexagon</button>
+                                            <button class="button">Heptagon</button>
+                                            <button class="button">Octagon</button>
+                                        </div></tr></table>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="dropdown">
+                                    <button onclick="DropDownMeniu()" class="dropbtn">Cerc</button>
+
+                                    <div id="myDropdown" class="dropdown-content">
+                                        <table><tr><div class="btn-group">
+                                            <button class="button">Cerc</button>
+                                            <button class="button">Cerc inscris</button>
+                                            <button class="button">Cerc circumscris</button>
+                                        </div></tr></table>
+                                    </div>
+                                </div><!-- div pt dropdown-->
+                            </div><!-- div pt grup forme-->
+                        </tr>
+
+                        <tr>
+                        <div class="btn-group">
+                            <button onclick="sterge()" class="button"> sterge TOT </button>
+                            <button onclick="undo()" class="button"> Undo </button>
+                            <button onclick="refresP()" class="button"> refresh </button>
+                            <button onclick="del()" class="button"> delete </button>
+                        </div>
+                        </tr>
+                    </table>
+                </div><!-- drop down content instrumente-->
+            </div><!-- drop down instrumente-->
+
+        </div><!-- div column middle-->
+    </div><!-- div row-->
+
+</body>
+
+</html>

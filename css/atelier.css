@@ -1,0 +1,233 @@
+.tut_overview{ /* pentru sub meniu */
+  display :none;
+  margin-left:10px; /* margin-right: 10px; */
+  background-color :#ddd;
+  line-height:1.8em;
+ }
+
+ .cerulean{
+  background-color:#4484CE;
+  color:#ffffff;
+}
+
+ #enunt {
+	background-color: #F1F1F1;
+	text-align: center;
+	padding: 20px;
+}
+
+#underScene{
+  width: 70%;
+	background-color: #F1F1F1;
+}
+
+#myScene{
+  display: block;
+    float: left;
+    margin-right: 0;
+    overflow:hidden;
+}
+
+h1 {
+  margin: 0;
+  background-color:#4484CE;
+  color:#ffffff;
+  }
+
+  h2 {
+  margin: 0;
+	background-color: blueviolet;
+	color:white;
+  text-align: left;
+  padding-left: 300px;
+  }
+
+  .serif {
+	font-family: "Times New Roman", Times, serif;
+  }
+
+  .header {
+    background-color: #F1F1F1;
+    text-align: center;
+    padding-left: 280px;
+    padding: 20px;
+    /* height: 200px; */
+    }
+
+body {
+    font-family: "Lato", sans-serif;
+    margin: 0;
+  }
+  
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: blueviolet;
+    color: white;
+    text-align: left;
+    padding-left: 300px;
+    padding-bottom: 10px;
+    height: 30px;
+ }
+
+   .main {
+    font-size: 20px;
+    position: fixed;
+    top: 7%;
+    width: 70%;
+    height: 93%;
+    background-color: #F0F0F0;
+  }
+
+  section:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  #navbar {
+    overflow: hidden;
+    height: 7%;
+    width: 100%;
+    top: 0px;
+    left: 0;
+    position: fixed;
+    text-align: center;
+  }
+  
+  .sidenav {
+    height: 93%;
+    width: 30%;
+    position: fixed;
+    top: 7%;
+    right: 0;
+    background-color: #F0F8FF;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-left: 2px #4484CE solid;
+
+  }
+  
+  /* Style the sidenav links and the dropdown button */
+  .sidenav a, .dropdown-btn {
+    padding: 6px 16px 6px 8px;/* distanta intre butoare */ 
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  /* On mouse-over */
+  .sidenav a:hover, .dropdown-btn:hover {
+    background-color: #87CEFA;
+  }
+
+   .active {
+    background-color: green;
+    color: white;
+  }
+  
+  .dropdown-container {
+    overflow-y: auto;
+  }
+
+  .lv1{
+    margin-left: 30px;
+  }
+  .lv2{
+    margin-left: 30px;
+  }
+  .lv3{
+    margin-left: 30px;
+  }
+  .lv4{
+    margin-left: 30px;
+  }
+  .lv5{
+    margin-left: 20px;
+    width: 40%;
+    background-color: rgb(167, 221, 255);
+  }
+
+  .hidden{
+    display: none;
+  }
+  
+  .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+  }
+
+.overlay {
+ height: 100%;
+  width: 0; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  /* left: 0; */
+  position: fixed;
+  top: 0;
+  background-color: rgb(0,0,0); /* Black fallback color */
+  background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+#detailsPopUp{
+  position: absolute;
+  overflow-x: hidden;
+  overflow-y: auto;
+  top: 7%;
+  left: 54.9%;
+  width: 15%;
+  /* height: 55%; */
+  display: none;
+  z-index: 3;
+  background-color: beige;
+}
+
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+  }
+}
