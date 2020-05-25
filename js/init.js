@@ -25,6 +25,18 @@ scene.add(planZoX);
 sistemCartezian(50, 50, 50);
 scene.background = new THREE.Color(0xFFFFFF);
 
+function addDatGui(){
+    var gui = new dat.GUI();
+
+    gui.add(camera.position, 'x', -70,70).step(5);
+    gui.add(camera.position, 'y', -70,70).step(5);
+    gui.add(camera.position, 'z', 10,250).step(5);
+
+    // gui.position.y= 500;
+    
+    
+}
+
 function init() {
     // renderer.setSize(window.innerWidth, window.innerHeight);
     // document.body.appendChild(renderer.domElement);
@@ -41,6 +53,8 @@ function init() {
     camera.position.z = 40;
     controls.minDistance = 1;
     controls.maxDistance = 1000;
+    addDatGui();
+
 }
 
 function animate() {
@@ -49,6 +63,7 @@ function animate() {
     renderer.setSize(width, height);
     renderer.render(scene, camera);
 }
+
 var width; var height;
 function startCanvas(scale) {
     let r =  window.innerWidth / window.innerHeight;
