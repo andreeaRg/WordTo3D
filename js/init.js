@@ -26,14 +26,15 @@ sistemCartezian(50, 50, 50);
 scene.background = new THREE.Color(0xFFFFFF);
 
 function addDatGui(){
-    var gui = new dat.GUI();
+    var gui = new dat.GUI({ autoPlace: false });
 
-    gui.add(camera.position, 'x', -70,70).step(5);
-    gui.add(camera.position, 'y', -70,70).step(5);
-    gui.add(camera.position, 'z', 10,250).step(5);
+    gui.add(camera.position, 'x', -70,70).step(5).listen();
+    gui.add(camera.position, 'y', -70,70).step(5).listen();
+    gui.add(camera.position, 'z', 10,250).step(5).listen();
 
     // gui.position.y= 500;
-    
+    document.getElementById('underScene').appendChild(gui.domElement);
+    gui.domElement.style.position = "relative";
     
 }
 
