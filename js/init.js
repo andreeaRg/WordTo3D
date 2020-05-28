@@ -32,10 +32,8 @@ function addDatGui(){
     gui.add(camera.position, 'y', -70,70).step(5).listen();
     gui.add(camera.position, 'z', 10,250).step(5).listen();
 
-    // gui.position.y= 500;
-    document.getElementById('underScene').appendChild(gui.domElement);
-    gui.domElement.style.position = "relative";
-    
+    // document.getElementById('sidenav').appendChild(gui.domElement);
+    // gui.domElement.style.position = "relative";
 }
 
 function init() {

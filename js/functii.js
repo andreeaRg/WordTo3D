@@ -192,8 +192,6 @@ function clickL(line2D) {
 
     else if (clickLine == 'del')
         scene.remove(line2D);
-
-        console.log(selectedLines)
 }
 
 function clickSfera(point) {

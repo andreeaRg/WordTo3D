@@ -194,9 +194,21 @@ function undo() {
 }
 
 function refresP() {
-    camera.position.x = 20;
-    camera.position.y = 10;
+    camera.position.x = 0;
+    camera.position.y = 0;
     camera.position.z = 40;
+}
+
+function rotateCamH(step) {
+    if(camera.position.x + step > 50 || camera.position.x + step < -50)
+        return;
+    camera.position.x += step;
+}
+
+function rotateCamV(step) {
+    if(camera.position.y + step > 50 || camera.position.y + step < -50)
+        return;
+    camera.position.y += step;
 }
 
 function perspectivaXoY(x, y,z) {

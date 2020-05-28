@@ -12,7 +12,7 @@ var p_linie4_1 = new THREE.Line3(p4, p1);
 
 function patrat() {
     sterge();
-    perspectivaXoY(0,0);
+    perspectivaXoY(0,0,40);
     addLinieBaza(p_linie1_2);
     addLinieBaza(p_linie2_3);
     addLinieBaza(p_linie3_4);
@@ -31,7 +31,7 @@ function patratDeVar(p1, p2, p3, p4) {
     p_linie4_1 = new THREE.Line3(p4, p1);
 
     sterge();
-    perspectivaXoY(0,0);
+    perspectivaXoY(0,0,40);
     addLinieBaza(p_linie1_2);
     addLinieBaza(p_linie2_3);
     addLinieBaza(p_linie3_4);
@@ -52,7 +52,7 @@ var p_linie8_5 = new THREE.Line3(p8, p5);
 
 function paralelogram() {
     sterge();
-    perspectivaXoY(0,0);
+    perspectivaXoY(0,0,40);
     addLinieBaza(p_linie5_6);
     addLinieBaza(p_linie6_7);
     addLinieBaza(p_linie7_8);
@@ -71,7 +71,7 @@ function paralelogramDeVar(p1, p2, p3, p4) {
     p_linie4_1 = new THREE.Line3(p4, p1);
     
     sterge();
-    perspectivaXoY(0,0);
+    perspectivaXoY(0,0,40);
     addLinieBaza(p_linie1_2);
     addLinieBaza(p_linie2_3);
     addLinieBaza(p_linie3_4);
@@ -92,7 +92,7 @@ var p_linie12_9 = new THREE.Line3(p12, p9);
 
 function romb() {
     sterge();
-    perspectivaXoY(0,0);
+    perspectivaXoY(0,0,40);
     addLinieBaza(p_linie9_10);
     addLinieBaza(p_linie10_11);
     addLinieBaza(p_linie11_12);
@@ -111,7 +111,7 @@ function rombDeVar(p1, p2, p3, p4) {
     p_linie4_1 = new THREE.Line3(p4, p1);
     
     sterge();
-    perspectivaXoY(0,0);
+    perspectivaXoY(0,0,40);
     addLinieBaza(p_linie1_2);
     addLinieBaza(p_linie2_3);
     addLinieBaza(p_linie3_4);
@@ -132,7 +132,7 @@ var p_linie16_13 = new THREE.Line3(p16, p13);
 
 function trapezDrept() {
     sterge();
-    perspectivaXoY(0,0);
+    perspectivaXoY(0,0,40);
     addLinieBaza(p_linie13_14);
     addLinieBaza(p_linie14_15);
     addLinieBaza(p_linie15_16);
@@ -151,7 +151,7 @@ function trapezDreptDeVar(p1, p2, p3, p4) {
     p_linie4_1 = new THREE.Line3(p4, p1);
     
     sterge();
-    perspectivaXoY(0,0);
+    perspectivaXoY(0,0,40);
     addLinieBaza(p_linie1_2);
     addLinieBaza(p_linie2_3);
     addLinieBaza(p_linie3_4);
@@ -171,7 +171,7 @@ var p_linie20_17 = new THREE.Line3(p20, p17);
 
 function trapez() {
     sterge();
-    perspectivaXoY(0,0);
+    perspectivaXoY(0,0,40);
     addLinieBaza(p_linie17_18);
     addLinieBaza(p_linie18_19);
     addLinieBaza(p_linie19_20);
@@ -190,7 +190,7 @@ function trapezDeVar(p1, p2, p3, p4) {
     p_linie4_1 = new THREE.Line3(p4, p1);
     
     sterge();
-    perspectivaXoY(0,0);
+    perspectivaXoY(0,0,40);
     addLinieBaza(p_linie1_2);
     addLinieBaza(p_linie2_3);
     addLinieBaza(p_linie3_4);
@@ -210,7 +210,7 @@ var p_linie24_21 = new THREE.Line3(p24, p21);
 
 function trapezIsoscel() {
     sterge();
-    perspectivaXoY(0,0);
+    perspectivaXoY(0,0,40);
     addLinieBaza(p_linie21_22);
     addLinieBaza(p_linie22_23);
     addLinieBaza(p_linie23_24);
@@ -229,7 +229,7 @@ function trapezIsoscelDeVar(p1, p2, p3, p4) {
     p_linie4_1 = new THREE.Line3(p4, p1);
     
     sterge();
-    perspectivaXoY(0,0);
+    perspectivaXoY(0,0,40);
     addLinieBaza(p_linie1_2);
     addLinieBaza(p_linie2_3);
     addLinieBaza(p_linie3_4);
@@ -250,7 +250,7 @@ var p_linie28_25 = new THREE.Line3(p28, p25);
 
 function dreptunghi() {
     sterge();
-    perspectivaXoY(0,0);
+    perspectivaXoY(0,0,40);
     addLinieBaza(p_linie25_26);
     addLinieBaza(p_linie26_27);
     addLinieBaza(p_linie27_28);
@@ -269,7 +269,7 @@ function dreptunghiDeVar(p1, p2, p3, p4) {
     p_linie4_1 = new THREE.Line3(p4, p1);
     
     sterge();
-    perspectivaXoY(0,0);
+    perspectivaXoY(0,0,40);
     addLinieBaza(p_linie1_2);
     addLinieBaza(p_linie2_3);
     addLinieBaza(p_linie3_4);

@@ -25,10 +25,10 @@
 }
 
 #myScene{
-  display: block;
-    float: left;
-    margin-right: 0;
-    overflow:hidden;
+  position: fixed;
+  top:7%;
+  left: 0%;
+  overflow:hidden;
 }
 
 h1 {
@@ -234,3 +234,12 @@ body {
       right: 35px;
   }
 }
+
+  .viewCtrl{
+    width: 51px;
+  }
+
+  #inputP{
+    width: 95%;
+    height: 17em;
+  }
