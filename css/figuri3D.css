@@ -160,21 +160,15 @@ h1 {
        /* #66ccff */
     position: fixed;
   }
-  
-  #tetraedru {
-    top: 283px; /* 200*/
-    position: fixed;
-    background-color: #ffe066;
-  } 
 
   #sfera {
-    top: 343px; /* 200*/
+    top: 283px; /* 200*/
     position: fixed;
     background-color: #ffe066;
   }
 
   #conuri {
-    top: 403px; /* 200*/
+    top: 343px; /* 200*/
     position: fixed;
     background-color: #ffe066;
   }
