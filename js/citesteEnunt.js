@@ -9,8 +9,7 @@ function interpreteazaEnunt(enunt) {
     .split('.').join(',')
     .split('!').join(',')
     .split('?').join(',')
-    .split(',')
-  console.log("Test method")
+    .split(',');
 
   for (let i = 0; i < cuvinte.length; i++) {
     for (let k = 0; k < atribute.length; k++) {
