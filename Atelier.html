@@ -11,6 +11,8 @@
   <script src="js/jsDoc/dat.gui.min.js"></script>
   <script src="js/jsDoc/threex.domevents.js"></script>
 
+  <script src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
+
   <script src="js/functiiDeBaza.js"></script>
   <script src="js/functiiTriunghi.js"></script>
   <script src="js/functii.js"></script>
@@ -86,8 +88,9 @@
       <div>
         <button class="dropdown-btn" onclick="toggleContainer('scrieP')">Scrie problema</button>
         <div id='scrieP' class="dropdown-container hidden lv2">
-          <textarea id="inputP" name="inputP"></textarea>
-  
+          <br />
+          <textarea id="inputP" name="inputP"></textarea> <br />
+
           <div class="dropdown-container lv5">
             <button class="dropdown-btn" onclick="interpreteaza('inputP')">Interpreteaza!</button>
           </div>
@@ -95,27 +98,19 @@
       </div>
 
       <div>
-        <button class="dropdown-btn" onclick="toggleContainer('citesteF')">Incarca fisier</button>
-        <div id='citesteF' class="dropdown-container hidden lv2">
-          <input type="file" id="fisier">
-  
+        <button class="dropdown-btn" onclick="toggleContainer('citesteP')">Citeste o poza</button>
+        <div id='citesteP' class="dropdown-container hidden lv2">
+          <img id="viz" width="100%" style="display: none;" /> <br />
+
+          <input type="file" id="poza" accept="image/*" onchange="viewImg(event)">
+          <button onclick="ocrImg()"> Citeste!</button> <br />
+          <div id='rezultatCitire' class="dropdown-container lv2"></div>
           <div class="dropdown-container lv5">
-            <button class="dropdown-btn" onload="readText()">Interpreteaza!</button>
+            <button class="dropdown-btn" onclick="interpreteaza('rezultatCitire')">Interpreteaza!</button>
           </div>
         </div>
       </div>
 
-      <div>
-        <button class="dropdown-btn" onclick="toggleContainer('citesteP')">Citeste o poza</button>
-        <div id='citesteP' class="dropdown-container hidden lv2">
-          <input type="file" id="poza">
-  
-          <div class="dropdown-container lv5">
-            <button class="dropdown-btn" onclick="">Interpreteaza!</button>
-          </div>
-        </div>
-      </div>
-      
       <div id='rezultatContainer' class="dropdown-container lv2"></div>
 
     </div>
@@ -370,15 +365,29 @@
     }
 
     // Read from file 
-    document.getElementById('fisier') 
-    .addEventListener('change', function() { 
-        var fr = new FileReader(); 
-        fr.onload = function(){ 
-            document.getElementById('rezultatContainer') 
-                    .textContent = fr.result; 
-        }
-        fr.readAsText(this.files[0]); 
-    });
+    // document.getElementById('fisier')
+    //   .addEventListener('change', function () {
+    //     var fr = new FileReader();
+    //     fr.onload = function () {
+    //       document.getElementById('rezultatContainer')
+    //         .textContent = fr.result;
+    //     }
+    //     fr.readAsText(this.files[0]);
+    //   });
+
+    //    OCR
+    function ocrImg() {
+      var img = document.getElementById('viz').src;
+
+      Tesseract.recognize(
+        img,
+        'eng',
+        { logger: m => console.log(m) }
+      ).then(({ data: { text } }) => {
+        document.getElementById('rezultatCitire').innerText = text;
+      });
+
+    }
 
   </script>
 

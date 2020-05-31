@@ -240,5 +240,16 @@ function interpreteazaEnunt(enunt) {
 }// function
 
 function interpreteaza(id) {
-  interpreteazaEnunt(document.getElementById(id).value);
+  if (id == 'inputP')
+    interpreteazaEnunt(document.getElementById(id).value)
+  else if (id = 'rezultatCitire')
+    interpreteazaEnunt(document.getElementById(id).innerText)
+  else
+    return;
+}
+
+function viewImg(event) {
+  var image = document.getElementById('viz');
+  image.style.display = 'block';
+  image.src = URL.createObjectURL(event.target.files[0]);
 }
