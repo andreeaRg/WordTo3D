@@ -1,3 +1,9 @@
+let elementeDinEnunt = [];
+let figuraCentrala = [];
+let cuvinte = [];
+var mapCuvinteEnunt = new Map();
+
+
 //  test citire enunt
 let radFiguri2D = ['triunghi', 'patrat', 'patrulater', 'romb', 'dreptunghi', 'paralelogram', 'trapez', 'pentagon', 'hexagon', 'heptagon', 'octagon', 'cerc', 'disc'];
 let radAtribute2D = ['oarecare', 'isoscel', 'dreptunghic', 'echilateral']; //convex
@@ -10,19 +16,29 @@ let radLiniImportante = ['inaltim', 'median', 'bisecto', 'mediato', 'diagonal', 
 //tangente | tangenta la cerc ; 
 let formule = ['ari', 'volum']; // masa , densitate
 
+function isAtribut2D(i){
+  for (let l = 0; l < radAtribute2D.length; l++) {
+
+    if (cuvinte[i + 1].includes(radAtribute2D[l])) {
+
+      mapCuvinteEnunt.set(cuvinte[i + 1], radAtribute2D[l]);
+      figuraCentrala.push(radAtribute2D[l]);
+      i++;}
+    }
+}
+
 // let enunt = "Fie un triunghi isoscel ABC , cu laturile de lungime 4, 4, 5 si inaltimea AH perpendiculara pe latura BC. Determinati lungimea inaltimii.";
 function interpreteazaEnunt(enunt) {
-  let elementeDinEnunt = [];
-  let figuraCentrala = [];
-  var mapCuvinteEnunt = new Map();
-  let cuvinte = enunt.replace(/(?:\r\n|\r|\n)/g, ' ').split(' ').join(',')
+  elementeDinEnunt = [];
+  figuraCentrala = [];
+  mapCuvinteEnunt = new Map();
+  cuvinte = enunt.toLowerCase().replace(/(?:\r\n|\r|\n)/g, ' ').split(' ').join(',')
     .split('.').join(',')
     .split('!').join(',')
     .split('?').join(',')
     .split(',')
 
-  cuvinte.toLowerCase();
-  console.log("Test method")
+  console.log("Test method") 
 
   for (let i = 0; i < cuvinte.length; i++) {
     for (let k = 0; k < radFiguri2D.length; k++) {
