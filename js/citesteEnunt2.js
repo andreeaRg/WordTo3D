@@ -1,7 +1,8 @@
 let elementeDinEnunt = [];
 let figuraCentrala = [];
 let cuvinte = [];
-var mapCuvinteEnunt = new Map();
+let enuntOriginal;
+var mapFigIdentificate = new Map();
 var contentFormule;
 var definitiiElemente = [];
 var mapDefinitii = new Map();
@@ -19,39 +20,41 @@ let radLiniImportante = ['inaltim', 'median', 'bisecto', 'mediato', 'diagonal', 
 //tangente | tangenta la cerc ; 
 let formule = ['ari', 'volum']; // masa , densitate
 
+let listaMetodeFig = [];
+
 // let enunt = "Fie un triunghi isoscel ABC , cu laturile de lungime 4, 4, 5 si inaltimea AH perpendiculara pe latura BC. Determinati lungimea inaltimii.";
 function interpreteazaEnunt(enunt) {
-    var cheie = true;
+    enuntOriginal = enunt;
     elementeDinEnunt = [];
     figuraCentrala = [];
-    mapCuvinteEnunt = new Map();
+    mapFigIdentificate = new Map();
     cuvinte = enunt.toLowerCase().replace(/(?:\r\n|\r|\n)/g, ' ').split(' ').join(',')
         .split('.').join(',')
         .split('!').join(',')
         .split('?').join(',')
-        .split(',')
-
-    console.log("Test method")
+        .split(',');
 
     for (let i = 0; i < cuvinte.length; i++) {
         for (let j = 0; j < radFiguri3D.length; j++) {
             if (cuvinte[i].includes(radFiguri3D[j])) {
 
-                mapCuvinteEnunt.set(radFiguri3D[j], i);
-                figuraCentrala.push(radFiguri3D[j]);
-                while (cheie) {
-                    isAtribut3D(i + 1);
-                }
+                mapFigIdentificate.set(i, [radFiguri3D[j]] );
+                // figuraCentrala.push(radFiguri3D[j]);
+
+                //verifica si adauga atribute
+                adaugaAtr3D(i + 1); 
+                adaugaAtr3D(i + 2);
             }
         }// am terminat o figura 3D
 
         for (let k = 0; k < radFiguri2D.length; k++) {
             if (cuvinte[i].includes(radFiguri2D[k])) {
-                mapCuvinteEnunt.set(radFiguri2D[k], i);
-                figuraCentrala.push(radFiguri2D[k]);
-                while (cheie) {
-                    isAtribut2D(i + 1);
-                }
+                mapFigIdentificate.set(i, [radFiguri2D[k]] );
+                // figuraCentrala.push(radFiguri2D[k]);
+                
+                //verifica si adauga atribute
+                adaugaAtr2D(i + 1);
+                adaugaAtr2D(i + 2)
             }
         }// am terminat o figura 2D
 
@@ -59,16 +62,41 @@ function interpreteazaEnunt(enunt) {
 
     }
 
-    afiseazaCarcteristiciFiguraCentrala(figuraCentrala[0]);
+    afiseazaDefFigCentrala(figuraCentrala[0]);
     afiseazaFormuleleFiguriiCentrale();
-    document.getElementById('rezultatContainer').innerText = afiseazaCarcteristiciFiguraCentrala(figuraCentrala[0]);
-    document.getElementById('rezultatContainer').innerText = afiseazaCarcteristiciFiguraCentrala(figuraCentrala[0]);
+    // document.getElementById('rezultatContainer').innerText = afiseazaDefFigCentrala(figuraCentrala[0]);
+    document.getElementById('rezultatContainer').innerText = afiseazaDefFigCentrala(figuraCentrala[0]);
     document.getElementById('rezultatContainer').innerText += afiseazaFormuleleFiguriiCentrale();;
 }
 
-function afiseazaCarcteristiciFiguraCentrala(cuv) {
+function afiseazaRezultat(){
+    let enuntFinal = enuntOriginal;
+    mapFigIdentificate.forEach( (iCuv, fig) => {
+        enuntFinal.replace(cuvinte[iCuv], construiesteButon( cuvinte[i], fig ))
+    } );
+    document.getElementById('rezultatContainer').innerHTML = enuntFinal;
+}
+
+function construiesteButon(cuv, figura){
+    let numeMetoda = [];
+    for(let caracteristica in figura ){
+        numeMetoda = listaMetodeFig.filter( (metoda) =>{metoda.includes(caracteristica)} );
+    }
+    //daca nu avem atribute si figura nu este specifica(gen patrat)
+    if(figura.length == 1 && numeMetoda.length > 1){
+        //aplicam default
+        numeMetoda = listaMetodeFig.filter( (metoda) =>{metoda.includes("oarecare")} );
+    }
+
+    if( numeMetoda.length == 1)
+        alert("Metoda constructie bunont trebuie regandita!");
+   
+    let btn = '<button class="dropdown-btn" onclick="'+ numeMetoda +'()">'+cuv+'</button>';// de  creat o clasa pt butoane enunt
+}
+
+function afiseazaDefFigCentrala(cuv) {
     var contentFigura = "";
-    switch (figuraCentrala[0]) {
+    switch (cuv) {
 
         case "triunghi":
             switch (cuvinte[1]) {
@@ -160,29 +188,29 @@ function afiseazaCarcteristiciFiguraCentrala(cuv) {
     }
     return contentFigura;
 }
-function isAtribut2D(b) {
-    for (let l = 0; l < radAtribute2D.length; l++) {
-        if (cuvinte[b].includes(radAtribute2D[l])) {
-            mapCuvinteEnunt.set(radAtribute2D[l], b);
-            figuraCentrala.push(radAtribute2D[l]);
-            b++;
-            return cheie = true;
 
+function adaugaAtr2D(indexCuvUrmator) {
+    for (let iRad2d = 0; iRad2d < radAtribute2D.length; iRad2d++) {
+        if (cuvinte[indexCuvUrmator].includes(radAtribute2D[iRad2d])) {
+            mapFigIdentificate.get(indexCuvUrmator).push(radAtribute3D[iRad2d]);
+            // figuraCentrala.push(radAtribute2D[iRad2d]);
+            // indexCuvUrmator++;
+            return true;
         }
     }
-    return cheie = false;
+    return false;
 }
 
-function isAtribut3D(a) {
-    for (let l = 0; l < radAtribute3D.length; l++) {
-        if (cuvinte[a].includes(radAtribute3D[l])) {
-            mapCuvinteEnunt.set(radAtribute3D[l], a);
-            figuraCentrala.push(radAtribute3D[l]);
-            a++;
-            return cheie = true;
+function adaugaAtr3D(indexCuvUrmator) {
+    for (let iRad3d = 0; iRad3d < radAtribute3D.length; iRad3d++) {
+        if (cuvinte[indexCuvUrmator].includes(radAtribute3D[iRad3d])) {
+            mapFigIdentificate.get(indexCuvUrmator).push(radAtribute3D[iRad3d]);
+            // figuraCentrala.push(radAtribute3D[iRad3d]);
+            // indexCuvUrmator++;
+            return true;
         }
     }
-    return cheie = false;
+    return false;
 }
 
 function afiseazaFormuleleFiguriiCentrale() {
@@ -275,7 +303,7 @@ function afiseazaFormuleleFiguriiCentrale() {
 function gasesteLiniiImportanteDinEnunt(d) {
     for (let e = 0; e < radLiniImportante.length; e++) {
         if (cuvinte[d].includes(radLiniImportante[e])) {
-            mapCuvinteEnunt.set(radLiniImportante[e], d);
+            mapFigIdentificate.set(d, radLiniImportante[e]);
             elementeDinEnunt.push(radLiniImportante[e]);
 
             switch (elementeDinEnunt[0]) {
