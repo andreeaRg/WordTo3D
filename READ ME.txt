@@ -1,0 +1,5 @@
+Aplicatia cuprinde 3 sectiuni:
+	1.Pagina de intrare - home, in home.html
+	2.Pagina de atelier - locul unde se construiesc figurile geometrice si se analizeaza enuntul
+		Atelier.html
+	3.Fundamentarea teoretica - Folder-ul Figuri2D si Figuri3D, cu paginile html corespunzatoare
