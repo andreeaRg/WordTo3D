@@ -17,25 +17,54 @@ function patrat() {
     addLinieBaza(p_linie2_3);
     addLinieBaza(p_linie3_4);
     addLinieBaza(p_linie4_1);
-}
 
-function patratDeVar(p1, p2, p3, p4) {
-    p1.name = "A";
-    p2.name = "B";
-    p3.name = "C";
-    p3.name = "D";
+    let loaderPatrat = new THREE.FontLoader();
+    loaderPatrat.load('../js/jsDoc/helvetiker_regular.typeface.json', function (font) {
+        let color = new THREE.Color(0x006699);
 
-    p_linie1_2 = new THREE.Line3(p1, p2);
-    p_linie2_3 = new THREE.Line3(p2, p3);
-    p_linie3_4 = new THREE.Line3(p3, p4);
-    p_linie4_1 = new THREE.Line3(p4, p1);
+        let matLite = new THREE.MeshBasicMaterial({
+            color: color,
+            transparent: true,
+            opacity: 0.4,
+            side: THREE.DoubleSide
+        });
 
-    sterge();
-    perspectivaXoY(0,0,40);
-    addLinieBaza(p_linie1_2);
-    addLinieBaza(p_linie2_3);
-    addLinieBaza(p_linie3_4);
-    addLinieBaza(p_linie4_1);
+        let messageA = p1.name;
+        let shapesA = font.generateShapes(messageA, 3);
+        let geometryA = new THREE.ShapeBufferGeometry(shapesA);
+        let textA = new THREE.Mesh(geometryA, matLite);
+        textA.position.x = p1.getComponent(0) - 4;
+        textA.position.y = p1.getComponent(1);
+        textA.position.z = p1.getComponent(2);
+        scene.add(textA);
+
+        let messageB = p2.name;
+        let shapesB = font.generateShapes(messageB, 3);
+        let geometryB = new THREE.ShapeBufferGeometry(shapesB);
+        let textB = new THREE.Mesh(geometryB, matLite);
+        textB.position.x = p2.getComponent(0) + 2;
+        textB.position.y = p2.getComponent(1);
+        textB.position.z = p2.getComponent(2);
+        scene.add(textB);
+
+        let messageC = p3.name;
+        let shapesC = font.generateShapes(messageC, 3);
+        let geometryC = new THREE.ShapeBufferGeometry(shapesC);
+        let textC = new THREE.Mesh(geometryC, matLite);
+        textC.position.x = p3.getComponent(0) + 2;
+        textC.position.y = p3.getComponent(1);
+        textC.position.z = p4.getComponent(2);
+        scene.add(textC);
+
+        let messageD = p4.name;
+        let shapesD = font.generateShapes(messageD, 3);
+        let geometryD = new THREE.ShapeBufferGeometry(shapesD);
+        let textD = new THREE.Mesh(geometryD, matLite);
+        textD.position.x = p4.getComponent(0) - 4;
+        textD.position.y = p4.getComponent(1);
+        textD.position.z = p4.getComponent(2);
+        scene.add(textD);
+    });
 }
 
 // PARALELOGRAM
@@ -57,25 +86,6 @@ function paralelogram() {
     addLinieBaza(p_linie6_7);
     addLinieBaza(p_linie7_8);
     addLinieBaza(p_linie8_5);
-}
-
-function paralelogramDeVar(p1, p2, p3, p4) {
-    p1.name = "A";
-    p2.name = "B";
-    p3.name = "C";
-    p3.name = "D";
-
-    p_linie1_2 = new THREE.Line3(p1, p2);
-    p_linie2_3 = new THREE.Line3(p2, p3);
-    p_linie3_4 = new THREE.Line3(p3, p4);
-    p_linie4_1 = new THREE.Line3(p4, p1);
-    
-    sterge();
-    perspectivaXoY(0,0,40);
-    addLinieBaza(p_linie1_2);
-    addLinieBaza(p_linie2_3);
-    addLinieBaza(p_linie3_4);
-    addLinieBaza(p_linie4_1);
 }
 
 // romb 
