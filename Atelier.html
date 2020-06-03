@@ -21,6 +21,7 @@
   <script src="js/poligoane.js"></script>
   <script src="js/cerc.js"></script>
   <script src="js/piramida.js"></script>
+  <script src="js/prisma.js"></script>
   <script src="js/init.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/citesteEnunt.js"></script>
@@ -283,11 +284,11 @@
               <div>
                 <button class="dropdown-btn" onclick="toggleContainer('tipPir')">Tipuri de Piramide</button>
                 <div id='tipPir' class="dropdown-container hidden lv4">
-                  <button class="dropdown-btn" onclick="">Piramida Oarecare</button>
-                  <button class="dropdown-btn" onclick="">Piramida Triunghiulara Regulata</button>
-                  <button class="dropdown-btn" onclick="">Tetraedru</button>
-                  <button class="dropdown-btn" onclick="">Tetraedru Regulat</button>
+                  <button class="dropdown-btn" onclick="tetraedruOarecare()">Piramida Triunghiulara Oarecare (Tetraedru)</button>
+                  <button class="dropdown-btn" onclick="tetraedruRegulat()">Tetraedru Regulat</button>
+                  <button class="dropdown-btn" onclick="piramidaTriunghiulara()">Piramida Triunghiulara Regulata</button>
                   <button class="dropdown-btn" onclick="piramidaPatrulatera()">Piramida Patrulatera Regulata</button>
+                  <button class="dropdown-btn" onclick="piramidaHexagonala()">Piramida Hexagonala Regulata</button>
                 </div>
               </div>
 
@@ -309,9 +310,11 @@
               <div>
                 <button class="dropdown-btn" onclick="toggleContainer('tipPri')">Tipuri de prisma</button>
                 <div id='tipPri' class="dropdown-container hidden lv4">
-                  <button class="dropdown-btn" onclick="patrat()">Prisma triunghiulara</button>
-                  <button class="dropdown-btn" onclick="dreptunghi()">Prisma patrulatera (Paralelipiped)</button>
-                  <button class="dropdown-btn" onclick="paralelogram()">Prisma hexagonala</button>
+                  <button class="dropdown-btn" onclick="prismaTriunghilaraRegulata()">Prisma triunghiulara Regulata</button>
+                  <button class="dropdown-btn" onclick="paralelipipedDreptunghic()">Prisma Patrulatera (Paralelipiped)</button>
+                  <button class="dropdown-btn" onclick="prismaPatrulateraRegulata()">Prisma Patrulatera Regulata</button>
+                  <button class="dropdown-btn" onclick="cub()">Cubul</button>
+                  <button class="dropdown-btn" onclick="prismaHexagonala()">Prisma hexagonala</button>
                 </div>
               </div>
 

@@ -151,7 +151,7 @@ let para_muchie_3_7 = new THREE.Line3(pctParaDreptunghic_3, pctParaDreptunghic_7
 let para_muchie_4_8 = new THREE.Line3(pctParaDreptunghic_4, pctParaDreptunghic_8);
 
 
-function paralelipidedDreptunghic() {
+function paralelipipedDreptunghic() {
     sterge();
     perspectivaXoY(17, -5, 40);
     addLinieBaza(para_muchie_1_2);
@@ -264,17 +264,17 @@ let pctPrismaTri_6 = new THREE.Vector3(0, 10, generareTriEchilateral(pctPrismaTr
 
 let prismaTri_muchie_1_2 = new THREE.Line3(pctPrismaTri_1, pctPrismaTri_2);
 let prismaTri_muchie_2_3 = new THREE.Line3(pctPrismaTri_2, pctPrismaTri_3);
-let prismaTri_muchie_3_4 = new THREE.Line3(pctPrismaTri_3, pctPrismaTri_1);
+let prismaTri_muchie_3_1 = new THREE.Line3(pctPrismaTri_3, pctPrismaTri_1);
 
 let prismaTri_muchie_4_5 = new THREE.Line3(pctPrismaTri_4, pctPrismaTri_5);
 let prismaTri_muchie_5_6 = new THREE.Line3(pctPrismaTri_5, pctPrismaTri_6);
-let prismaTri_muchie_6_7 = new THREE.Line3(pctPrismaTri_6, pctPrismaTri_4);
+let prismaTri_muchie_6_4 = new THREE.Line3(pctPrismaTri_6, pctPrismaTri_4);
 
-let prismaTri_muchie_1_5 = new THREE.Line3(pctPrismaTri_1, pctPrismaTri_4);
-let prismaTri_muchie_2_6 = new THREE.Line3(pctPrismaTri_2, pctPrismaTri_5);
-let prismaTri_muchie_3_7 = new THREE.Line3(pctPrismaTri_3, pctPrismaTri_6);
+let prismaTri_muchie_1_4 = new THREE.Line3(pctPrismaTri_1, pctPrismaTri_4);
+let prismaTri_muchie_2_5 = new THREE.Line3(pctPrismaTri_2, pctPrismaTri_5);
+let prismaTri_muchie_3_6 = new THREE.Line3(pctPrismaTri_3, pctPrismaTri_6);
 
-function prismaTriunghilara() {
+function prismaTriunghilaraRegulata() {
     sterge();
     perspectivaXoY(17, -5, 40);
     addLinieBaza(prismaTri_muchie_1_2);
@@ -283,7 +283,7 @@ function prismaTriunghilara() {
     
     addLinieBaza(prismaTri_muchie_4_5);
     addLinieBaza(prismaTri_muchie_5_6);
-    addLinieBaza(prismaTri_muchie_6_7);
+    addLinieBaza(prismaTri_muchie_6_4);
     
     addLinie(prismaTri_muchie_1_4);
     addLinie(prismaTri_muchie_2_5);
@@ -382,7 +382,7 @@ let prismaPatr_muchie_2_6 = new THREE.Line3(pctPrismaPatr_2, pctPrismaPatr_6);
 let prismaPatr_muchie_3_7 = new THREE.Line3(pctPrismaPatr_3, pctPrismaPatr_7);
 let prismaPatr_muchie_4_8 = new THREE.Line3(pctPrismaPatr_4, pctPrismaPatr_8);
 
-function prismaPatrulatera() {
+function prismaPatrulateraRegulata() {
     sterge();
     perspectivaXoY(17, -5, 40);
     addLinieBaza(prismaPatr_muchie_1_2);

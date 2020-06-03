@@ -13,7 +13,7 @@ let tetraedru_latLaterala_1_v = new THREE.Line3(pctTetraedru_1, pctTetraedru_vf)
 let tetraedru_latLaterala_2_v = new THREE.Line3(pctTetraedru_2, pctTetraedru_vf);
 let tetraedru_latLaterala_3_v = new THREE.Line3(pctTetraedru_3, pctTetraedru_vf);
 
-function tetraedru() {
+function tetraedruOarecare() {
     sterge();
     perspectivaXoY(17, -5, 40);
     addLinieBaza(tetraedru_baza_1_2);
