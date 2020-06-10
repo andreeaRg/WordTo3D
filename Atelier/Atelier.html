@@ -367,26 +367,15 @@
       }
     }
 
-    // Read from file 
-    // document.getElementById('fisier')
-    //   .addEventListener('change', function () {
-    //     var fr = new FileReader();
-    //     fr.onload = function () {
-    //       document.getElementById('rezultatContainer')
-    //         .textContent = fr.result;
-    //     }
-    //     fr.readAsText(this.files[0]);
-    //   });
-
     //    OCR
     function ocrImg() {
-        document.getElementById('rezultatCitire').innerText = "Loading... Please wait!"
+      document.getElementById('rezultatCitire').innerText = "Loading... Please wait!"
       var img = document.getElementById('viz').src;
 
       Tesseract.recognize(
         img,
         'eng',
-        { logger: m => console.log(m) }
+        { logger: m => console.log(m.status) }
       ).then(({ data: { text } }) => {
         document.getElementById('rezultatCitire').innerText = text;
       });
