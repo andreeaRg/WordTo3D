@@ -98,8 +98,8 @@ function afiseazaRezultat(enuntOriginal, mapFigIdentificate) {
 }
 
 function gasestePortiunea(primul, ultimul, string) {
+  // de simplificat( nu ar trebui sa existe punctuatie, doar spatiu)
   //de verificat pt cazul in care exista doua referinte la acelas cuvant
-  // let idxStart = ultimul ? 
   return ultimul ? string.slice(string.indexOf(primul), string.indexOf(ultimul) + ultimul.length) : primul;
 }
 
