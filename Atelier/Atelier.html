@@ -4,27 +4,27 @@
 
 <head>
   <title>Atelierul geometriei</title>
-  <link rel="stylesheet" href="./css/atelier.css" />
+  <link rel="stylesheet" href="../css/atelier.css" />
 
-  <script src="js/jsDoc/three.js"></script>
-  <script src="js/jsDoc/OrbitControls.js"></script>
-  <script src="js/jsDoc/dat.gui.min.js"></script>
-  <script src="js/jsDoc/threex.domevents.js"></script>
+  <script src="../js/jsDoc/three.js"></script>
+  <script src="../js/jsDoc/OrbitControls.js"></script>
+  <script src="../js/jsDoc/dat.gui.min.js"></script>
+  <script src="../js/jsDoc/threex.domevents.js"></script>
 
   <script src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
 
-  <script src="js/functiiDeBaza.js"></script>
-  <script src="js/functiiTriunghi.js"></script>
-  <script src="js/functii.js"></script>
-  <script src="js/triunghi.js"></script>
-  <script src="js/patrulatere.js"></script>
-  <script src="js/poligoane.js"></script>
-  <script src="js/cerc.js"></script>
-  <script src="js/piramida.js"></script>
-  <script src="js/prisma.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/nav.js"></script>
-  <script src="js/citesteEnunt.js"></script>
+  <script src="../js/functiiDeBaza.js"></script>
+  <script src="../js/functiiTriunghi.js"></script>
+  <script src="../js/functii.js"></script>
+  <script src="../js/triunghi.js"></script>
+  <script src="../js/patrulatere.js"></script>
+  <script src="../js/poligoane.js"></script>
+  <script src="../js/cerc.js"></script>
+  <script src="../js/piramida.js"></script>
+  <script src="../js/prisma.js"></script>
+  <script src="../js/init.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/citesteEnunt.js"></script>
 </head>
 
 <body onload="startCanvas(0.7)">
@@ -36,10 +36,10 @@
   <div id="myNav" class="overlay">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <div class="overlay-content">
-      <a href="./home.html">About</a>
-      <a href="./Atelier.html">Spre atelier</a>
-      <a href="Figuri2D/triunghi.html">La teorie 2D</a>
-      <a href="Figuri3D/Piramida.html">La teorie 3D</a>
+      <a href="../home.html">About</a>
+      <a href="Atelier.html">Spre atelier</a>
+      <a href="../Figuri2D/triunghi.html">La teorie 2D</a>
+      <a href="../Figuri3D/Piramida.html">La teorie 3D</a>
     </div>
   </div>
 
@@ -93,7 +93,7 @@
           <textarea id="inputP" name="inputP"></textarea> <br />
 
           <div class="dropdown-container lv5">
-            <button class="dropdown-btn" onclick="interpreteaza('inputP')">Interpreteaza!</button>
+            <button class="dropdown-btn" onclick="interpreteazaInput('inputP')">Interpreteaza!</button>
           </div>
         </div>
       </div>
@@ -104,10 +104,10 @@
           <img id="viz" width="100%" style="display: none;" /> <br />
 
           <input type="file" id="poza" accept="image/*" onchange="viewImg(event)">
-          <button onclick="ocrImg()"> Citeste!</button> <br />
+          <button onclick="ocrImg()"> Citeste poza!</button> <br />
           <div id='rezultatCitire' class="dropdown-container lv2"></div>
           <div class="dropdown-container lv5">
-            <button class="dropdown-btn" onclick="interpreteaza('rezultatCitire')">Interpreteaza!</button>
+            <button class="dropdown-btn" onclick="interpreteazaText('rezultatCitire')">Interpreteaza enuntul!</button>
           </div>
         </div>
       </div>
@@ -380,6 +380,7 @@
 
     //    OCR
     function ocrImg() {
+        document.getElementById('rezultatCitire').innerText = "Loading... Please wait!"
       var img = document.getElementById('viz').src;
 
       Tesseract.recognize(

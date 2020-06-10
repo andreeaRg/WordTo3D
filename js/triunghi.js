@@ -35,7 +35,7 @@ function triunghiOarecare() {
     addLinieBaza(t_linie3_1);
     // desenUnghiStangaJos(t_linie3_1.start,t_linie3_1.end,t_linie1_2.end);
 
-    loaderTriOarecare.load('./js/jsDoc/helvetiker_regular.typeface.json', function (font) {
+    loaderTriOarecare.load('http://localhost/AndreeeaRG/WordTo3D/js/jsDoc/helvetiker_regular.typeface.json', function (font) {
         let color = new THREE.Color(0x006699);
 
         let matLite = new THREE.MeshBasicMaterial({
@@ -83,7 +83,7 @@ function triunghiOarecareUnghiExt() {
     addLinieBaza(t_linie2_3);
     addLinieBaza(t_linie3_1);
 
-    loaderTriOarecareUnghiExt.load('../js/jsDoc/helvetiker_regular.typeface.json', function (font) {
+    loaderTriOarecareUnghiExt.load('http://localhost/AndreeeaRG/WordTo3D/js/jsDoc/helvetiker_regular.typeface.json', function (font) {
         let color = new THREE.Color(0x006699);
 
         let matLite = new THREE.MeshBasicMaterial({
@@ -141,7 +141,7 @@ function triunghiIsoscel() {
     // desenUnghiDreaptaJos(t_linie4_5.start, t_linie4_5.end, t_linie5_6.end, 4);
     addLinieBaza(t_linie6_4);
     // desenUnghiStangaJos(t_linie6_4.start, t_linie6_4.end, t_linie4_5.end, 4);
-    loaderTriIsoscel.load('../js/jsDoc/helvetiker_regular.typeface.json', function (font) {
+    loaderTriIsoscel.load('http://localhost/AndreeeaRG/WordTo3D/js/jsDoc/helvetiker_regular.typeface.json', function (font) {
         let color = new THREE.Color(0x006699);
 
         let matLite = new THREE.MeshBasicMaterial({
@@ -196,7 +196,7 @@ function triunghiDreptunghic() {
     addLinieBaza(t_linie8_9);
     addLinieBaza(t_linie9_7);
     addUnghiDrept(t7, 0, -1.5, 1.5);
-    loaderTriDreptunghic.load('../js/jsDoc/helvetiker_regular.typeface.json', function (font) {
+    loaderTriDreptunghic.load('http://localhost/AndreeeaRG/WordTo3D/js/jsDoc/helvetiker_regular.typeface.json', function (font) {
         let color = new THREE.Color(0x006699);
 
         let matLite = new THREE.MeshBasicMaterial({
@@ -252,7 +252,7 @@ function triunghiEchilateral() {
     // desenUnghiDreaptaJos(t_linie11_12.start,t_linie11_12.end,t_linie12_10.end);
     addLinieBaza(t_linie12_10);
     // desenUnghiStangaJos(t_linie12_10.start,t_linie12_10.end,t_linie10_11.end);
-    loaderTriEchilateral.load('../js/jsDoc/helvetiker_regular.typeface.json', function (font) {
+    loaderTriEchilateral.load('http://localhost/AndreeeaRG/WordTo3D/js/jsDoc/helvetiker_regular.typeface.json', function (font) {
         let color = new THREE.Color(0x006699);
 
         let matLite = new THREE.MeshBasicMaterial({
@@ -309,7 +309,7 @@ function triunghiDreptunghicIsoscel() {
     // desenUnghiDreaptaJos(t_linie14_15.start,t_linie14_15.end,t_linie15_13.end);
     addLinieBaza(t_linie15_13);
     // desenUnghiStangaJos(t_linie15_13.start,t_linie15_13.end,t_linie13_14.end);\
-    loaderTriDreptIsoscel.load('../js/jsDoc/helvetiker_regular.typeface.json', function (font) {
+    loaderTriDreptIsoscel.load('http://localhost/AndreeeaRG/WordTo3D/js/jsDoc/helvetiker_regular.typeface.json', function (font) {
         let color = new THREE.Color(0x006699);
 
         let matLite = new THREE.MeshBasicMaterial({
@@ -364,7 +364,7 @@ function triunghiObtuzunghic() {
     addLinieBaza(t_linie17_18);
     addLinieBaza(t_linie18_16);
     desenUnghiStangaJos(t17, t16, t18, 4);
-    loaderTriObtuz.load('../js/jsDoc/helvetiker_regular.typeface.json', function (font) {
+    loaderTriObtuz.load('http://localhost/AndreeeaRG/WordTo3D/js/jsDoc/helvetiker_regular.typeface.json', function (font) {
         let color = new THREE.Color(0x006699);
 
         let matLite = new THREE.MeshBasicMaterial({
@@ -418,7 +418,7 @@ function triunghiAscutitunghic() {
     addLinieBaza(t_linie19_20);
     addLinieBaza(t_linie20_21);
     addLinieBaza(t_linie21_19);
-    loaderTriAscutitunghic.load('../js/jsDoc/helvetiker_regular.typeface.json', function (font) {
+    loaderTriAscutitunghic.load('http://localhost/AndreeeaRG/WordTo3D/js/jsDoc/helvetiker_regular.typeface.json', function (font) {
         let color = new THREE.Color(0x006699);
 
         let matLite = new THREE.MeshBasicMaterial({
