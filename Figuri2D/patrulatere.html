@@ -4,7 +4,7 @@
 
 <head>
     <title>Patrulatere</title>
-    <link rel="stylesheet" type="text/css" href="../css/figuri2D2.css" />
+    <link rel="stylesheet" type="text/css" href="../css/figuri2D.css" />
 
     <script src="../js/jsDoc/three.js"></script>
     <script src="../js/jsDoc/OrbitControls.js"></script>
@@ -12,29 +12,35 @@
     <script src="../js/jsDoc/dat.gui.min.js"></script>
 
     <script src="../js/functiiDeBaza.js"></script>
-    <script src="../js/functiiTriunghi.js"></script>
-    <script src="../js/triunghi.js"></script>
+    <script src="../js/functiiSelect.js"></script>
     <script src="../js/patrulatere.js"></script>
-    <script src="../js/poligoane.js"></script>
-    <script src="../js/cerc.js"></script>
     <script src="../js/init.js"></script>
-    <script src="../js/functii.js"></script>
-    <script src="../js/text.js"></script>
+    <script src="../js/nav.js"></script>
+
+    <script>
+        MathJax = {
+          loader: {load: ['input/asciimath', 'output/chtml']}
+        }
+        </script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js">
+        </script>
 
 </head>
 
 <body onload="startCanvas(0.3)">
 
-    <div id="navbar" style="background-color:#2196F3;">
+    <div id="navbar" style="background-color:#A6193C;">
         <h1 style="text-align: center" class="serif"> <span
-                style="font-size:30px;cursor:pointer; color: #004466; " onclick="openNav()">&#9776; WordTo3D</span> </h1>
+                style="font-size:30px;cursor:pointer; color: rgb(97, 16, 16); " onclick="openNav()">&#9776; WordTo3D</span> </h1>
     </div>
 
     <div id="myNav" class="overlay">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="overlay-content">
             <a href="../home.html">About</a>
-            <a href="../Atelier.html">Spre atelier</a>
+            <a href="../Atelier/Atelier.html">Spre atelier</a>
             <a href="../Figuri2D/patrulatere.html">La teorie 2D</a>
             <a href="../Figuri3D/Piramida.html">La teorie 3D</a>
         </div>
@@ -48,7 +54,7 @@
     </div>
 
 
-    <div class="sidenavCanvas" style="background-color: #2196F3;">
+    <div class="sidenavCanvas" style="background-color: #A6193C;">
 
         <div id="myScene"></div>
         <div id="butoaneCanvas"><button onclick="medDropDown()"> mediana </button></div>
@@ -58,24 +64,118 @@
 
     <div class="main" style="background-color: 	#F0F8FF;">
         <h3>Patrulatere</h3>
-        <p>This sidebar is as tall as its content (the links), and is always shown.</p>
-        <p>Scroll down the page to see the result.</p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
-            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur
-            eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
-        </p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
-            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur
-            eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
-        </p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
-            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur
-            eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
-        </p>
-        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset
-            concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur
-            eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
-        </p>
+        <p>Continut:</p>
+        <p><a href="#classTip">I. Tipuri de patrulatere</a></p>
+        <p><a href="#classP">II. Proprietatile patrulaterelor convexe</a></p>
+        <p><a href="#simetrie">III. Centrul si axele de simetrie</a></p>
+
+        <p>Patrulaterul este un poligon cu patru laturi. Patrulaterele pot fi convexe sau concave. 
+        Patrulaterul convex este patrulaterul care are toate laturile în „exterior”, iar patrulaterul concav este patrulaterul care are două laturi în „interior”.</p>
+        <p>Elementele unui patrulater:</p>
+        <p>Laturile: [AB], [BC], [CD], [DA]</p>
+        <p>Unghiurile: ABC, BCD, CDA,DAB </p>
+        <p>Vârfurile: A, B, C, D.</p>
+        <p><span>Proprietate</span> Suma măsurilor unghiurilor unui patrulater este
+            egală cu 360°.</p>
+        <p><span>Perimetrul </span> (P) unui patrulater este suma lungimilor laturilor.</p>
+        <p> P = AB+BC+CD+DA</p>
+    </br>
+
+    <p id="classTip"><span>I. Clasificarea patrulaterelor convexe</span></p>
+    <p><button onclick="paralelogram()"> Paralelogramul </button> are
+        laturile opuse paralele și congruente două câte două.</p>
+    <p><button onclick="dreptunghi()"> Dreptunghiul </button> este paralelogramul cu toate unghiurile drepte, prezintă proprietatea că diagonalele sunt congruente; </p>
+    <p><button onclick="romb()"> Rombul </button>  este paralelogramul cu toate laturile egale, prezintă proprietatea că diagonalele sunt perpendiculare;</p>
+    <p><button onclick="patrat()"> Patratul </button>  este rombul cu toate unghiurile drepte; 
+    sau dreptunghiul cu toate laturile egale; prezintă proprietatea că diagonalele sunt congruente și perpendiculare;</p>
+    <p ><button onclick="trapez()"> Trapezul </button> are două laturi opuse paralele numite baze si doua laturi neparalele;
+    Exista trei tipuri de trapez:</p>
+    <p  style = "padding-left: 50px;"><button onclick="trapez()"> 1.Trapezul oarecare</button> are toate laturile de lungimi diferite;</p>
+    <p style = "padding-left: 50px;"><button onclick="trapezDrept()"> 2.Trapezul dreptunghic</button> are una din laturile neparalele perpeticulara pe baze;</p>
+    <p style = "padding-left: 50px;"><button onclick="trapezIsoscel()"> 3.Trapezul isoscel</button> are laturile neparalele congruente;</p>
+
+    </br>
+
+    <p id="classP"><span>II. Proprietatile patrulaterelor convexe</span></p>
+    <p><button onclick="paralelogram()"> Paralelogramul </button>
+    are laturile opuse paralele:</p>
+    <p> AB || CD si BC || AD;</p>
+    <p> Proprietati:</p>
+    <p style = "padding-left: 50px;">1. Laturile opuse sunt congruente:</p>
+    <p style = "padding-left: 50px;"> `AB ≡ CD` si `BC ≡ AD`</p>
+    <p style = "padding-left: 50px;"> 2. Unghiurile opuse sunt congruente:</p>
+    <p style = "padding-left: 50px;"> `hat (DAB) ≡ hat (BCD)` si `hat (ABC) ≡ hat (CDA)`</p>
+    <p style = "padding-left: 50px;">3.	Unghiurile alăturate sunt suplementare:</p>
+    <p style = "padding-left: 50px;"> `m(hat (DAB)) + m(hat (ABC)) = m(hat (BCD)) + m(hat (CDA)) = 180°`</p>
+    <p style = "padding-left: 50px;">4.	Diagonalele se înjumătățesc:</p>
+    <p style = "padding-left: 50px;">`AO ≡ OC` si `BO ≡ OD`</p>
+    <p> Un patrulater este paralelogram dacă și numai dacă îndeplinește una din aceste condiții:</p>
+    <p style = "padding-left: 50px;">1. laturile opuse sunt congruente două câte două</p>
+    <p style = "padding-left: 50px;">2. are două laturi opuse paralele și congruente </p>
+    <p style = "padding-left: 50px;">3. unghiurile opuse sunt congruente</p>
+    <p style = "padding-left: 50px;">4. oricare două unghiuri alăturate sunt suplementare</p>
+    <p style = "padding-left: 50px;">5. diagonalele sale se înjumătățesc</p>
+    <p>Perimetrul P este:</p>
+    <p>`P = 2*l +2*L`</p>
+    <p>Area A, considerand unghiul este hat (DAB):</p>
+    <p>`A = AB * AD * sin hat (DAB)`</p>
+
+    <p><button onclick="dreptunghi()"> Dreptunghiul </button>
+        este paralelogramul cu un unghi drept;</p>
+        <p> AB || CD si BC || AD;</p>
+        <p> Proprietati:</p>
+        <p style = "padding-left: 50px;">1. Laturile opuse sunt congruente:</p>
+        <p style = "padding-left: 50px;"> `AB ≡ CD` si `BC ≡ AD`</p>
+        <p style = "padding-left: 50px;"> 2.Laturi opuse sunt paralele:</p>
+        <p style = "padding-left: 50px;"> AB || CD si BC || AD</p>
+        <p style = "padding-left: 50px;">3.	Unghiurile sunt congruente si au masura de 90°:</p>
+        <p style = "padding-left: 50px;"> `m(hat (DAB)) = m(hat (ABC)) = m(hat (BCD)) = m(hat (CDA)) = 90°`</p>
+        <p style = "padding-left: 50px;">4.	Diagonalele se înjumătățesc:</p>
+        <p style = "padding-left: 50px;">`AO ≡ OC` si `BO ≡ OD`</p>
+        <p>   Un paralelogram este dreptunghi dacă și numai dacă diagonalele sale sunt congruente:</p>
+        <p style = "padding-left: 50px;">`AC ≡ BD`</p>
+        <p>Perimetrul P este:</p>
+        <p>`P = 2*l +2*L`</p>
+        <p>Area A este considerata produsul dintre lungimea si latimea:</p>
+        <p>`A = L * l`</p>
+
+        <p><button onclick="romb()"> Rombul </button>
+            este paralelogramul cu două laturi consecutive congruente;</p>
+            <p> AB || CD si BC || AD;</p>
+            <p> Proprietati:</p>
+            <p style = "padding-left: 50px;">1. Laturile opuse sunt congruente:</p>
+            <p style = "padding-left: 50px;"> `AB ≡ CD` si `BC ≡ AD`</p>
+            <p style = "padding-left: 50px;"> 2.Laturi opuse sunt paralele:</p>
+            <p style = "padding-left: 50px;"> AB || CD si BC || AD</p>
+            <p style = "padding-left: 50px;">3.	Unghiurile opuse sunt congruente :</p>
+            <p style = "padding-left: 50px;"> `m(hat (DAB)) = m(hat (BCD))` si `m(hat (ABC)) = m(hat (CDA)) = 90°`</p>
+            <p style = "padding-left: 50px;">4.	Diagonalele se înjumătățesc:</p>
+            <p style = "padding-left: 50px;">`AO ≡ OC` si `BO ≡ OD`</p>
+            <p>   Un paralelogram este romb dacă și numai dacă diagonalele sale sunt perpendiculare:</p>
+            <p>   Un paralelogram este romb dacă și numai dacă diagonalele sale sunt bisectoarele unghiurilor</p>
+            <p>Perimetrul P este:</p>
+            <p>`P = 4*l`</p>
+            <p>Area A este considerata produsul diagonalelor:</p>
+            <p>`A = d1 * d2`</p>
+
+        <p><button onclick="patrat()"> Patratul </button>    
+            este patrulaterul ce are proprietatile unui dreptunghi și romb simultan.
+        <p> Proprietati:</p>
+        <p style = "padding-left: 50px;">1. Toate laturile sunt congruente:</p>
+        <p style = "padding-left: 50px;"> `AB ≡ CD ≡ BC ≡ AD`
+        <p style = "padding-left: 50px;"> 2.Laturi opuse sunt paralele:</p>
+        <p style = "padding-left: 50px;"> AB || CD si BC || AD</p>
+        <p style = "padding-left: 50px;">3.	Unghiurile sunt congruente si au masura de 90°:</p>
+        <p style = "padding-left: 50px;"> `m(hat (DAB)) = m(hat (ABC)) = m(hat (BCD)) = m(hat (CDA)) = 90°`</p>
+        <p style = "padding-left: 50px;">4.	Diagonalele se înjumătățesc, sunt bisectoarele unghiurilor si sunt perpenticulare:</p>
+        <p style = "padding-left: 50px;">`AO ≡ OC` si `BO ≡ OD` si `AC ⊥ BD`</p>
+        <p>Perimetrul P este:</p>
+        <p>`P = 4*l`</p>
+        <p>Area A este:</p>
+        <p>`A = l^2`</p>
+
+   
+    
     </div>
 
     <script>

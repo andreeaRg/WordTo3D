@@ -109,27 +109,7 @@ function romb() {
     addLinieBaza(p_linie12_9);
 }
 
-function rombDeVar(p1, p2, p3, p4) {
-    p1.name = "A";
-    p2.name = "B";
-    p3.name = "C";
-    p3.name = "D";
-
-    p_linie1_2 = new THREE.Line3(p1, p2);
-    p_linie2_3 = new THREE.Line3(p2, p3);
-    p_linie3_4 = new THREE.Line3(p3, p4);
-    p_linie4_1 = new THREE.Line3(p4, p1);
-    
-    sterge();
-    perspectivaXoY(0,0,40);
-    addLinieBaza(p_linie1_2);
-    addLinieBaza(p_linie2_3);
-    addLinieBaza(p_linie3_4);
-    addLinieBaza(p_linie4_1);
-}
-
 // trapez dreptunghic
-
 var p13 = new THREE.Vector3(-10, 0, 0); p13.name = "A";
 var p14 = new THREE.Vector3(20, 0, 0); p14.name = "B";
 var p15 = new THREE.Vector3(5, 20, 0); p15.name = "C";
@@ -147,25 +127,6 @@ function trapezDrept() {
     addLinieBaza(p_linie14_15);
     addLinieBaza(p_linie15_16);
     addLinieBaza(p_linie16_13);
-}
-
-function trapezDreptDeVar(p1, p2, p3, p4) {
-    p1.name = "A";
-    p2.name = "B";
-    p3.name = "C";
-    p3.name = "D";
-
-    p_linie1_2 = new THREE.Line3(p1, p2);
-    p_linie2_3 = new THREE.Line3(p2, p3);
-    p_linie3_4 = new THREE.Line3(p3, p4);
-    p_linie4_1 = new THREE.Line3(p4, p1);
-    
-    sterge();
-    perspectivaXoY(0,0,40);
-    addLinieBaza(p_linie1_2);
-    addLinieBaza(p_linie2_3);
-    addLinieBaza(p_linie3_4);
-    addLinieBaza(p_linie4_1);
 }
 
 // trapez oarecare
@@ -188,25 +149,6 @@ function trapez() {
     addLinieBaza(p_linie20_17);
 }
 
-function trapezDeVar(p1, p2, p3, p4) {
-    p1.name = "A";
-    p2.name = "B";
-    p3.name = "C";
-    p3.name = "D";
-
-    p_linie1_2 = new THREE.Line3(p1, p2);
-    p_linie2_3 = new THREE.Line3(p2, p3);
-    p_linie3_4 = new THREE.Line3(p3, p4);
-    p_linie4_1 = new THREE.Line3(p4, p1);
-    
-    sterge();
-    perspectivaXoY(0,0,40);
-    addLinieBaza(p_linie1_2);
-    addLinieBaza(p_linie2_3);
-    addLinieBaza(p_linie3_4);
-    addLinieBaza(p_linie4_1);
-}
-
 //  trapez isoscel
 var p21 = new THREE.Vector3(-20, 0, 0); p21.name = "A";
 var p22 = new THREE.Vector3(20, 0, 0); p22.name = "B";
@@ -227,27 +169,7 @@ function trapezIsoscel() {
     addLinieBaza(p_linie24_21);
 }
 
-function trapezIsoscelDeVar(p1, p2, p3, p4) {
-    p1.name = "A";
-    p2.name = "B";
-    p3.name = "C";
-    p3.name = "D";
-
-    p_linie1_2 = new THREE.Line3(p1, p2);
-    p_linie2_3 = new THREE.Line3(p2, p3);
-    p_linie3_4 = new THREE.Line3(p3, p4);
-    p_linie4_1 = new THREE.Line3(p4, p1);
-    
-    sterge();
-    perspectivaXoY(0,0,40);
-    addLinieBaza(p_linie1_2);
-    addLinieBaza(p_linie2_3);
-    addLinieBaza(p_linie3_4);
-    addLinieBaza(p_linie4_1);
-}
-
 // dreptunghi
-
 var p25 = new THREE.Vector3(-20, 0, 0); p25.name = "A";
 var p26 = new THREE.Vector3(20, 0, 0); p26.name = "B";
 var p27 = new THREE.Vector3(20, 20, 0); p27.name = "C";

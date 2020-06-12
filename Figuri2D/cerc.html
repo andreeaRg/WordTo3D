@@ -4,7 +4,7 @@
 
 <head>
     <title>Cerc</title>
-    <link rel="stylesheet" type="text/css" href="../css/figuri2D2.css" />
+    <link rel="stylesheet" type="text/css" href="../css/figuri2D.css" />
     
     <script src="../js/jsDoc/three.js"></script>
     <script src="../js/jsDoc/OrbitControls.js"></script>
@@ -12,21 +12,19 @@
     <script src="../js/jsDoc/dat.gui.min.js"></script>
 
     <script src="../js/functiiDeBaza.js"></script>
-    <script src="../js/functiiTriunghi.js"></script>
-    <script src="../js/triunghi.js"></script>
-    <script src="../js/patrulatere.js"></script>
-    <script src="../js/poligoane.js"></script>
+    <script src="../js/functiiSelect.js"></script>
     <script src="../js/cerc.js"></script>
     <script src="../js/init.js"></script>
-    <script src="../js/functii.js"></script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <script>  MathJax = { loader: { load: ['input/asciimath', 'output/chtml'] } } </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"></script>
 
 </head>
 
 <body onload="startCanvas(0.3)">
-    <div id="navbar" style="background-color:#ffe066;">
+    <div id="navbar" style="background-color:#ecd05d;">
         <h1 style="text-align: center" class="serif"> <span style="font-size:30px;cursor:pointer; color: #b36b00; "
                 onclick="openNav()">&#9776; WordTo3D</span> </h1>
     </div>
@@ -35,7 +33,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="overlay-content">
             <a href="../home.html">About</a>
-            <a href="../Atelier.html">Spre atelier</a>
+            <a href="../Atelier/Atelier.html">Spre atelier</a>
             <a href="../Figuri2D/cerc.html">La teorie 2D</a>
             <a href="../Figuri3D/Piramida.html">La teorie 3D</a>
         </div>
@@ -49,7 +47,7 @@
     </div>
 
 
-    <div class="sidenavCanvas" style="background-color: #ffe066;">
+    <div class="sidenavCanvas" style="background-color: #ecd05d;">
 
         <div id="myScene"></div>
         <div id="butoaneCanvas"><button onclick="medDropDown()"> mediana </button></div>

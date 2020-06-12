@@ -154,26 +154,12 @@ h1 {
     background-color: #f44336;
   }
 
-  #paralelipipede {
+  #corpuriRotunde {
     top: 223px; /* 80*/
     background-color: #2196F3; 
        /* #66ccff */
     position: fixed;
   }
-
-  #sfera {
-    top: 283px; /* 200*/
-    position: fixed;
-    background-color: #ffe066;
-  }
-
-  #conuri {
-    top: 343px; /* 200*/
-    position: fixed;
-    background-color: #ffe066;
-  }
-
-
 
   @media screen and (max-height: 450px) {
     .sidenavCanvas {padding-top: 15px;}

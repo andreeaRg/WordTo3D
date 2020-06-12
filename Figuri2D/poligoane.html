@@ -4,7 +4,7 @@
 
 <head>
     <title>Poligoane</title>
-    <link rel="stylesheet" type="text/css" href="../css/figuri2D2.css" />
+    <link rel="stylesheet" type="text/css" href="../css/figuri2D.css" />
 
     <script src="../js/jsDoc/three.js"></script>
     <script src="../js/jsDoc/OrbitControls.js"></script>
@@ -12,28 +12,23 @@
     <script src="../js/jsDoc/dat.gui.min.js"></script>
 
     <script src="../js/functiiDeBaza.js"></script>
-    <script src="../js/functiiTriunghi.js"></script>
-    <script src="../js/triunghi.js"></script>
-    <script src="../js/patrulatere.js"></script>
+    <script src="../js/functiiSelect.js"></script>
     <script src="../js/poligoane.js"></script>
-    <script src="../js/cerc.js"></script>
     <script src="../js/init.js"></script>
-    <script src="../js/functii.js"></script>
-
 </head>
 
 <body onload="startCanvas(0.3)">
 
-    <div id="navbar" style="background-color:#f44336;">
+    <div id="navbar" style="background-color:rgb(24, 72, 126);">
         <h1 style="text-align: center" class="serif"> <span
-                style="font-size:30px;cursor:pointer; color: #990000; " onclick="openNav()">&#9776; WordTo3D</span> </h1>
+                style="font-size:30px;cursor:pointer; color: rgb(15, 30, 78); " onclick="openNav()">&#9776; WordTo3D</span> </h1>
     </div>
 
     <div id="myNav" class="overlay">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="overlay-content">
             <a href="../home.html">About</a>
-            <a href="../Atelier.html">Spre atelier</a>
+            <a href="../Atelier/Atelier.html">Spre atelier</a>
             <a href="../Figuri2D/poligoane.html">La teorie 2D</a>
             <a href="../Figuri3D/Piramida.html">La teorie 3D</a>
         </div>
@@ -47,7 +42,7 @@
     </div>
 
 
-    <div class="sidenavCanvas" style="background-color: #f44336;">
+    <div class="sidenavCanvas" style="background-color: rgb(24, 72, 126);">
 
         <div id="myScene"></div>
         <div id="butoaneCanvas"><button onclick="medDropDown()"> mediana </button></div>
