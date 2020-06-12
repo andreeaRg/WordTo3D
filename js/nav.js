@@ -44,14 +44,6 @@ function hideDetails() {
 
 }
 
-function openNav() {
-    document.getElementById("myNav").style.width = "100%";
-}
-
-function closeNav() {
-    document.getElementById("myNav").style.width = "0%";
-}
-
 function readMore() {
     var dots = document.getElementById("dots");
     var moreText = document.getElementById("more");
@@ -66,9 +58,6 @@ function readMore() {
         btnText.innerHTML = "Read less";
         moreText.style.display = "inline";
     }
-}
-
-function readText(){
 }
 
 function openNav() {
