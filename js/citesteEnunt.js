@@ -10,7 +10,7 @@ let formule = ['ari', 'volum']; // masa , densitate
 
 let radacini = ['triunghi', 'patrat', 'oarecare', 'isoscel', 'dreptunghic', 'echilateral', 'inaltim', 'median', 'bisecto', 'mediato'];
 let listaMetodeFig = ['drawMediana', 'linMij', 'triunghiOarecare', 'triunghiIsoscel', 'triunghiEchilateral', 'triunghiDreptunghic', 'triunghiDreptunghicIsoscel',
-  'patrat', 'dreptunghi', 'paralelogram', 'romb', 'trapez', 'trapezDrept', 'trapezIsoscel', 'inaltimeTeorie', '', '', '', '']
+  'patrat', 'dreptunghi', 'paralelogram', 'romb', 'trapez', 'trapezDrept', 'trapezIsoscel', 'inaltimeTeorie']
 
 function gasesteAtr2D(cuvUrmator) {
   for (let atrib2d of radAtribute2D) {
@@ -31,22 +31,17 @@ function gasesteAtr3D(cuvUrmator) {
 }
 
 function interpreteazaEnunt(enunt) {
-  //  let atrb = [];
+
   let mapFigIdentificate = new Map();
+  let atribut;
+
   let cuvinte = enunt.replace(/(?:\r\n|\r|\n)/g, ' ').split(' ').join(',')
     .split('.').join(',')
     .split('!').join(',')
     .split('?').join(',')
     .split(',');
-  let atribut;
-  for (let cuvant of cuvinte) {
 
-    //  for (let radacina of radacini) {
-    //    if (cuvant.toLowerCase().includes(radacina)) {
-    //      mapFigIdentificate.set(cuvant, [radacina] );
-    //     //  gasesteAltlElem(cuvant)
-    //    }
-    //  }
+  for (let cuvant of cuvinte) {
 
     for (let radacina of radFiguri3D) {
       if (cuvant.toLowerCase().includes(radacina)) {
@@ -84,6 +79,7 @@ function interpreteazaEnunt(enunt) {
       }
     }
   }
+
   afiseazaRezultat(enunt, mapFigIdentificate);
 }
 
@@ -141,7 +137,9 @@ function interpreteazaText(id) {
 
 function viewImg(event) {
     var image = document.getElementById('viz');
-    image.style.display = 'block';
+
     image.src = URL.createObjectURL(event.target.files[0]);
+    image.style.display = 'block';
+
     document.getElementById('rezultatCitire').innerText = "Apasati butonul Citeste Poaza";
 }
