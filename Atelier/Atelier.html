@@ -8,14 +8,13 @@
 
   <script src="../js/jsDoc/three.js"></script>
   <script src="../js/jsDoc/OrbitControls.js"></script>
-  <script src="../js/jsDoc/dat.gui.min.js"></script>
   <script src="../js/jsDoc/threex.domevents.js"></script>
-
+  <script src="../js/jsDoc/dat.gui.min.js"></script>  
   <script src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
 
   <script src="../js/functiiDeBaza.js"></script>
   <script src="../js/functiiTriunghi.js"></script>
-  <script src="../js/functii.js"></script>
+  <script src="../js/functiiSelect.js"></script>
   <script src="../js/triunghi.js"></script>
   <script src="../js/patrulatere.js"></script>
   <script src="../js/poligoane.js"></script>
@@ -25,6 +24,11 @@
   <script src="../js/init.js"></script>
   <script src="../js/nav.js"></script>
   <script src="../js/citesteEnunt.js"></script>
+
+  <script>  MathJax = { loader: { load: ['input/asciimath', 'output/chtml'] } } </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"></script>
 </head>
 
 <body onload="startCanvas(0.7)">
@@ -286,18 +290,18 @@
                   </div>
                 </div>
 
-                <div>
-                  <button class="dropdown-btn" onclick="toggleContainer('tipPir')">Tipuri de Piramide</button>
-                  <div id='tipPir' class="dropdown-container hidden lv4">
-                    <button class="dropdown-btn" onclick="tetraedruOarecare()">Piramida Triunghiulara Oarecare
-                      (Tetraedru)</button>
-                    <button class="dropdown-btn" onclick="tetraedruRegulat()">Tetraedru Regulat</button>
-                    <button class="dropdown-btn" onclick="piramidaTriunghiulara()">Piramida Triunghiulara
-                      Regulata</button>
-                    <button class="dropdown-btn" onclick="piramidaPatrulatera()">Piramida Patrulatera Regulata</button>
-                    <button class="dropdown-btn" onclick="piramidaHexagonala()">Piramida Hexagonala Regulata</button>
-                  </div>
+              <div>
+                <button class="dropdown-btn" onclick="toggleContainer('tipPir')">Tipuri de Piramide</button>
+                <div id='tipPir' class="dropdown-container hidden lv4">
+                  <button class="dropdown-btn" onclick="tetraedruOarecare()">Piramida Triunghiulara Oarecare
+                    (Tetraedru)</button>
+                  <button class="dropdown-btn" onclick="tetraedruRegulat()">Tetraedru Regulat</button>
+                  <button class="dropdown-btn" onclick="piramidaTriunghiulara()">Piramida Triunghiulara
+                    Regulata</button>
+                  <button class="dropdown-btn" onclick="piramidaPatrulatera()">Piramida Patrulatera Regulata</button>
+                  <button class="dropdown-btn" onclick="piramidaHexagonala()">Piramida Hexagonala Regulata</button>
                 </div>
+              </div>
 
               </div>
             </div>
@@ -314,19 +318,19 @@
                   </div>
                 </div>
 
-                <div>
-                  <button class="dropdown-btn" onclick="toggleContainer('tipPri')">Tipuri de prisma</button>
-                  <div id='tipPri' class="dropdown-container hidden lv4">
-                    <button class="dropdown-btn" onclick="prismaTriunghilaraRegulata()">Prisma triunghiulara
-                      Regulata</button>
-                    <button class="dropdown-btn" onclick="paralelipipedDreptunghic()">Prisma Patrulatera
-                      (Paralelipiped)</button>
-                    <button class="dropdown-btn" onclick="prismaPatrulateraRegulata()">Prisma Patrulatera
-                      Regulata</button>
-                    <button class="dropdown-btn" onclick="cub()">Cubul</button>
-                    <button class="dropdown-btn" onclick="prismaHexagonala()">Prisma hexagonala</button>
-                  </div>
+              <div>
+                <button class="dropdown-btn" onclick="toggleContainer('tipPri')">Tipuri de prisma</button>
+                <div id='tipPri' class="dropdown-container hidden lv4">
+                  <button class="dropdown-btn" onclick="prismaTriunghilaraRegulata()">Prisma triunghiulara
+                    Regulata</button>
+                  <button class="dropdown-btn" onclick="paralelipipedDreptunghic()">Prisma Patrulatera
+                    (Paralelipiped)</button>
+                  <button class="dropdown-btn" onclick="prismaPatrulateraRegulata()">Prisma Patrulatera
+                    Regulata</button>
+                  <button class="dropdown-btn" onclick="cub()">Cubul</button>
+                  <button class="dropdown-btn" onclick="prismaHexagonala()">Prisma hexagonala</button>
                 </div>
+              </div>
 
               </div>
             </div>
