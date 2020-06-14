@@ -5,9 +5,31 @@ let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHei
 const renderer = new THREE.WebGLRenderer();
 controls = new THREE.OrbitControls(camera, renderer.domElement);
 let domEvents = new THREEx.DomEvents(camera, renderer.domElement);
-// var scene3d = document.getElementById("scene3d");
 
+function init() {
+    document.getElementById("myScene").appendChild(renderer.domElement);
+    camera.position.x = 20;
+    camera.position.y = 10;
+    camera.position.z = 40;
+    controls.minDistance = 1;
+    controls.maxDistance = 1000;
+}
 
+function animate() {
+    requestAnimationFrame(animate);
+    controls.update();
+    renderer.setSize(width, height);
+    renderer.render(scene, camera);
+}
+
+var width; var height;
+function startCanvas(scale) {
+    let r =  window.innerWidth / window.innerHeight;
+    width = scale * window.innerWidth ;
+    height = scale * r * window.innerHeight > 0.8 * window.innerHeight ? 0.8 * window.innerHeight : scale * r * window.innerHeight;
+    init();
+    animate();
+}
 
 //planul zOy
 var planGeo = new THREE.PlaneGeometry(50, 50);
@@ -31,15 +53,10 @@ function addDatGui(){
     gui.add(camera.position, 'x', -70,70).step(5).listen();
     gui.add(camera.position, 'y', -70,70).step(5).listen();
     gui.add(camera.position, 'z', 10,250).step(5).listen();
-
-    // document.getElementById('sidenav').appendChild(gui.domElement);
-    // gui.domElement.style.position = "relative";
 }
-
-function init() {
+// DIN INIT
     // renderer.setSize(window.innerWidth, window.innerHeight);
     // document.body.appendChild(renderer.domElement);
-    document.getElementById("myScene").appendChild(renderer.domElement);
     // document.getElementsByClassName("myScene").appendChild( renderer.domElement );
     // window.addEventListener('resize', function () {
     //     var width = window.innerWidth;
@@ -47,29 +64,3 @@ function init() {
     //     camera.aspect = width / height;
     //     camera.updateProjectionMatrix();
     // });
-    camera.position.x = 20;
-    camera.position.y = 10;
-    camera.position.z = 40;
-    controls.minDistance = 1;
-    controls.maxDistance = 1000;
-    addDatGui();
-
-}
-
-function animate() {
-    requestAnimationFrame(animate);
-    controls.update();
-    renderer.setSize(width, height);
-    renderer.render(scene, camera);
-}
-
-var width; var height;
-function startCanvas(scale) {
-    let r =  window.innerWidth / window.innerHeight;
-    width = scale * window.innerWidth ;
-    height = scale * r * window.innerHeight > 0.8 * window.innerHeight? 0.8 * window.innerHeight :scale * r * window.innerHeight;
-    // width = w;
-    // height = h;
-    init();
-    animate();
-}

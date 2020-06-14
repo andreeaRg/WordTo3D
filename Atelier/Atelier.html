@@ -54,27 +54,17 @@
         <table>
           <tr>
             <td></td>
-            <td>
-              <button style="width: 51px;" class="viewCtrl" onclick="rotateCamV(5)">Up</button>
-            </td>
+            <td><button style="width: 51px;" class="viewCtrl" onclick="rotateCamV(5)">Up</button></td>
             <td></td>
           </tr>
           <tr>
-            <td>
-              <button class="viewCtrl" onclick="rotateCamH(-5)">Left</button>
-            </td>
-            <td>
-              <button class="viewCtrl" onclick="refresP()">Reset</button>
-            </td>
-            <td>
-              <button class="viewCtrl" onclick="rotateCamH(5)">Right</button>
-            </td>
+            <td><button class="viewCtrl" onclick="rotateCamH(-5)">Left</button></td>
+            <td><button class="viewCtrl" onclick="refreshP()">Reset</button></td>
+            <td><button class="viewCtrl" onclick="rotateCamH(5)">Right</button></td>
           </tr>
           <tr>
             <td></td>
-            <td>
-              <button class="viewCtrl" onclick="rotateCamV(-5)">Down</button>
-            </td>
+            <td><button class="viewCtrl" onclick="rotateCamV(-5)">Down</button></td>
             <td></td>
           </tr>
         </table>
@@ -84,11 +74,10 @@
   </div>
 
   <div id="detailsPopUp"></div>
-
+  
   <div id='sidenav'>
 
-    <div>
-      <button id="problemaBtn" class="dropdown-btn" onclick="toggleContainer('problemaContainer')">Citeste Problema
+    <div><button id="problemaBtn" class="dropdown-btn" onclick="toggleContainer('problemaContainer')">Citeste Problema
       </button>
       <div id='problemaContainer' class="dropdown-container hidden lv1">
         <div>
@@ -106,7 +95,7 @@
         </div>
 
         <div>
-          <button class="dropdown-btn" onclick="toggleContainer('citesteP')">Citeste o poza</button>
+          <button class="dropdown-btn" onclick="toggleContainer('citesteP')">Încarcă o poză</button>
           <div id='citesteP' class="dropdown-container hidden lv2">
             <img id="viz" width="100%" /> <br />
 
@@ -114,7 +103,7 @@
             <button onclick="ocrImg()"> Citeste poza!</button> <br />
             <div id='rezultatCitire' class="dropdown-container lv2"></div>
             <div class="dropdown-container lv5">
-              <button class="dropdown-btn" onclick="interpreteazaText('rezultatCitire')">Interpreteaza enuntul!</button>
+              <button class="dropdown-btn" onclick="interpreteazaText('rezultatCitire')">Interpretează enunțul!</button>
             </div>
           </div>
         </div>
@@ -124,8 +113,7 @@
       </div>
     </div>
 
-    <div>
-      <button id="atelierBtn" class="dropdown-btn" onclick="toggleContainer('atelierContainer')">Atelierul geometriei
+    <div><button id="atelierBtn" class="dropdown-btn" onclick="toggleContainer('atelierContainer')">Atelierul geometriei
       </button>
       <div id='atelierContainer' class="dropdown-container hidden lv1">
         <div>
@@ -368,37 +356,6 @@
 
     <a href="https://www.geogebra.org/3d?lang=en">Go to GeoGebra</a>
   </div>
-
-  <script>
-    window.onscroll = function () { myFunction() };
-
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
-
-    function myFunction() {
-      if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
-      } else {
-        navbar.classList.remove("sticky");
-      }
-    }
-
-    //    OCR
-    function ocrImg() {
-      document.getElementById('rezultatCitire').innerText = "Loading... Please wait!"
-      var img = document.getElementById('viz').src;
-
-      Tesseract.recognize(
-        img,
-        'eng',
-        { logger: m => console.log(m.status) }
-      ).then(({ data: { text } }) => {
-        document.getElementById('rezultatCitire').innerText = text;
-      });
-
-    }
-
-  </script>
 
 </body>
 
