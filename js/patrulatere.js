@@ -140,7 +140,7 @@ var p_linie18_19 = new THREE.Line3(p18, p19);
 var p_linie19_20 = new THREE.Line3(p19, p20);
 var p_linie20_17 = new THREE.Line3(p20, p17);
 
-function trapez() {
+function trapezOarecare() {
     sterge();
     perspectivaXoY(0,0,40);
     addLinieBaza(p_linie17_18);

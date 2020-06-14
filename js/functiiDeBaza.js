@@ -193,7 +193,7 @@ function undo() {
     scene.remove(scene.children[scene.children.length - 1]);
 }
 
-function refresP() {
+function refreshP() {
     camera.position.x = 0;
     camera.position.y = 0;
     camera.position.z = 40;

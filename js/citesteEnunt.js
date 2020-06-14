@@ -1,16 +1,19 @@
-let radFiguri2D = ['triunghi', 'patrat', 'patrulater', 'romb', 'dreptunghi', 'paralelogram', 'trapez', 'pentagon', 'hexagon', 'heptagon', 'octagon', 'cerc', 'disc'];
-let radAtribute2D = ['oarecare', 'isoscel', 'dreptunghic', 'echilateral']; //convex
-
+let radFiguri2D = ['triunghi', 'patrat', 'patrulater', 'romb', 'dreptunghi', 'paralelogram',
+  'trapez', 'pentagon', 'hexagon', 'heptagon', 'octagon', 'cerc', 'disc'];
 let radFiguri3D = ['piramid', 'tetraedru', 'paralelipiped', 'cub', 'prism', 'cilindru', 'con', 'sfer'];
+
+let radAtribute2D = ['oarecare', 'isoscel', 'dreptunghic', 'echilateral'];
 let radAtribute3D = ['triunghiulara', 'patrulatera', 'hexagonala', 'regulata', 'dreptunghic', 'dreapta'];
 
-let radLiniImportante = ['varf', 'fat', 'lateral', 'muchi', 'baz', 'inaltim', 'median', 'bisecto', 'mediato', 'diagonal', 'ipotenuza', 'catet', 'apotem', 'apotenuza', 'mijloci', 'mica', 'mare', 'coard', 'raz', 'diametru', 'arc'];
+let radLiniImportante = ['varf', 'fat', 'lateral', 'muchi', 'baz', 'inaltim', 'median', 'bisecto', 'mediato',
+  'diagonal', 'ipotenuza', 'catet', 'apotem', 'apotenuza', 'mijloci', 'mica', 'mare', 'coard', 'raz', 'diametru', 'arc'];
 
 let formule = ['ari', 'volum']; // masa , densitate
 
 let radacini = ['triunghi', 'patrat', 'oarecare', 'isoscel', 'dreptunghic', 'echilateral', 'inaltim', 'median', 'bisecto', 'mediato'];
-let listaMetodeFig = ['drawMediana', 'linMij', 'triunghiOarecare', 'triunghiIsoscel', 'triunghiEchilateral', 'triunghiDreptunghic', 'triunghiDreptunghicIsoscel',
-  'patrat', 'dreptunghi', 'paralelogram', 'romb', 'trapez', 'trapezDrept', 'trapezIsoscel', 'inaltimeTeorie']
+
+let listaMetodeFig = ['drawMediana', 'linMij', 'triunghiOarecare', 'triunghiIsoscel', 'triunghiEchilateral', 'triunghiDreptunghic',
+  'triunghiDreptunghicIsoscel', 'patrat', 'dreptunghi', 'paralelogram', 'romb', 'trapezOarecare', 'trapezDrept', 'trapezIsoscel', 'inaltimeTeorie'];
 
 function gasesteAtr2D(cuvUrmator) {
   for (let atrib2d of radAtribute2D) {
@@ -42,42 +45,40 @@ function interpreteazaEnunt(enunt) {
     .split(',');
 
   for (let cuvant of cuvinte) {
-
-    for (let radacina of radFiguri3D) {
+    for (let radacina of radFiguri3D)
       if (cuvant.toLowerCase().includes(radacina)) {
         mapFigIdentificate.set(cuvant, [radacina]);
-
-        //cautam si adaugam atributele in urmatoarele 2 cuvinte ce preced figura identifiacta
-        atribut = gasesteAtr3D(cuvinte[cuvinte.indexOf(cuvant) + 1]);
+        if (cuvinte.indexOf(cuvant) + 1 < cuvinte.length)
+          atribut = gasesteAtr3D(cuvinte[cuvinte.indexOf(cuvant) + 1]);
+        else
+          break;
         if (atribut) {
-          mapFigIdentificate.get(cuvant).push(atribut);// [radacina, atribut]
-          atribut = gasesteAtr3D(cuvinte[cuvinte.indexOf(cuvant) + 2])
+          mapFigIdentificate.get(cuvant).push(atribut);
+          if (cuvinte.indexOf(cuvant) + 2 < cuvinte.length)
+            atribut = gasesteAtr3D(cuvinte[cuvinte.indexOf(cuvant) + 2])
+          else
+            break;
           if (atribut)
-            mapFigIdentificate.get(cuvant).push(atribut);// [radacina, atribut1, atribut2]
+            mapFigIdentificate.get(cuvant).push(atribut);
         }
       }
-    }
 
-    for (let radacina of radFiguri2D) {
+    for (let radacina of radFiguri2D)
       if (cuvant.toLowerCase().includes(radacina)) {
         mapFigIdentificate.set(cuvant, [radacina]);
-
-        //cautam si adaugam atributele in urmatoarele 2 cuvinte ce preced figura identifiacta
         atribut = gasesteAtr2D(cuvinte[cuvinte.indexOf(cuvant) + 1]);
         if (atribut) {
-          mapFigIdentificate.get(cuvant).push(atribut); // [radacina, atribut]
+          mapFigIdentificate.get(cuvant).push(atribut);
           atribut = gasesteAtr2D(cuvinte[cuvinte.indexOf(cuvant) + 2])
           if (atribut)
-            mapFigIdentificate.get(cuvant).push(atribut);// [radacina, atribut1, atribut2]
+            mapFigIdentificate.get(cuvant).push(atribut);
         }
       }
-    }
 
-    for (let radacina of radLiniImportante) {
+    for (let radacina of radLiniImportante)
       if (cuvant.toLowerCase().includes(radacina)) {
         mapFigIdentificate.set(cuvant, [radacina]);
       }
-    }
   }
 
   afiseazaRezultat(enunt, mapFigIdentificate);
@@ -100,32 +101,31 @@ function gasestePortiunea(primul, ultimul, string) {
 }
 
 function construiesteButon(cuvant, figura, enuntOriginal) {
-  // console.log("Cuvant:" + cuvant)
-  // console.log("Figura identificata:" + figura)
-  // console.log(figura)
   let numeMetoda = "";
-  for (let caracteristica of figura) { // figura = [radacina, atribut1, atribut2]
-    // console.log(caracteristica)
-    numeMetoda += caracteristica; 
+  for (let caracteristica of figura) {
+    numeMetoda += caracteristica;
   }
-  // console.log(numeMetoda)
-  numeMetoda = listaMetodeFig.filter((metoda) => metoda.toLocaleLowerCase().indexOf(numeMetoda) > -1 );
-  // console.log(numeMetoda)
+  numeMetoda = listaMetodeFig.filter((metoda) => metoda.toLocaleLowerCase().indexOf(numeMetoda) > -1);
 
-  //daca nu avem atribute si figura nu este specifica(gen patrat) inseamna ca e oarecare
   if (figura.length == 1 && numeMetoda.length > 1) {
     numeMetoda = listaMetodeFig.filter((metoda) => metoda.toLocaleLowerCase().includes("oarecare"));
   }
-  // console.log(numeMetoda)
 
   if (numeMetoda.length > 1 || numeMetoda.length == 0)
     alert("Metoda constructie buton trebuie regandita!");
 
-  // console.log("Metoda " + numeMetoda + " pt " + cuvant)
-
   let portiuneText = figura.length > 1 ? gasestePortiunea(cuvant, figura[figura.length - 1], enuntOriginal) : cuvant;
   return '<button class="enunt-btn" onclick="' + numeMetoda[0] + '()">' + portiuneText + '</button>';
 }
+
+// console.log("Cuvant:" + cuvant)
+// console.log("Figura identificata:" + figura)
+// console.log(figura)
+// figura = [radacina, atribut1, atribut2]
+// console.log(caracteristica)
+//daca nu avem atribute si figura nu este specifica(gen patrat) inseamna ca e oarecare
+
+// console.log("Metoda " + numeMetoda + " pt " + cuvant)
 
 function interpreteazaInput(id) {
   interpreteazaEnunt(document.getElementById(id).value)
@@ -133,13 +133,30 @@ function interpreteazaInput(id) {
 
 function interpreteazaText(id) {
   interpreteazaEnunt(document.getElementById(id).innerText)
-} 
+}
 
 function viewImg(event) {
-    var image = document.getElementById('viz');
+  var image = document.getElementById('viz');
 
-    image.src = URL.createObjectURL(event.target.files[0]);
-    image.style.display = 'block';
+  image.src = URL.createObjectURL(event.target.files[0]);
+  image.style.display = 'block';
 
-    document.getElementById('rezultatCitire').innerText = "Apasati butonul Citeste Poaza";
+  document.getElementById('rezultatCitire').innerText = "Apasati butonul Citeste Poaza";
 }
+
+//    OCR
+function ocrImg() {
+  document.getElementById('rezultatCitire').innerText = "Se încarcă... Vă rugăm să așteptați !"
+
+  Tesseract.recognize(
+    img,
+    'eng',
+    { logger: m => console.log(m.status) }
+  ).then(({ data: { text } }) => {
+    document.getElementById('rezultatCitire').innerText = text;
+  });
+
+}
+
+// [radacina, atribut]
+// [radacina, atribut1, atribut2]
