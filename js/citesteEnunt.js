@@ -10,7 +10,7 @@ let formule = ['ari', 'volum']; // masa , densitate
 
 let radacini = ['triunghi', 'patrat', 'oarecare', 'isoscel', 'dreptunghic', 'echilateral', 'inaltim', 'median', 'bisecto', 'mediato'];
 let listaMetodeFig = ['drawMediana', 'linMij', 'triunghiOarecare', 'triunghiIsoscel', 'triunghiEchilateral', 'triunghiDreptunghic', 'triunghiDreptunghicIsoscel',
-  'patrat', 'dreptunghi', 'paralelogram', 'romb', 'trapez', 'trapezDrept', 'trapezIsoscel', 'inaltimeTeorie']
+  'patrat', 'dreptunghi', 'paralelogram', 'romb', 'trapezOarecare', 'trapezDrept', 'trapezIsoscel', 'inaltimeTeorie']
 
 function gasesteAtr2D(cuvUrmator) {
   for (let atrib2d of radAtribute2D) {
@@ -48,10 +48,16 @@ function interpreteazaEnunt(enunt) {
         mapFigIdentificate.set(cuvant, [radacina]);
 
         //cautam si adaugam atributele in urmatoarele 2 cuvinte ce preced figura identifiacta
-        atribut = gasesteAtr3D(cuvinte[cuvinte.indexOf(cuvant) + 1]);
+        if (cuvinte.indexOf(cuvant) + 1 < cuvinte.length)
+          atribut = gasesteAtr3D(cuvinte[cuvinte.indexOf(cuvant) + 1]);
+        else
+          break;
         if (atribut) {
           mapFigIdentificate.get(cuvant).push(atribut);// [radacina, atribut]
-          atribut = gasesteAtr3D(cuvinte[cuvinte.indexOf(cuvant) + 2])
+          if (cuvinte.indexOf(cuvant) + 2 < cuvinte.length)
+            atribut = gasesteAtr3D(cuvinte[cuvinte.indexOf(cuvant) + 2]);
+          else
+            break;
           if (atribut)
             mapFigIdentificate.get(cuvant).push(atribut);// [radacina, atribut1, atribut2]
         }
@@ -63,10 +69,17 @@ function interpreteazaEnunt(enunt) {
         mapFigIdentificate.set(cuvant, [radacina]);
 
         //cautam si adaugam atributele in urmatoarele 2 cuvinte ce preced figura identifiacta
-        atribut = gasesteAtr2D(cuvinte[cuvinte.indexOf(cuvant) + 1]);
+        if (cuvinte.indexOf(cuvant) + 1 < cuvinte.length)
+          atribut = gasesteAtr2D(cuvinte[cuvinte.indexOf(cuvant) + 1]);
+        else
+          break;
         if (atribut) {
           mapFigIdentificate.get(cuvant).push(atribut); // [radacina, atribut]
-          atribut = gasesteAtr2D(cuvinte[cuvinte.indexOf(cuvant) + 2])
+
+          if (cuvinte.indexOf(cuvant) + 2 < cuvinte.length)
+            atribut = gasesteAtr2D(cuvinte[cuvinte.indexOf(cuvant) + 2]);
+          else
+            break;
           if (atribut)
             mapFigIdentificate.get(cuvant).push(atribut);// [radacina, atribut1, atribut2]
         }
@@ -100,30 +113,24 @@ function gasestePortiunea(primul, ultimul, string) {
 }
 
 function construiesteButon(cuvant, figura, enuntOriginal) {
-  // console.log("Cuvant:" + cuvant)
-  // console.log("Figura identificata:" + figura)
-  // console.log(figura)
   let numeMetoda = "";
   for (let caracteristica of figura) { // figura = [radacina, atribut1, atribut2]
-    // console.log(caracteristica)
-    numeMetoda += caracteristica; 
+    numeMetoda += caracteristica;
   }
-  // console.log(numeMetoda)
-  numeMetoda = listaMetodeFig.filter((metoda) => metoda.toLocaleLowerCase().indexOf(numeMetoda) > -1 );
-  // console.log(numeMetoda)
-
+  numeMetoda = listaMetodeFig.filter((metoda) => metoda.toLocaleLowerCase().indexOf(numeMetoda) > -1);
+  console.log(numeMetoda)
   //daca nu avem atribute si figura nu este specifica(gen patrat) inseamna ca e oarecare
   if (figura.length == 1 && numeMetoda.length > 1) {
-    numeMetoda = listaMetodeFig.filter((metoda) => metoda.toLocaleLowerCase().includes("oarecare"));
+    numeMetoda = numeMetoda.filter((metoda) => metoda.toLocaleLowerCase().includes("oarecare"));
   }
-  // console.log(numeMetoda)
+
+  console.log(numeMetoda)
+
+  let portiuneText = figura.length > 1 ? gasestePortiunea(cuvant, figura[figura.length - 1], enuntOriginal) : cuvant;
 
   if (numeMetoda.length > 1 || numeMetoda.length == 0)
     alert("Metoda constructie buton trebuie regandita!");
 
-  // console.log("Metoda " + numeMetoda + " pt " + cuvant)
-
-  let portiuneText = figura.length > 1 ? gasestePortiunea(cuvant, figura[figura.length - 1], enuntOriginal) : cuvant;
   return '<button class="enunt-btn" onclick="' + numeMetoda[0] + '()">' + portiuneText + '</button>';
 }
 
@@ -133,13 +140,13 @@ function interpreteazaInput(id) {
 
 function interpreteazaText(id) {
   interpreteazaEnunt(document.getElementById(id).innerText)
-} 
+}
 
 function viewImg(event) {
-    var image = document.getElementById('viz');
+  var image = document.getElementById('viz');
 
-    image.src = URL.createObjectURL(event.target.files[0]);
-    image.style.display = 'block';
+  image.src = URL.createObjectURL(event.target.files[0]);
+  image.style.display = 'block';
 
-    document.getElementById('rezultatCitire').innerText = "Apasati butonul Citeste Poaza";
+  document.getElementById('rezultatCitire').innerText = "Apasati butonul Citeste Poaza";
 }
