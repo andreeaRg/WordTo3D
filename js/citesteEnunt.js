@@ -1,9 +1,9 @@
 let radFiguri2D = ['triunghi', 'patrat', 'patrulater', 'romb', 'dreptunghi', 'paralelogram',
   'trapez', 'pentagon', 'hexagon', 'heptagon', 'octagon', 'cerc', 'disc'];
-let radFiguri3D = ['piramid', 'tetraedru', 'paralelipiped', 'cub', 'prism', 'cilindru', 'con', 'sfer'];
+let radFiguri3D = ['piramid', 'tetraedru', 'paralelipiped', 'cub', 'prism', 'cilindru', 'sfer']; //fara con
 
 let radAtribute2D = ['oarecare', 'isoscel', 'dreptunghic', 'echilateral'];
-let radAtribute3D = ['triunghiulara', 'patrulatera', 'hexagonala', 'regulata', 'dreptunghic', 'dreapta'];
+let radAtribute3D = ['triunghiular', 'patrulater', 'hexagonal', 'regulat', 'dreptunghic', 'dreapta'];
 
 let radLiniImportante = ['varf', 'fat', 'lateral', 'muchi', 'baz', 'inaltim', 'median', 'bisecto', 'mediato',
   'diagonal', 'ipotenuza', 'catet', 'apotem', 'apotenuza', 'mijloci', 'mica', 'mare', 'coard', 'raz', 'diametru', 'arc'];
@@ -13,7 +13,12 @@ let formule = ['ari', 'volum']; // masa , densitate
 let radacini = ['triunghi', 'patrat', 'oarecare', 'isoscel', 'dreptunghic', 'echilateral', 'inaltim', 'median', 'bisecto', 'mediato'];
 
 let listaMetodeFig = ['drawMediana', 'linMij', 'triunghiOarecare', 'triunghiIsoscel', 'triunghiEchilateral', 'triunghiDreptunghic',
-  'triunghiDreptunghicIsoscel', 'patrat', 'dreptunghi', 'paralelogram', 'romb', 'trapezOarecare', 'trapezDrept', 'trapezIsoscel', 'inaltimeTeorie'];
+  'triunghiDreptunghicIsoscel', 'patrat', 'dreptunghi', 'paralelogram', 'romb', 'trapezOarecare', 'trapezDrept', 'trapezIsoscel',
+  'pentagonf', 'hexagonf', 'heptagonf', 'octogonf', 'cerc',
+  //nu exista tetraedru regulat
+  'tetraedruOarecare', 'piramidaOarecare', 'piramidaTriunghiularaRegulata', 'piramidaPatrulateraRegulata', 'piramidaHexagonalaRegulata',
+  'prismaTriunghilaraRegulata', 'paralelipipedDreptunghic', 'prismaPatrulateraRegulata', 'cub', 'prismaHexagonala',
+  'inaltimeTeorie'];
 
 function gasesteAtr2D(cuvUrmator) {
   for (let atrib2d of radAtribute2D) {
@@ -34,59 +39,83 @@ function gasesteAtr3D(cuvUrmator) {
 }
 
 function interpreteazaEnunt(enunt) {
-
   let mapFigIdentificate = new Map();
   let atribut;
 
-  let cuvinte = enunt.replace(/(?:\r\n|\r|\n)/g, ' ').split(' ').join(',')
+  let cuvinte = enunt.replace(/(?:\r\n|\r|\n)/g, ' ')
+    .toLocaleLowerCase()
+    .replace('ţ', "t")
+    .replace('ș', "s")
+    .replace('ă', "a")
+    .replace('î', "i")
+    .replace('â', "a")
+    .split(' ').join(',')
     .split('.').join(',')
     .split('!').join(',')
     .split('?').join(',')
     .split(',');
 
-  for (let cuvant of cuvinte) {
-    for (let radacina of radFiguri3D)
-      if (cuvant.toLowerCase().includes(radacina)) {
-        mapFigIdentificate.set(cuvant, [radacina]);
-        if (cuvinte.indexOf(cuvant) + 1 < cuvinte.length)
-          atribut = gasesteAtr3D(cuvinte[cuvinte.indexOf(cuvant) + 1]);
+  console.log(cuvinte)
+  for (let idxCuv = 0; idxCuv < cuvinte.length; idxCuv++) {
+    for (let radacina of radFiguri3D) {
+      if (cuvinte[idxCuv].includes(radacina)) {
+
+        mapFigIdentificate.set(cuvinte[idxCuv], [radacina]);
+
+        if (idxCuv + 1 < cuvinte.length)
+          atribut = gasesteAtr3D(cuvinte[idxCuv + 1]);
         else
           break;
         if (atribut) {
-          mapFigIdentificate.get(cuvant).push(atribut);
-          if (cuvinte.indexOf(cuvant) + 2 < cuvinte.length)
-            atribut = gasesteAtr3D(cuvinte[cuvinte.indexOf(cuvant) + 2])
+
+          mapFigIdentificate.get(cuvinte[idxCuv]).push(atribut);
+          idxCuv++;
+
+          if (idxCuv + 1 < cuvinte.length)
+            atribut = gasesteAtr3D(cuvinte[idxCuv + 1]);
           else
             break;
-          if (atribut)
-            mapFigIdentificate.get(cuvant).push(atribut);
+          if (atribut) {
+            mapFigIdentificate.get(cuvinte[idxCuv - 1]).push(atribut);
+            idxCuv++;
+          }
         }
+        break;
       }
+    }
 
-    for (let radacina of radFiguri2D)
-      if (cuvant.toLowerCase().includes(radacina)) {
-        mapFigIdentificate.set(cuvant, [radacina]);
+    for (let radacina of radFiguri2D) {
+      if (cuvinte[idxCuv].toLowerCase().includes(radacina)) {
 
-        if (cuvinte.indexOf(cuvant) + 1 < cuvinte.length)
-          atribut = gasesteAtr2D(cuvinte[cuvinte.indexOf(cuvant) + 1]);
+        mapFigIdentificate.set(cuvinte[idxCuv], [radacina]);
+
+        if (idxCuv + 1 < cuvinte.length)
+          atribut = gasesteAtr2D(cuvinte[idxCuv + 1]);
         else
           break;
         if (atribut) {
-          mapFigIdentificate.get(cuvant).push(atribut);
 
-          if (cuvinte.indexOf(cuvant) + 2 < cuvinte.length)
-            atribut = gasesteAtr2D(cuvinte[cuvinte.indexOf(cuvant) + 2]);
+          mapFigIdentificate.get(cuvinte[idxCuv]).push(atribut);
+          idxCuv++;
+
+          if (idxCuv + 1 < cuvinte.length)
+            atribut = gasesteAtr2D(cuvinte[idxCuv + 1]);
           else
             break;
-          if (atribut)
-            mapFigIdentificate.get(cuvant).push(atribut);
+          if (atribut) {
+            mapFigIdentificate.get(cuvinte[idxCuv - 1]).push(atribut);
+            idxCuv++;
+          }
         }
       }
+      break;
+    }
 
-    for (let radacina of radLiniImportante)
-      if (cuvant.toLowerCase().includes(radacina)) {
-        mapFigIdentificate.set(cuvant, [radacina]);
-      }
+    // for (let radacina of radLiniImportante){
+    //   if (cuvant.toLowerCase().includes(radacina)) {
+    //     mapFigIdentificate.set(cuvant, [radacina]);
+    //   }
+    // }
   }
 
   afiseazaRezultat(enunt, mapFigIdentificate);
@@ -105,35 +134,34 @@ function afiseazaRezultat(enuntOriginal, mapFigIdentificate) {
 function gasestePortiunea(primul, ultimul, string) {
   // de simplificat( nu ar trebui sa existe punctuatie, doar spatiu)
   //de verificat pt cazul in care exista doua referinte la acelas cuvant
-  return ultimul ? string.slice(string.indexOf(primul), string.indexOf(ultimul) + ultimul.length) : primul;
+  return ultimul ? string.slice(string.indexOf(primul), string.indexOf(ultimul) + ultimul.length + 1) : primul;
 }
 
 function construiesteButon(cuvant, figura, enuntOriginal) {
-  let numeMetoda = "";
+  let numeMetoda = listaMetodeFig;
   for (let caracteristica of figura) {
-    numeMetoda += caracteristica;
+    numeMetoda = numeMetoda.filter((metoda) => metoda.toLocaleLowerCase().indexOf(caracteristica) > -1);;
   }
-  numeMetoda = listaMetodeFig.filter((metoda) => metoda.toLocaleLowerCase().indexOf(numeMetoda) > -1);
 
   if (figura.length == 1 && numeMetoda.length > 1) {
     numeMetoda = numeMetoda.filter((metoda) => metoda.toLocaleLowerCase().includes("oarecare"));
   }
 
-  if (numeMetoda.length > 1 || numeMetoda.length == 0)
-    alert("Metoda constructie buton trebuie regandita!");
-
   let portiuneText = figura.length > 1 ? gasestePortiunea(cuvant, figura[figura.length - 1], enuntOriginal) : cuvant;
+
+  if (numeMetoda.length > 1 || numeMetoda.length == 0) {
+    console.log("Metoda constructie buton trebuie regandita!");
+    console.log(portiuneText)
+    console.log(figura)
+    console.log(numeMetoda)
+  }
+
+  if (numeMetoda.length == 0) {
+    return '<button class="enunt-btn">' + portiuneText + '</button>';
+  }
+
   return '<button class="enunt-btn" onclick="' + numeMetoda[0] + '()">' + portiuneText + '</button>';
 }
-
-// console.log("Cuvant:" + cuvant)
-// console.log("Figura identificata:" + figura)
-// console.log(figura)
-// figura = [radacina, atribut1, atribut2]
-// console.log(caracteristica)
-//daca nu avem atribute si figura nu este specifica(gen patrat) inseamna ca e oarecare
-
-// console.log("Metoda " + numeMetoda + " pt " + cuvant)
 
 function interpreteazaInput(id) {
   interpreteazaEnunt(document.getElementById(id).value)
@@ -144,6 +172,7 @@ function interpreteazaText(id) {
 }
 
 function viewImg(event) {
+  document.getElementById('ocrBtn').style.display = "block";
   var image = document.getElementById('viz');
 
   image.src = URL.createObjectURL(event.target.files[0]);
@@ -154,11 +183,12 @@ function viewImg(event) {
 
 //    OCR
 function ocrImg() {
-  document.getElementById('rezultatCitire').innerText = "Se încarcă... Vă rugăm să așteptați !"
+  document.getElementById('rezultatCitire').innerText = "Se încarcă... Vă rugăm așteptați !"
+  let img = document.getElementById('viz').src;
 
   Tesseract.recognize(
     img,
-    'eng',
+    'ron',
     { logger: m => console.log(m.status) }
   ).then(({ data: { text } }) => {
     document.getElementById('rezultatCitire').innerText = text;

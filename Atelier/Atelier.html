@@ -100,7 +100,7 @@
             <img id="viz" width="100%" /> <br />
 
             <input type="file" id="poza" accept="image/*" onchange="viewImg(event)">
-            <button onclick="ocrImg()"> Citeste poza!</button> <br />
+            <button id='ocrBtn' onclick="ocrImg()"> Citeste poza!</button> <br />
             <div id='rezultatCitire' class="dropdown-container lv2"></div>
             <div class="dropdown-container lv5">
               <button class="dropdown-btn" onclick="interpreteazaText('rezultatCitire')">Interpretează enunțul!</button>
@@ -220,11 +220,11 @@
             </div>
 
             <div>
-              <button class="dropdown-btn" onclick="toggleContainer('atelierCerc')">Cercul</button>
+              <button class="dropdown-btn" onclick="toggleContainer('atelierCerc')">Figuri rotunde</button>
               <div id='atelierCerc' class="dropdown-container hidden lv2">
 
                 <div>
-                  <button class="dropdown-btn" onclick="toggleContainer('liniiCerc')">Linii in cerc</button>
+                  <button class="dropdown-btn" onclick="toggleContainer('liniiCerc')">Linii in figuri rotunde</button>
                   <div id='liniiCerc' class="dropdown-container hidden lv3">
                     <button class="dropdown-btn" onclick="">Raza</button>
                     <button class="dropdown-btn" onclick="">Diametru</button>
@@ -233,9 +233,9 @@
                 </div>
 
                 <div>
-                  <button class="dropdown-btn" onclick="toggleContainer('tipCerc')">Tipuri de cerc</button>
+                  <button class="dropdown-btn" onclick="toggleContainer('tipCerc')">Tipuri de figuri rotunde</button>
                   <div id='tipCerc' class="dropdown-container hidden lv4">
-                    <button class="dropdown-btn" onclick="cerc()">Cerc</button>
+                    <button class="dropdown-btn" onclick="cerc()">Cercul(disc)</button>
                   </div>
                 </div>
 
@@ -283,9 +283,8 @@
                 <div id='tipPir' class="dropdown-container hidden lv4">
                   <button class="dropdown-btn" onclick="tetraedruOarecare()">Piramida Triunghiulara Oarecare
                     (Tetraedru)</button>
-                  <button class="dropdown-btn" onclick="tetraedruRegulat()">Tetraedru Regulat</button>
-                  <button class="dropdown-btn" onclick="piramidaTriunghiulara()">Piramida Triunghiulara
-                    Regulata</button>
+                  <!-- <button class="dropdown-btn" onclick="tetraedruRegulat()">Tetraedru Regulat</button> -->
+                  <button class="dropdown-btn" onclick="piramidaTriunghiularaRegulata()">Piramida Triunghiulara Regulata</button>
                   <button class="dropdown-btn" onclick="piramidaPatrulatera()">Piramida Patrulatera Regulata</button>
                   <button class="dropdown-btn" onclick="piramidaHexagonala()">Piramida Hexagonala Regulata</button>
                 </div>
@@ -339,9 +338,9 @@
                 <div>
                   <button class="dropdown-btn" onclick="toggleContainer('tipRot')">Tipuri de corpuri rotunde</button>
                   <div id='tipRot' class="dropdown-container hidden lv4">
-                    <button class="dropdown-btn" onclick="pentagonf()">Cilindru</button>
-                    <button class="dropdown-btn" onclick="hexagonf()">Con</button>
-                    <button class="dropdown-btn" onclick="heptagonf()">Sfera</button>
+                    <button class="dropdown-btn" onclick="">Cilindru</button>
+                    <button class="dropdown-btn" onclick="">Con</button>
+                    <button class="dropdown-btn" onclick="">Sfera</button>
                   </div>
                 </div>
 

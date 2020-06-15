@@ -73,6 +73,10 @@ function tetraedruOarecare() {
     });
 }
 
+function piramidaOarecare(){
+    tetraedruOarecare();
+}
+
 //TETRAEDRU REGULAT
 let pctTetraReg_1 = new THREE.Vector3(10, -15, 0); pctTetraReg_1.name = "B";
 let pctTetraReg_2 = new THREE.Vector3(10, -15, 20); pctTetraReg_2.name = "A";
@@ -163,7 +167,7 @@ let pirTri_latLateral_1_v = new THREE.Line3(pctPirTri_1, pctPirTri_vf);
 let pirTri_latLateral_2_v = new THREE.Line3(pctPirTri_2, pctPirTri_vf);
 let pirTri_latLateral_3_v = new THREE.Line3(pctPirTri_3, pctPirTri_vf);
 
-function piramidaTriunghiulara() {
+function piramidaTriunghiularaRegulata() {
     sterge();
     perspectivaXoY(17, -5, 40);
     addLinieBaza(pirTri_baza_1_2);
@@ -222,6 +226,7 @@ function piramidaTriunghiulara() {
         scene.add(textV);
     });
 }
+
 //Piramida Patrulatera Regulata
 let pctPirPatr_1 = new THREE.Vector3(10, -15, 20); pctPirPatr_1.name = "B";
 let pctPirPatr_2 = new THREE.Vector3(-10, -15, 20); pctPirPatr_2.name = "A";
@@ -241,7 +246,7 @@ let pirPatr_latLaterala_2_v = new THREE.Line3(pctPirPatr_2, pctPirPatr_vf);
 let pirPatr_latLaterala_3_v = new THREE.Line3(pctPirPatr_3, pctPirPatr_vf);
 let pirPatr_latLaterala_4_v = new THREE.Line3(pctPirPatr_4, pctPirPatr_vf);
 
-function piramidaPatrulatera() {
+function piramidaPatrulateraRegulata() {
     sterge();
     perspectivaXoY(17, -5, 40);
     addLinieBaza(pirPatr_baza_1_2);
@@ -312,6 +317,10 @@ function piramidaPatrulatera() {
     });
 }
 
+function piramidaPatrulateraRegulata(){
+
+}
+
 //Piramida HEXAGONALA Regulata
 var bazaPrismaHex = [];
 
@@ -342,7 +351,7 @@ let pirHex_latLaterala_4_v = new THREE.Line3(pctPirHex_4, pctPirHex_vf);
 let pirHex_latLaterala_5_v = new THREE.Line3(pctPirHex_5, pctPirHex_vf);
 let pirHex_latLaterala_6_v = new THREE.Line3(pctPirHex_6, pctPirHex_vf);
 
-function piramidaHexagonala() {
+function piramidaHexagonalaRegulata() {
     sterge();
     perspectivaXoY(17, -5, 40);
     addLinieBaza(pctPirHex_baza_1_2);
@@ -433,4 +442,8 @@ function piramidaHexagonala() {
         textV.position.z = pctPirHex_vf.getComponent(2);
         scene.add(textV);
     });
+}
+
+function piramidaHexagonala(){
+    piramidaHexagonalaRegulata();
 }
