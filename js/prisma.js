@@ -25,7 +25,7 @@ let cub_muchie_4_8 = new THREE.Line3(pctCub_4, pctCub_8);
 
 function cub() {
     sterge();
-    perspectivaXoY(17, -5, 40);
+    perspectivaXoYoZ(17, -5, 40);
     addLinieBaza(cub_muchie_1_2);
     addLinieBaza(cub_muchie_2_3);
     addLinieBaza(cub_muchie_3_4);
@@ -153,7 +153,7 @@ let para_muchie_4_8 = new THREE.Line3(pctParaDreptunghic_4, pctParaDreptunghic_8
 
 function paralelipipedDreptunghic() {
     sterge();
-    perspectivaXoY(17, -5, 40);
+    perspectivaXoYoZ(17, -5, 40);
     addLinieBaza(para_muchie_1_2);
     addLinieBaza(para_muchie_2_3);
     addLinieBaza(para_muchie_3_4);
@@ -276,7 +276,7 @@ let prismaTri_muchie_3_6 = new THREE.Line3(pctPrismaTri_3, pctPrismaTri_6);
 
 function prismaTriunghilaraRegulata() {
     sterge();
-    perspectivaXoY(17, -5, 40);
+    perspectivaXoYoZ(17, -5, 40);
     addLinieBaza(prismaTri_muchie_1_2);
     addLinieBaza(prismaTri_muchie_2_3);
     addLinieBaza(prismaTri_muchie_3_1);
@@ -384,7 +384,7 @@ let prismaPatr_muchie_4_8 = new THREE.Line3(pctPrismaPatr_4, pctPrismaPatr_8);
 
 function prismaPatrulateraRegulata() {
     sterge();
-    perspectivaXoY(17, -5, 40);
+    perspectivaXoYoZ(17, -5, 40);
     addLinieBaza(prismaPatr_muchie_1_2);
     addLinieBaza(prismaPatr_muchie_2_3);
     addLinieBaza(prismaPatr_muchie_3_4);
@@ -529,7 +529,7 @@ let prismaHex_muchie_6_12 = new THREE.Line3(pctPrismaHex_6, pctPrismaHex_12);
 
 function prismaHexagonala() {
     sterge();
-    perspectivaXoY(17, -5, 40);
+    perspectivaXoYoZ(17, -5, 40);
     addLinieBaza(prismaHex_muchie_1_2);
     addLinieBaza(prismaHex_muchie_2_3);
     addLinieBaza(prismaHex_muchie_3_4);

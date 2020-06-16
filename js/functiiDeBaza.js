@@ -1,8 +1,7 @@
 
 const matPointOff = new THREE.MeshBasicMaterial({color: 0x0000ff });
 const matPointOn = new THREE.MeshBasicMaterial({ color: 0xff0033 });
-const materialOn = new THREE.LineBasicMaterial({ color: 0xff0033 });
-const materialOff = new THREE.LineBasicMaterial({ color: 0x0000ff });
+
 const matLinie = new THREE.LineBasicMaterial({ color: 0x0000ff, linewidth: 10 });
 
 function radToDeg(radians) {
@@ -126,8 +125,6 @@ function addLinieBaza(line3) {
     nameLine(line3);
     let l = toLine(line3);
     linesMap.set(l, line3);
-    // let l = line3To2(line3);
-    // linesMap3To2.set(l, line3);
     addPoint(line3.end);
     scene.add(l);
     domEvents.addEventListener(l, 'click', event => { clickL(l); });
@@ -211,7 +208,7 @@ function rotateCamV(step) {
     camera.position.y += step;
 }
 
-function perspectivaXoY(x, y,z) {
+function perspectivaXoYoZ(x, y,z) {
     camera.position.x = x;
     camera.position.y = y;
     camera.position.z = z;

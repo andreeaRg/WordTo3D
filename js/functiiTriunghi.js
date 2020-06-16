@@ -243,7 +243,6 @@ function centrulDeGreutate() {
     });
 }
 
-
 function linieMijlocieTeorie() {
     triunghiOarecare();
     addLinie2Puncte(new THREE.Line3(t_linie1_2.getCenter(), t_linie2_3.getCenter()));
@@ -336,8 +335,6 @@ function ortocentrul() {
         scene.add(textH);
     });
 }
-
-
 function mediatoareTeorie() {
     triunghiOarecare();
     var pct1 = new THREE.Vector3(t_linie3_1.getCenter().getComponent(0), t_linie3_1.getCenter().getComponent(1) + 10, t_linie3_1.getCenter().getComponent(2));

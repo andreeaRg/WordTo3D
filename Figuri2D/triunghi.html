@@ -9,19 +9,13 @@
     <script src="../js/jsDoc/three.js"></script>
     <script src="../js/jsDoc/OrbitControls.js"></script>
     <script src="../js/jsDoc/threex.domevents.js"></script>
-    <script src="../js/jsDoc/dat.gui.min.js"></script>
 
     <script src="../js/functiiDeBaza.js"></script>
+    <script src="../js/functiiSelect.js"></script>
+    <script src="../js/nav.js"></script>
+    <script src="../js/init.js"></script>
     <script src="../js/functiiTriunghi.js"></script>
     <script src="../js/triunghi.js"></script>
-    <script src="../js/patrulatere.js"></script>
-    <script src="../js/poligoane.js"></script>
-    <script src="../js/cerc.js"></script>
-    <script src="../js/init.js"></script>
-    <script src="../js/functiiSelect.js"></script>
-
-    <script src="../js/nav.js"></script>
-
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
@@ -32,44 +26,49 @@
 
     <div id="navbar" style="background-color:#3CA619;">
         <h1 style="text-align: center" class="serif"> <span
-            style="font-size:30px;cursor:pointer; color: rgb(15, 78, 52); " onclick="openNav()">&#9776; WordTo3D</span> </h1>
+            style="font-size:30px;cursor:pointer; color: rgb(15, 78, 52); "
+             onclick="openNav()">&#9776; WordTo3D</span> </h1>
     </div>
-    <script>
-        window.onscroll = function () { stickyNavBar() };
-
-        var navbar = document.getElementById("navbar");
-        var sticky = navbar.offsetTop;
-
-        function stickyNavBar() {
-            if (window.pageYOffset >= sticky) {
-                navbar.classList.add("sticky")
-            } else {
-                navbar.classList.remove("sticky");
-            }
-        }
-    </script>
-
+    
     <div id="myNav" class="overlay">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="overlay-content">
-            <a href="../home.html">About</a>
             <a href="../Atelier/Atelier.html">Spre atelier</a>
             <a href="../Figuri2D/triunghi.html">La teorie 2D</a>
             <a href="../Figuri3D/Piramida.html">La teorie 3D</a>
         </div>
     </div>
 
-    <div id="ButoaneStanga" class="sidenav">
+    <div id="ButoaneDreapta" class="sidenav">
         <a href="triunghi.html" id="triunghi">Triunghi</a>
         <a href="patrulatere.html" id="patrulatere">Patrulatere</a>
         <a href="poligoane.html" id="poligoane">Poligoane</a>
         <a href="cerc.html" id="cerc">Cerc</a>
     </div>
 
-
     <div class="sidenavCanvas" style="background-color: #3CA619;">
         <div id="myScene"></div>
-        <div id="butoaneCanvas"></div>
+        <div id="butoaneCanvas">
+            <center>
+            <table>
+                <tr>
+                  <td></td>
+                  <td><button style="width: 51px;" class="viewCtrl" onclick="rotateCamV(5)">Up</button></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><button class="viewCtrl" onclick="rotateCamH(-5)">Left</button></td>
+                  <td><button class="viewCtrl" onclick="refreshP()">Reset</button></td>
+                  <td><button class="viewCtrl" onclick="rotateCamH(5)">Right</button></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><button class="viewCtrl" onclick="rotateCamV(-5)">Down</button></td>
+                  <td></td>
+                </tr>
+              </table>
+              </center>
+        </div>
     </div>
 
     <div class="main">
@@ -83,15 +82,14 @@
         <p style="padding-left: 40px;"><a href="#trigo">V.2. Relatii trigonometrice</a></p>
 
 
-        <p>Triunghiul este figura geometrică obținută prin reuniunea segmentelor [AB], [BC], [CA], unde A, B, C sunt
-            trei puncte necoliniare (un triunghi este un poligon cu 3 laturi).</p>
+        <p>Triunghiul este figura geometrică obținută prin reuniunea segmentelor [AB], [BC], [CA],
+             unde A, B, C sunt trei puncte necoliniare (un triunghi este un poligon cu 3 laturi).</p>
         <p>Elementele unui triunghi:</p>
         <p>Laturile: [AB], [BC], [CA]</p>
         <p>Unghiurile: ABC, BCA, BAC </p>
         <p>Vârfurile: A, B, C.</p>
         <p><span>Proprietate</span> În orice triunghi, suma măsurilor unghiurilor este
-            egală
-            cu 180°.</p>
+            egală cu 180°.</p>
         <p><span>Perimetrul </span> (P) unui triunghi este suma lungimilor laturilor.</p>
         <p> P = AB+BC+CA</p>
         <p><span>Semiperimetrul </span> (s) unui triunghi este semisuma lungimilor
@@ -153,7 +151,7 @@
 
         <p><button onclick="mediatoareTeorie()"> Mediatoarea </button> unui triunghi este dreapta
             perpendiculară pe mijlocul unui triunghi. Mediatoarele laturilor unui triunghi sunt concurente, punctul de
-            intersecţie al lor fiind <button onclick=""> centrul cercului circumscris </button> triunghiului și se
+            intersecţie al lor fiind centrul cercului circumscris  triunghiului și se
             notează cu <span>O</span>. </p>
 
         <p><button onclick="linieMijlocieTeorie()"> Linia mijlocie </button> într-un triunghi este
@@ -185,9 +183,20 @@
 
         </br>
     </div>
-    <!-- <span id="dots">...</span><span id="more"></span> -->
-    <!-- <button onclick="readMore()" >Read more</button> -->
-
 </body>
 
 </html>
+<!-- <script>
+    window.onscroll = function () { stickyNavBar() };
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function stickyNavBar() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+</script> -->

@@ -15,7 +15,7 @@ let tetraedru_latLaterala_3_v = new THREE.Line3(pctTetraedru_3, pctTetraedru_vf)
 
 function tetraedruOarecare() {
     sterge();
-    perspectivaXoY(17, -5, 40);
+    perspectivaXoYoZ(17, -5, 40);
     addLinieBaza(tetraedru_baza_1_2);
     addLinieBaza(tetraedru_baza_2_3);
     addLinieBaza(tetraedru_baza_3_1);
@@ -93,7 +93,7 @@ let tetraReg_muchie_3_v = new THREE.Line3(pctTetraReg_3, pctTetraReg_vf);
 
 function tetraedruRegulat() {
     sterge();
-    perspectivaXoY(17, -5, 40);
+    perspectivaXoYoZ(17, -5, 40);
     addLinieBaza(tetraReg_muchie_1_2);
     addLinieBaza(tetraReg_muchie_2_3);
     addLinieBaza(tetraReg_muchie_3_1);
@@ -169,7 +169,7 @@ let pirTri_latLateral_3_v = new THREE.Line3(pctPirTri_3, pctPirTri_vf);
 
 function piramidaTriunghiularaRegulata() {
     sterge();
-    perspectivaXoY(17, -5, 40);
+    perspectivaXoYoZ(17, -5, 40);
     addLinieBaza(pirTri_baza_1_2);
     addLinieBaza(pirTri_baza_2_3);
     addLinieBaza(pirTri_baza_3_1);
@@ -248,7 +248,7 @@ let pirPatr_latLaterala_4_v = new THREE.Line3(pctPirPatr_4, pctPirPatr_vf);
 
 function piramidaPatrulateraRegulata() {
     sterge();
-    perspectivaXoY(17, -5, 40);
+    perspectivaXoYoZ(17, -5, 40);
     addLinieBaza(pirPatr_baza_1_2);
     addLinieBaza(pirPatr_baza_2_3);
     addLinieBaza(pirPatr_baza_3_4);
@@ -353,7 +353,7 @@ let pirHex_latLaterala_6_v = new THREE.Line3(pctPirHex_6, pctPirHex_vf);
 
 function piramidaHexagonalaRegulata() {
     sterge();
-    perspectivaXoY(17, -5, 40);
+    perspectivaXoYoZ(17, -5, 40);
     addLinieBaza(pctPirHex_baza_1_2);
     addLinieBaza(pctPirHex_baza_2_3);
     addLinieBaza(pctPirHex_baza_3_4);

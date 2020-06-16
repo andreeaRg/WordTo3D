@@ -6,6 +6,22 @@ const renderer = new THREE.WebGLRenderer();
 controls = new THREE.OrbitControls(camera, renderer.domElement);
 let domEvents = new THREEx.DomEvents(camera, renderer.domElement);
 
+//planul zOy
+var planGeo = new THREE.PlaneGeometry(50, 50);
+planGeo.rotateX(1.5707963268);
+var planMat = new THREE.MeshBasicMaterial({
+    color: 0xC0C0C0,
+    side: THREE.DoubleSide,
+    opacity: 0.1715,
+    transparent: true
+});
+var planZoX = new THREE.Mesh(planGeo, planMat);
+planZoX.position.y = -15;
+scene.add(planZoX);
+//axe xOyOz manuale
+sistemCartezian(50, 50, 50);
+scene.background = new THREE.Color(0xFFFFFF);
+
 function init() {
     document.getElementById("myScene").appendChild(renderer.domElement);
     camera.position.x = 20;
@@ -31,21 +47,7 @@ function startCanvas(scale) {
     animate();
 }
 
-//planul zOy
-var planGeo = new THREE.PlaneGeometry(50, 50);
-planGeo.rotateX(1.5707963268);
-var planMat = new THREE.MeshBasicMaterial({
-    color: 0xC0C0C0,
-    side: THREE.DoubleSide,
-    opacity: 0.1715,
-    transparent: true
-});
-var planZoX = new THREE.Mesh(planGeo, planMat);
-planZoX.position.y = -15;
-scene.add(planZoX);
-//axe xOyOz manuale
-sistemCartezian(50, 50, 50);
-scene.background = new THREE.Color(0xFFFFFF);
+
 
 function addDatGui(){
     var gui = new dat.GUI({ autoPlace: false });

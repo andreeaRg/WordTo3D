@@ -125,7 +125,7 @@
     width: 100%;
   }
 
-  #ButoaneStanga a {
+  #ButoaneDreapta a {
     right: -80px;
     transition: 0.3s;
     padding: 15px;
@@ -136,7 +136,7 @@
     border-radius: 0 5px 5px 0;
   }
   
-  #ButoaneStanga a:hover {
+  #ButoaneDreapta a:hover {
     right: 0;
   }
   
