@@ -1,5 +1,8 @@
-Aplicatia cuprinde 3 sectiuni:
-	1.Pagina de intrare - home, in home.html
-	2.Pagina de atelier - locul unde se construiesc figurile geometrice si se analizeaza enuntul
+Aplicatia cuprinde 2 sectiuni:
+	1.Pagina de atelier, din dosarul "Atelier" - locul unde se construiesc figurile geometrice si se analizeaza enuntul
 		Atelier.html
-	3.Fundamentarea teoretica - Folder-ul Figuri2D si Figuri3D, cu paginile html corespunzatoare
+	2.Fundamentarea teoretica - dosarele "Figuri2D" si "Figuri3D', cu paginile html corespunzatoare
+
+Aplicatia se porneste in brower, cu ajutorul unui simulator de server, precum WAMP sau Apache Tomcat
+
+In browser se cauta : localhost/WordTo3D/Atelier/Atelier.html
