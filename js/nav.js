@@ -1,9 +1,9 @@
 function toggleContainer(id) {
-    if (document.getElementById(id).style.display == 'block'){
+    if (document.getElementById(id).style.display == 'block') {
         document.getElementById(id).style.display = 'none';
         document.getElementById(id).parentElement.children[0].style.background = 'none';
     }
-    else{
+    else {
         document.getElementById(id).style.display = 'block';
         document.getElementById(id).parentElement.children[0].style.backgroundColor = '#87CEFA';
     }
@@ -15,22 +15,40 @@ function showDetails(id) {
     switch (id) {
         case "mediTri":
             content = "Selecteaza un punct <br>";
-            content += "<img width='200px' height='200px' src='./img/a.jpg'> <br>";
+            content += "<img width='150px' height='100px' src='../img/medTri1.PNG'> <br>";
             content += "Selecteaza o linie <br>";
-            content += "<img width='200px' height='200px' src='./img/a.jpg'> <br>";
+            content += "<img width='150px' height='100px' src='../img/medTri2.PNG'> <br>";
             content += "Apasa pe butonul Deseneaza!";
-            content += "<img width='200px' height='200px' src='./img/a.jpg'> <br>";
+            content += "<img width='150px' height='100px' src='../img/medTri3.PNG'> <br>";
             break;
 
         case "bisTri":
             content = "Selecteaza trei puncte"
             break;
 
+        case "linMijTri":
+            content = "Selecteaza prima linie <br>";
+            content += "<img width='150px' height='100px' src='../img/linieMij1.PNG'> <br>";
+            content += "Selecteaza a doua linie <br>";
+            content += "<img width='150px' height='100px' src='../img/linieMij2.PNG'> <br>";
+            content += "Apasa pe butonul Deseneaza!";
+            content += "<img width='150px' height='100px' src='../img/linieMij3.PNG'> <br>";
+            break;
+
+        case "apoPir":
+            content = "Selecteaza varful piramidei <br>";
+            content += "<img width='150px' height='100px' src='../img/apoPir1.PNG'> <br>";
+            content += "Selecteaza o latura a bazei <br>";
+            content += "<img width='150px' height='100px' src='../img/apoPir2.PNG'> <br>";
+            content += "Apasa pe butonul Deseneaza!";
+            content += "<img width='150px' height='100px' src='../img/apoPir3.PNG'> <br>";
+            break;
+
         default:
             break;
     }
 
-    if(document.getElementById(id).style.display == 'block'){
+    if (document.getElementById(id).style.display == 'block') {
         document.getElementById("detailsPopUp").innerHTML = content;
         document.getElementById("detailsPopUp").style.display = 'block';
     }
@@ -61,9 +79,9 @@ function readMore() {
 }
 
 function openNav() {
-  document.getElementById("myNav").style.width = "100%";
+    document.getElementById("myNav").style.width = "100%";
 }
 
 function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
+    document.getElementById("myNav").style.width = "0%";
 }

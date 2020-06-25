@@ -2,6 +2,9 @@
 const matPointOff = new THREE.MeshBasicMaterial({color: 0x0000ff });
 const matPointOn = new THREE.MeshBasicMaterial({ color: 0xff0033 });
 
+const materialOn = new THREE.LineBasicMaterial({ color: 0xff0033 });
+const materialOff = new THREE.LineBasicMaterial({ color: 0x0000ff });
+
 const matLinie = new THREE.LineBasicMaterial({ color: 0x0000ff, linewidth: 10 });
 
 function radToDeg(radians) {

@@ -13,9 +13,10 @@
 
     <script src="../js/functiiDeBaza.js"></script>
     <script src="../js/functiiSelect.js"></script>
-    <script src="../js/functiiPiramida.js"></script>
+    <script src="../js/triunghi.js"></script>
     <script src="../js/functiiTriunghi.js"></script>
     <script src="../js/piramida.js"></script>
+    <script src="../js/functiiPiramida.js"></script>
     <script src="../js/init.js"></script>
     <script src="../js/nav.js"></script>
 
@@ -50,7 +51,6 @@
     <div id="myNav" class="overlay">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="overlay-content">
-            <a href="../home.html">About</a>
             <a href="../Atelier/Atelier.html">Spre atelier</a>
             <a href="../Figuri2D/triunghi.html">La teorie 2D</a>
             <a href="Piramida.html">La teorie 3D</a>
@@ -66,7 +66,27 @@
 
     <div class="sidenavCanvas" style="background-color: #2196F3;">
         <div id="myScene"></div>
-        <div id="butoaneCanvas"></div>
+        <div id="butoaneCanvas">
+            <center>
+            <table>
+                <tr>
+                  <td></td>
+                  <td><button style="width: 51px;" class="viewCtrl" onclick="rotateCamV(5)">Up</button></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><button class="viewCtrl" onclick="rotateCamH(-5)">Left</button></td>
+                  <td><button class="viewCtrl" onclick="refreshP()">Reset</button></td>
+                  <td><button class="viewCtrl" onclick="rotateCamH(5)">Right</button></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><button class="viewCtrl" onclick="rotateCamV(-5)">Down</button></td>
+                  <td></td>
+                </tr>
+              </table>
+              </center>
+        </div>
     </div>
 
     <div class="main" style="background-color: 	#F0F8FF;">
@@ -76,22 +96,19 @@
         <p style="padding-left: 20px;"><span>Piramidă regulată </span>= piramidă cu baza
             poligon regulat și muchiile laterale congruente.</p>
         <p>Continut:</p>
-        <!-- <p><a href="#piramidaPatrulatera">I. Piramida triunghiulară regulată</a></p> -->
         <p><a href="#piramidaPatrulatera">I. Piramida patrulateră regulată</a></p>
 
-        <!-- <p id="piramidaTriunghiulara"><span>I. Piramida triunghiulară regulată </span></p> -->
-
         <p id="piramidaPatrulatera"><span>I. Piramidă patrulatera regulată </span></p>
-        <p><button onclick="piramidaPatrulatera()"> Piramida
+        <p><button onclick="piramidaPatrulateraRegulata()"> Piramida
                 patrulateră regulată</button>
             este piramida cu baza pătrat și muchiile laterale congruente.</p>
-        <p><button onclick="inaltimePiramida()">Înălțimea</button> unei piramide regulate
+        <p><button onclick="inaltimePiramida()"> Înălțimea </button> unei piramide regulate
             este distanța de la vârful piramidei la centrul cercului circumscris bazei (în figura de mai sus, înălțimea
             piramidei este VO).</p>
         <p><button onclick="apotemaPiramida()">Apotema piramidei </button> este înălțimea
             unei fețe laterale (distanța de la vârful piramidei la o muchie a bazei); în figura de mai sus, apotema este
             VM (VM este perpendiculară pe BC).</p>
-        <p><button onclick="apotemaBazaPiramida()">Apotema bazei </button> este distanța de
+        <p><button onclick="apotemaBazaPiramida()">Apotema</button> bazei  este distanța de
             la centrul cercului circumscris bazei la o muchie a bazei; în figura de mai sus, OM este mediană în
             triunghiul isoscel BOC, deci OM este și înălțime; prin urmare, apotema bazei este OM.</p>
     </div>

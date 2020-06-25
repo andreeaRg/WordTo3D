@@ -59,6 +59,14 @@ function mediana(id){
     showDetails(id);
 }
 
+
+function apoPiramida(id){
+    toggleContainer(id);
+    selectL(1, false);
+    selectP(1, false);
+    showDetails(id);
+}
+
 function selectP(nP, withoutLines) {
     nrPoints = nP;
     if (clickPoint != 'select') {

@@ -317,13 +317,9 @@ function piramidaPatrulateraRegulata() {
     });
 }
 
-function piramidaPatrulateraRegulata(){
-
-}
-
 //Piramida HEXAGONALA Regulata
 var bazaPrismaHex = [];
-
+var r=12;
 for (i = 0; i < 6; i++) {
     bazaPrismaHex.push( r * Math.cos(2 * Math.PI * i / 6) );
     bazaPrismaHex.push( r * Math.sin(2 * Math.PI * i / 6) +15) ;

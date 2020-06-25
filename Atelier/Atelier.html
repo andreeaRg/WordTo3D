@@ -19,6 +19,7 @@
   <script src="../js/poligoane.js"></script>
   <script src="../js/cerc.js"></script>
   <script src="../js/piramida.js"></script>
+  <script src="../js/functiiPiramida.js"></script>
   <script src="../js/prisma.js"></script>
   <script src="../js/init.js"></script>
   <script src="../js/nav.js"></script>
@@ -137,7 +138,8 @@
                       </div>
                     </div>
                     <div>
-                      <button class="dropdown-btn" onclick="linMij('linMijTri')">Linia Mijlocie</button>
+                      <button class="dropdown-btn" onclick="linMij('linMijTri')" onmouseover="showDetails('linMijTri')"
+                      onmouseout="hideDetails()">Linia Mijlocie</button>
                       <div id='linMijTri' class="dropdown-container hidden lv5">
                         <button class="dropdown-btn" onclick="drawLinieMijlocie()">Deseneaza!</button>
                       </div>
@@ -254,12 +256,12 @@
                   <div id='liniiPir' class="dropdown-container hidden lv4">
 
                     <div>
-                      <button class="dropdown-btn" onclick="mediana('mediTri')" onmouseover="showDetails('apoPir')"
+                      <button class="dropdown-btn" onclick="apoPiramida('apoPir')" onmouseover="showDetails('apoPir')"
                         onmouseout="hideDetails()">
                         Apotema
                       </button>
                       <div id='apoPir' class="dropdown-container hidden lv5">
-                        <button class="dropdown-btn" onclick="">Deseneaza!</button>
+                        <button class="dropdown-btn" onclick="drawMediana()">Deseneaza!</button>
                       </div>
                     </div>
 
@@ -280,8 +282,8 @@
                     (Tetraedru)</button>
                   <!-- <button class="dropdown-btn" onclick="tetraedruRegulat()">Tetraedru Regulat</button> -->
                   <button class="dropdown-btn" onclick="piramidaTriunghiularaRegulata()">Piramida Triunghiulara Regulata</button>
-                  <button class="dropdown-btn" onclick="piramidaPatrulatera()">Piramida Patrulatera Regulata</button>
-                  <button class="dropdown-btn" onclick="piramidaHexagonala()">Piramida Hexagonala Regulata</button>
+                  <button class="dropdown-btn" onclick="piramidaPatrulateraRegulata()">Piramida Patrulatera Regulata</button>
+                  <button class="dropdown-btn" onclick="piramidaHexagonalaRegulata()">Piramida Hexagonala Regulata</button>
                 </div>
               </div>
 
@@ -305,8 +307,8 @@
                 <div id='tipPri' class="dropdown-container hidden lv4">
                   <button class="dropdown-btn" onclick="prismaTriunghilaraRegulata()">Prisma triunghiulara
                     Regulata</button>
-                  <button class="dropdown-btn" onclick="paralelipipedDreptunghic()">Prisma Patrulatera
-                    (Paralelipiped)</button>
+                  <!-- <button class="dropdown-btn" onclick="paralelipipedDreptunghic()">Prisma Patrulatera
+                    (Paralelipiped)</button> -->
                   <button class="dropdown-btn" onclick="prismaPatrulateraRegulata()">Prisma Patrulatera
                     Regulata</button>
                   <button class="dropdown-btn" onclick="cub()">Cubul</button>

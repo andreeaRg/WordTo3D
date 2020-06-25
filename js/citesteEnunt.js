@@ -177,7 +177,7 @@ function viewImg(event) {
   image.src = URL.createObjectURL(event.target.files[0]);
   image.style.display = 'block';
 
-  document.getElementById('rezultatCitire').innerText = "Apasati butonul Citeste Poaza";
+  document.getElementById('rezultatCitire').innerText = "Apasati butonul Citeste Poza";
 }
 
 //    OCR
