@@ -6,3 +6,4 @@ Aplicatia cuprinde 2 sectiuni:
 Aplicatia se porneste in brower, cu ajutorul unui simulator de server, precum WAMP sau Apache Tomcat
 
 In browser se cauta : localhost/WordTo3D/Atelier/Atelier.html
+
